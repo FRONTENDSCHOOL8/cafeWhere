@@ -1,13 +1,33 @@
-import React from 'react'
+import React from 'react';
 
-const HeaderBar = () => {
+function HeaderBar(props) {
+  const handleCheck = () => {
+    console.log(props.name);
+  };
+
   return (
     <div>
+      <div className="justify-center">
+        <div className="flex min-w-375pxr max-w-680pxr items-center justify-around py-4">
+          <button type="button" className="gap-10pxr" onClick={handleCheck}>
+            <img src="/images/login/arrow.svg" alt="뒤로가기" />
+          </button>
 
-      <div>HeaderBar</div>
+          <span className="text-black">{props.name}</span>
+
+          {props.showHomeBtn && (
+            <button type="button" className="gap-10pxr" onClick={handleCheck}>
+              <img
+                className="justify-center"
+                src="/images/login/HomeIcon.svg"
+                alt="홈으로 가기"
+              />
+            </button>
+          )}
+        </div>
+      </div>
     </div>
-
-  )
+  );
 }
 
-export default HeaderBar
+export default HeaderBar;
