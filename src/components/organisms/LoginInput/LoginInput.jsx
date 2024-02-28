@@ -30,7 +30,7 @@ function LoginInput() {
           type="email"
           placeholder="이메일을 입력해주세요."
           required
-          ErrorMessage="이메일 형식에 맞게 입력해주세요."
+          message="이메일 형식에 맞게 입력해주세요."
           setUser={setUserEmail}
           validateInput={isEmail}
         />
@@ -40,7 +40,7 @@ function LoginInput() {
           type={PasswordVisible ? 'text' : 'password'}
           placeholder="비밀번호를 입력해주세요."
           required
-          ErrorMessage="특수문자를 포함하여 8~15자 이내로 입력해주세요."
+          message="특수문자를 포함하여 8~15자 이내로 입력해주세요."
           setUser={setUserPassword}
           validateInput={isPassword}
           PasswordVisible={PasswordVisible}
