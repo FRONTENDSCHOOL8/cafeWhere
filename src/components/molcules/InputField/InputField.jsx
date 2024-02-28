@@ -1,5 +1,6 @@
 import visibleIcon from '/visible.png';
 import hiddenIcon from '/hidden.png';
+import { useState } from 'react';
 
 const Icon = {
   visible: {
@@ -27,28 +28,51 @@ function PasswordIcon({ PasswordVisible, setPasswordVisible }) {
 }
 
 function InputField({
+  id,
   label,
-  placeholder,
   type,
   required,
+  placeholder,
   ErrorMessage,
+  setUser,
+  validateInput,
   PasswordVisible,
   setPasswordVisible,
 }) {
+  const [error, setError] = useState({
+    borderColor: 'border-greyscale-100',
+    message: '',
+  });
+
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={type} className="font-semibold">
+      <label htmlFor={id} className="font-semibold">
         {label}
       </label>
-      <div className="flex h-12 min-w-375pxr max-w-680pxr items-center rounded-xl border border-greyscale-100">
-        {/* border-semantic-error */}
+      <div
+        className={`flex h-12 min-w-375pxr max-w-680pxr items-center rounded-xl border bg-white ${error.borderColor}`}
+      >
         <input
           type={type}
-          name={type}
-          id={type}
+          name={id}
+          id={id}
           placeholder={placeholder}
           className={inputStyle}
           required={required}
+          onChange={(e) => {
+            if (validateInput(e.target.value) || e.target.value === '') {
+              setUser(e.target.value);
+              setError({
+                borderColor: 'border-greyscale-100',
+                message: '',
+              });
+            } else {
+              setError({
+                borderColor: 'border-semantic-error',
+                message: ErrorMessage,
+              });
+            }
+          }}
         />
         {label.includes('비밀번호') && (
           <PasswordIcon
@@ -57,7 +81,7 @@ function InputField({
           />
         )}
       </div>
-      <span className="h-5 text-sm text-semantic-error ">{ErrorMessage}</span>
+      <span className="h-5 text-sm text-semantic-error">{error.message}</span>
     </div>
   );
 }
