@@ -43,7 +43,7 @@ function LoginInput() {
           message="특수문자를 포함하여 8~15자 이내로 입력해주세요."
           setUser={setUserPassword}
           validateInput={isPassword}
-          PasswordVisible={PasswordVisible}
+          passwordVisible={PasswordVisible}
           setPasswordVisible={setPasswordVisible}
         />
       </form>

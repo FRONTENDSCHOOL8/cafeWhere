@@ -15,7 +15,7 @@ function InputField({
   message,
   setUser,
   validateInput,
-  PasswordVisible,
+  passwordVisible,
   setPasswordVisible,
 }) {
   const [error, setError] = useState({
@@ -40,7 +40,7 @@ function InputField({
         />
         {label.includes('비밀번호') && (
           <PasswordIcon
-            PasswordVisible={PasswordVisible}
+            passwordVisible={passwordVisible}
             setPasswordVisible={setPasswordVisible}
           />
         )}

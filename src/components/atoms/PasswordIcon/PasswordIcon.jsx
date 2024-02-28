@@ -12,13 +12,13 @@ const icon = {
   },
 };
 
-function PasswordIcon({ PasswordVisible, setPasswordVisible }) {
+function PasswordIcon({ passwordVisible, setPasswordVisible }) {
   return (
     <img
       className="cursor-pointer px-3"
-      src={PasswordVisible ? icon.visible.src : icon.hidden.src}
-      alt={PasswordVisible ? icon.visible.alt : icon.hidden.alt}
-      onClick={() => setPasswordVisible(!PasswordVisible)}
+      src={passwordVisible ? icon.visible.src : icon.hidden.src}
+      alt={passwordVisible ? icon.visible.alt : icon.hidden.alt}
+      onClick={() => setPasswordVisible(!passwordVisible)}
     />
   );
 }
