@@ -45,7 +45,9 @@ function InputField({
           />
         )}
       </div>
+
       <ErrorMessage message={error.message} />
+
     </div>
   );
 }
