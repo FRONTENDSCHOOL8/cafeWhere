@@ -9,11 +9,3 @@
     background-color: #f6f6f6;
   }
 }
-
-.InputCheckBox {
-  @apply ml-17pxr h-24pxr w-24pxr appearance-none bg-[url('/public/uncheckbox.svg')] bg-cover bg-center bg-no-repeat align-middle checked:bg-[url('/public/ischeckbox.svg')];
-}
-
-.CheckBoxLabel {
-  @apply ml-6pxr align-middle text-14pxr  text-[#3E3B37];
-}
