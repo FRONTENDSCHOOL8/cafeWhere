@@ -1,8 +1,8 @@
 // 백업용 최후의 발악 삭제 금지 🆘
 import { useState } from 'react';
 
-const inputCheckBox = `ml-17pxr h-24pxr w-24pxr appearance-none bg-[url('/public/uncheckbox.svg')] bg-cover bg-center bg-no-repeat align-middle checked:bg-[url('/public/ischeckbox.svg')]`;
-const isImg = `ml-17pxr h-24pxr w-24pxr appearance-none bg-[url('/public/ischeckbox.svg')] bg-cover bg-center bg-no-repeat align-middle `;
+const inputCheckBox = `ml-17pxr h-24pxr w-24pxr appearance-none bg-[url('/public/images/JoinCheckBox/uncheckbox.svg')] bg-cover bg-center bg-no-repeat align-middle checked:bg-[url('/public/images/JoinCheckBox/ischeckbox.svg')]`;
+const isImg = `ml-17pxr h-24pxr w-24pxr appearance-none bg-[url('/public/images/JoinCheckBox/ischeckbox.svg')] bg-cover bg-center bg-no-repeat align-middle `;
 const checkBoxLabel = 'ml-6pxr align-middle text-14pxr text-[#3E3B37]';
 
 function CheckBox() {

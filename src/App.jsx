@@ -1,16 +1,13 @@
-import CheckBox from './components/atoms/CheckBox/inputCheckBox';
-// import CheckBox from './components/atoms/test';
+import CheckBox from './components/atoms/CheckBox/JoinInputCheckBox';
+// import CheckBox from './components/atoms/CheckBox/Test';
 import HeaderBar from './components/HeaderBar/HeaderBar';
 import Preparing from './pages/Preparing/Preparing';
 import { LoginInput } from './components/organisms';
 
 function App() {
-  return (
-    <div>
-      <LoginInput />
-      {/* <Preparing /> */}
-    </div>
-  );
+  return <div>
+
+  </div>;
 }
 
 export default App;
