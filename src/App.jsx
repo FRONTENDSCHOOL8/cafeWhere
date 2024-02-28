@@ -1,10 +1,12 @@
 import HeaderBar from './components/HeaderBar/HeaderBar';
 import Preparing from './pages/Preparing/Preparing';
+import { LoginInput } from './components/organisms';
 
 function App() {
   return (
-    <div className="App">
-      <Preparing />
+    <div>
+      <LoginInput />
+      {/* <Preparing /> */}
     </div>
   );
 }
