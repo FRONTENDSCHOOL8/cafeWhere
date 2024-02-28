@@ -1,4 +1,4 @@
-import CheckBox from './components/atoms/inputCheckBox';
+import CheckBox from './components/atoms/CheckBox/inputCheckBox';
 // import CheckBox from './components/atoms/test';
 import HeaderBar from './components/HeaderBar/HeaderBar';
 import Preparing from './pages/Preparing/Preparing';
