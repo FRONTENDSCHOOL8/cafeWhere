@@ -21,6 +21,7 @@ function Wish() {
         <img
           src={wish ? icon.favorites.src : icon.removeFavorites.src}
           alt={wish ? icon.favorites.alt : icon.removeFavorites.alt}
+          className="cursor-pointer"
           onClick={() => {
             setWish(!wish);
           }}
