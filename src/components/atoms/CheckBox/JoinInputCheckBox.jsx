@@ -13,7 +13,7 @@ function CheckBox() {
   });
 
   // * 변수관리
-  const allCheck = useRef(false);
+  const allCheck = useRef(true);
 
   // ~ 각각의 체크가 true일때 전체 선택도 true 바뀌어야되는 함수 (미완)
   useEffect(() => {
@@ -51,7 +51,7 @@ function CheckBox() {
             name="allCheck"
             id="allCheck"
             onChange={HandelAllCheckItems}
-            checked={allCheck.current}
+            checked={!allCheck.current}
           />
           <label className={checkBoxLabel} htmlFor="allCheck">
             전체 동의
