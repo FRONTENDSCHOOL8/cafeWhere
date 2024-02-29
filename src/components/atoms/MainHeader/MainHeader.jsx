@@ -3,8 +3,8 @@ import React from 'react';
 function MainHeader() {
   return (
     <div>
-      <div className="flex flex-col">
-        <div className="flex min-w-375pxr max-w-680pxr items-center justify-around py-4">
+      <div className="flex flex-col ">
+        <div className="ml-5 mr-5 flex min-w-375pxr max-w-680pxr items-center justify-between ">
           <button type="button" className="gap-10pxr">
             <img src="/images/main/header/mapLogo.svg" alt="지도로 이동" />
           </button>
@@ -18,6 +18,12 @@ function MainHeader() {
               src="/images/main/header/searchIcon.svg"
               alt="검색창으로 이동"
             />
+          </button>
+        </div>
+        <div className="flex items-center">
+          <span>서울시 종로구</span>
+          <button className="">
+            <img src="/images/main/header/arrow-down.svg" alt="" />
           </button>
         </div>
       </div>
