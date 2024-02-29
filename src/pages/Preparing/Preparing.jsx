@@ -1,4 +1,4 @@
-import HeaderBar from '@/components/HeaderBar/HeaderBar';
+import HeaderBar from '@/components/atoms/HeaderBar/HeaderBar';
 import PreparingItem from '@/components/PreparingItem/PreparingItem';
 import React from 'react';
 
