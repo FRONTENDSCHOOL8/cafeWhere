@@ -7,8 +7,8 @@ function HeaderBar(props) {
 
   return (
     <div>
-      <div className="justify-center">
-        <div className="flex min-w-375pxr max-w-680pxr items-center justify-between py-4">
+      <div className="flex flex-col">
+        <div className="ml-5 mr-5 flex min-w-375pxr max-w-680pxr items-center justify-between py-4">
           <button type="button" className="gap-10pxr" onClick={handleCheck}>
             <img src="/images/login/arrow.svg" alt="뒤로가기" />
           </button>
