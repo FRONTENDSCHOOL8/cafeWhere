@@ -6,9 +6,15 @@ import Preparing from './pages/Preparing/Preparing';
 import { LoginInput } from './components/organisms';
 import MainHeader from './components/atoms/MainHeader/MainHeader';
 import TabBar from './components/atoms/TabBar/TabBar';
+import LoginPage from './pages/LoginPage/LoginPage';
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <LoginPage />
+      {/* <Preparing /> */}
+    </div>
+  );
 }
 
 export default App;
