@@ -22,11 +22,6 @@ function LoginInput() {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('이메일 :', { userEmail }, '비밀번호 :', { userPassword });
-  };
-
   return (
     <div className="mx-auto my-20 w-full px-6">
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
