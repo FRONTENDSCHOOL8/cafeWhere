@@ -2,8 +2,8 @@ const inputStyle =
   'h-full w-full rounded-xl px-5 py-3 font-normal outline-none';
 
 function UserInfoInput({
-  type,
   id,
+  type = 'text',
   placeholder,
   required,
   message,
@@ -21,9 +21,10 @@ function UserInfoInput({
         className={inputStyle}
         required={required}
         onChange={(e) => {
-          if (validateInput(e.target.value) || e.target.value === '') {
-            setUser(e.target.value);
-            setError({
+          const value = e.target.value;
+          if (validateInput?.(value) || value === '') {
+            setUser?.(value);
+            setError?.({
               borderColor: 'border-greyscale-100',
               message: '',
             });
