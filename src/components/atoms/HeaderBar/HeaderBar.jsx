@@ -1,8 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function HeaderBar(props) {
+  let backNavigation = useNavigate();
+
   const handleCheck = () => {
     console.log(props.name);
+    backNavigation('../');
   };
 
   return (

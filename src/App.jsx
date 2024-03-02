@@ -7,12 +7,13 @@ import { LoginInput } from './components/organisms';
 import MainHeader from './components/atoms/MainHeader/MainHeader';
 import TabBar from './components/atoms/TabBar/TabBar';
 import LoginPage from './pages/LoginPage/LoginPage';
+import { RouterProvider } from 'react-router-dom';
+import router from './routes';
 
 function App() {
   return (
     <div className="App">
-      <LoginPage />
-      {/* <Preparing /> */}
+      <RouterProvider router={router} />
     </div>
   );
 }

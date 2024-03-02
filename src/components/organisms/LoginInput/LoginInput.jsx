@@ -1,3 +1,4 @@
+import LoginButton from '@/components/atoms/LoginButton/LoginButton';
 import { InputField } from '@/components/molcules';
 import { useState } from 'react';
 
@@ -21,9 +22,14 @@ function LoginInput() {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('이메일 :', { userEmail }, '비밀번호 :', { userPassword });
+  };
+
   return (
     <div className="mx-auto my-20 w-full px-6">
-      <form className="flex flex-col gap-4">
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <InputField
           id="userEmail"
           label="이메일"
@@ -46,6 +52,8 @@ function LoginInput() {
           passwordVisible={PasswordVisible}
           setPasswordVisible={setPasswordVisible}
         />
+
+        <LoginButton />
       </form>
     </div>
   );

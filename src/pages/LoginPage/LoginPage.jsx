@@ -16,7 +16,7 @@ function LoginPage() {
           </div>
           <LoginInput />
           <div className="flex flex-col gap-83pxr">
-            <LoginButton />
+            {/* <LoginButton /> */}
             <SignUpLink />
           </div>
           {/* <SocialLoginButton /> */}
