@@ -3,7 +3,9 @@
 
 @layer base {
   body {
-    font: 1rem/1.5 "Noto Sans", sans-serif;
+    font:
+      1rem/1.5 'Noto Sans',
+      sans-serif;
     background-color: #f6f6f6;
   }
 }

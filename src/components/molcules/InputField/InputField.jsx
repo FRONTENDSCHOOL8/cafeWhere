@@ -26,7 +26,7 @@ function InputField({
     <div className="flex flex-col gap-2">
       <UserInfoLabel id={id} label={label} />
       <div
-        className={`flex h-12 min-w-375pxr max-w-680pxr items-center rounded-xl border bg-white ${error.borderColor}`}
+        className={`flex h-12 items-center rounded-xl border bg-white ${error.borderColor}`}
       >
         <UserInfoInput
           type={type}
