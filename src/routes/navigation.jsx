@@ -2,6 +2,7 @@ import HeaderSwiper from '@/components/HeaderSwiper/HeaderSwiper';
 import { MainHeader } from '@/components/atoms';
 import JoinPage from '@/pages/JoinPage/JoinPage';
 import LoginPage from '@/pages/LoginPage/LoginPage';
+import MainPage from '@/pages/MainPage/MainPage';
 import SelectLoginPage from '@/pages/SelectLoginPage/SelectLoginPage';
 
 const navigationItems = [
@@ -28,6 +29,12 @@ const navigationItems = [
     path: '/',
     text: '이메일 로그인과 소셜 로그인',
     element: <SelectLoginPage />,
+  },
+  {
+    id: 'main',
+    path: '/main',
+    text: '메인 페이지 바로가기',
+    element: <MainPage />,
   },
 ];
 
