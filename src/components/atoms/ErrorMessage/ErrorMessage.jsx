@@ -1,8 +1,16 @@
-function ErrorMessage(props) {
+function ErrorMessage({
+  as: ComponentName = 'span',
+  message,
+  className,
+  ...props
+}) {
   return (
-    <>
-      <span className="h-5 text-sm text-semantic-error">{props.message}</span>
-    </>
+    <ComponentName
+      className={`h-5 text-sm text-semantic-error ${className}`}
+      {...props}
+    >
+      {message}
+    </ComponentName>
   );
 }
 
