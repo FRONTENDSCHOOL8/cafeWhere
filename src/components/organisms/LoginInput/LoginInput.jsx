@@ -1,5 +1,5 @@
 import LoginButton from '@/components/atoms/LoginButton/LoginButton';
-import { InputField } from '@/components/molcules';
+import { InputField } from '@/components/molecules';
 import { useState } from 'react';
 
 const isEmail = (email) => {
