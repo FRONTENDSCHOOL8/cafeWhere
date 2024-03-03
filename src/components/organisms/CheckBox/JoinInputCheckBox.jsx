@@ -4,42 +4,7 @@ const inputCheckBox = `ml-17pxr h-24pxr w-24pxr appearance-none bg-[url('/images
 const checkBoxLabel = 'ml-6pxr align-middle text-14pxr text-[#3E3B37]';
 
 function CheckBox() {
-  // * 각각의 input창 false로 상태관리
-  const [check, setCheck] = useState({
-    check_1: false,
-    check_2: false,
-    check_3: false,
-    check_4: false,
-  });
-
-  // * 변수관리
-  const allCheck = useRef(true);
-
-  // ~ 각각의 체크가 true일때 전체 선택도 true 바뀌어야되는 함수 (미완)
-  useEffect(() => {
-    allCheck.current =
-      check.check_1 && check.check_2 && check.check_3 && check.check_4;
-  }, [check, allCheck]);
-
-  // * 각각의 클릭시 이벤트 함수
-  const handelCheckList = (e) => {
-    const currentName = e.currentTarget.name;
-    setCheck({
-      ...check,
-      [currentName]: !check[currentName],
-    });
-    // console.log(currentName)
-  };
-
-  // * 전체 선택 함수
-  const handelAllCheckItems = () => {
-    setCheck({
-      check_1: !check.check_1,
-      check_2: !check.check_2,
-      check_3: !check.check_3,
-      check_4: !check.check_4,
-    });
-  };
+  // 전체 선택 함수
 
   return (
     <div className="bg-greyscale-10 mx-20pxr w-375pxr font-semibold">
