@@ -22,7 +22,7 @@ function CheckBox() {
   }, [check, allCheck]);
 
   // * 각각의 클릭시 이벤트 함수
-  const HandelCHeckList = (e) => {
+  const handelCheckList = (e) => {
     const currentName = e.currentTarget.name;
     setCheck({
       ...check,
@@ -32,7 +32,7 @@ function CheckBox() {
   };
 
   // * 전체 선택 함수
-  const HandelAllCheckItems = () => {
+  const handelAllCheckItems = () => {
     setCheck({
       check_1: !check.check_1,
       check_2: !check.check_2,
