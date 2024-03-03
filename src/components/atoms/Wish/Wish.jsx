@@ -1,5 +1,5 @@
-import favoritesIcon from '/images/wish/favorites.png';
-import removeFavoritesIcon from '/images/wish/favorites-remove.png';
+import favoritesIcon from '/images/wish/favorites.svg';
+import removeFavoritesIcon from '/images/wish/favorites-remove.svg';
 import { useState } from 'react';
 
 const icon = {
