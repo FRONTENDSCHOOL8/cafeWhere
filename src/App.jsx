@@ -9,11 +9,22 @@ import TabBar from './components/atoms/TabBar/TabBar';
 import LoginPage from './pages/LoginPage/LoginPage';
 import { RouterProvider } from 'react-router-dom';
 import router from './routes';
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // staleTime: 1000 * 10,
+    },
+  },
+});
 
 function App() {
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </div>
   );
 }
