@@ -4,8 +4,9 @@ import React from 'react';
 
 function Preparing() {
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center">
+    <div className="h-screen">
+      {/* <div className="flex flex-col items-center justify-center"> */}
+      <div className="mx-auto h-full w-full min-w-320pxr max-w-620pxr bg-white px-6">
         <HeaderBar name={'돌아가기'} showHomeBtn={false} />
         <PreparingItem />
       </div>

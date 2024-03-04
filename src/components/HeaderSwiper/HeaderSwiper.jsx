@@ -21,7 +21,7 @@ function HeaderSwiper() {
   return (
     <div className="relative">
       <Swiper
-        className="swiper1  h-190pxr min-w-375pxr max-w-680pxr bg-slate-500 "
+        className="swiper1 h-190pxr min-w-320pxr max-w-680pxr bg-slate-500 "
         slidesPerView={1}
         modules={[Pagination, Navigation, Autoplay]}
         navigation={{
@@ -49,13 +49,13 @@ function HeaderSwiper() {
           <img src="/images/main/swiper/swiperBigImg3.svg" alt="" />
         </SwiperSlide>
       </Swiper>
-      <div className="prev-slide-button absolute left-300pxr top-75pxr z-10 rounded-full bg-slate-400">
+      <div className="prev-slide-button absolute left-20pxr top-75pxr z-10 rounded-full bg-slate-400">
         <img src="/images/main/swiper/leftArrow.svg" alt="" />
       </div>
-      <div className="next-slide-button absolute right-300pxr top-75pxr z-10 rounded-full bg-slate-400">
+      <div className="next-slide-button absolute right-20pxr top-75pxr z-10 rounded-full bg-slate-400">
         <img src="/images/main/swiper/rightArrow.svg" alt="" />
       </div>
-      <div className=" absolute right-320pxr top-160pxr z-10 h-19pxr w-50pxr  items-center rounded-xl  bg-gray-700 text-center text-white">
+      <div className=" absolute right-20pxr top-160pxr z-10 h-19pxr w-50pxr  items-center rounded-xl  bg-gray-700 text-center text-white">
         <span>{swiperIndex + 1}</span>
         <span>{'/'}</span>
         <span>{3}</span>
