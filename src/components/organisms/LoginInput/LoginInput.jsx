@@ -24,7 +24,7 @@ function LoginInput() {
 
   return (
     <div className="mx-auto my-20 w-full px-6">
-      <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+      <form className="flex flex-col gap-4 ">
         <InputField
           id="userEmail"
           label="이메일"
@@ -47,8 +47,9 @@ function LoginInput() {
           passwordVisible={PasswordVisible}
           setPasswordVisible={setPasswordVisible}
         />
-
-        <LoginButton />
+        <div className="mx-0 mb-39pxr mt-14">
+          <LoginButton />
+        </div>
       </form>
     </div>
   );

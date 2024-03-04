@@ -1,30 +1,48 @@
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
+import { Navigation, FreeMode, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
+import CategoryCafeList from './CategoryCafeList';
 
-import './styles.css';
-
-// import required modules
-import { Navigation } from 'swiper/modules';
-
-export default function App() {
+function SwiperCafeList() {
   return (
     <>
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+      <Swiper
+        className="mySwiper min-w-375pxr max-w-680pxr"
+        slidesPerView={1.5}
+        breakpoints={{
+          375: {
+            slidesPerView: 1.5,
+            spaceBetween: 16,
+          },
+          425: {
+            slidesPerView: 2,
+            spaceBetween: 16,
+          },
+          680: {
+            slidesPerView: 3,
+            spaceBetween: 16,
+          },
+        }}
+        navigation={true}
+        modules={[Navigation, FreeMode, Pagination]}
+      >
+        <SwiperSlide>
+          <CategoryCafeList />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CategoryCafeList />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CategoryCafeList />
+        </SwiperSlide>
+        <SwiperSlide>
+          <CategoryCafeList />
+        </SwiperSlide>
       </Swiper>
     </>
   );
 }
+
+export default SwiperCafeList;

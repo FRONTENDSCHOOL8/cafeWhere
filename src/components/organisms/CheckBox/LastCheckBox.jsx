@@ -14,8 +14,8 @@ function CheckBox() {
   };
 
   return (
-    <div className="bg-greyscale-10 mx-20pxr w-375pxr font-semibold">
-      <div className="border-greyscale-30 grid h-90pxr content-center rounded-t-lg border border-b-0 pr-50pxr">
+    <div className="mx-20pxr w-375pxr bg-greyscale-10 font-semibold">
+      <div className="grid h-90pxr content-center rounded-t-lg border border-b-0 border-greyscale-30 pr-50pxr">
         {/* 전체 선택 */}
         <div>
           {allCheckList ? (
@@ -45,7 +45,7 @@ function CheckBox() {
         </span>
       </div>
       {/* 컴포넌트 분해 할거 ${라벨 이름 쓸거} {`스타일 css 공통적인거`}*/}
-      <div className="border-greyscale-30 h-50pxr border border-b-0">
+      <div className="h-50pxr border border-b-0 border-greyscale-30">
         <div className="mt-10pxr">
           {/* <input
             className={inputCheckBox}
@@ -73,7 +73,7 @@ function CheckBox() {
           </label>
         </div>
       </div>
-      <div className="border-greyscale-30 h-50pxr border border-b-0">
+      <div className="h-50pxr border border-b-0 border-greyscale-30">
         <div className="mt-10pxr">
           {/* <input
             className={inputCheckBox}
@@ -101,7 +101,7 @@ function CheckBox() {
           </label>
         </div>
       </div>
-      <div className="border-greyscale-30 h-50pxr border border-b-0">
+      <div className="h-50pxr border border-b-0 border-greyscale-30">
         <div className="mt-10pxr">
           {/* <input
             className={inputCheckBox}
@@ -129,7 +129,7 @@ function CheckBox() {
           </label>
         </div>
       </div>
-      <div className="border-greyscale-30 h-50pxr border">
+      <div className="h-50pxr border border-greyscale-30">
         <div className="mt-10pxr">
           {/* <input
             className={inputCheckBox}
