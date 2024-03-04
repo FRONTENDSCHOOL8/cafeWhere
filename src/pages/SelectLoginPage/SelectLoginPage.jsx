@@ -22,7 +22,7 @@ function SelectLoginPage() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <div onClick={handleLoginPage}>
+            <div onClick={handleLoginPage} className="mx-20pxr">
               <LoginButton />
             </div>
             <Divider />

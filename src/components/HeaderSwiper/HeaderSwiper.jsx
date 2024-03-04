@@ -21,7 +21,7 @@ function HeaderSwiper() {
   return (
     <div className="relative">
       <Swiper
-        className="swiper1  h-190pxr min-w-375pxr max-w-680pxr bg-slate-500 "
+        className="swiper1 h-190pxr min-w-320pxr max-w-680pxr bg-slate-500 "
         slidesPerView={1}
         modules={[Pagination, Navigation, Autoplay]}
         navigation={{
