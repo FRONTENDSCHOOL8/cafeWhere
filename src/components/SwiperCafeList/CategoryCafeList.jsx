@@ -1,4 +1,5 @@
 import { Wish } from '@/components/atoms';
+import Hashtag from '../atoms/Hashtag/Hashtag';
 
 function CategoryCafeList() {
   return (
@@ -6,7 +7,7 @@ function CategoryCafeList() {
       <h2 className="mb-4 ml-5 text-20pxr font-semibold leading-5">
         노트북 하기 최적화?!
       </h2>
-      <div className="bg-additional-colors-white border-greyscale-50 ml-5 h-285pxr w-200pxr rounded-[12px] border p-4 font-medium leading-[100%]">
+      <div className="ml-5 h-285pxr w-200pxr rounded-[12px] border border-greyscale-50 bg-additional-colors-white p-4 font-medium leading-[100%]">
         <div className="relative">
           <img src="/images/main/test.png" alt="현재 카페 상세페이지" />
           <div className="absolute bottom-2 right-2">
@@ -18,7 +19,7 @@ function CategoryCafeList() {
           <span className="mr-2">☕️ 4.5</span>
           <span>리뷰 0</span>
         </div>
-        {/* 해시태그 넣을 자리 */}
+        <Hashtag />
       </div>
     </>
   );
