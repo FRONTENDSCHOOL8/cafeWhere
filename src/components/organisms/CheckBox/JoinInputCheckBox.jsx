@@ -4,11 +4,46 @@ const inputCheckBox = `ml-17pxr h-24pxr w-24pxr appearance-none bg-[url('/images
 const checkBoxLabel = 'ml-6pxr align-middle text-14pxr text-[#3E3B37]';
 
 function CheckBox() {
-  // 전체 선택 함수
+  // * 각각의 input창 false로 상태관리
+  const [check, setCheck] = useState({
+    check_1: false,
+    check_2: false,
+    check_3: false,
+    check_4: false,
+  });
+
+  // * 변수관리
+  const allCheck = useRef(true);
+
+  // ~ 각각의 체크가 true일때 전체 선택도 true 바뀌어야되는 함수 (미완)
+  useEffect(() => {
+    allCheck.current =
+      check.check_1 && check.check_2 && check.check_3 && check.check_4;
+  }, [check, allCheck]);
+
+  // * 각각의 클릭시 이벤트 함수
+  const HandelCHeckList = (e) => {
+    const currentName = e.currentTarget.name;
+    setCheck({
+      ...check,
+      [currentName]: !check[currentName],
+    });
+    // console.log(currentName)
+  };
+
+  // * 전체 선택 함수
+  const HandelAllCheckItems = () => {
+    setCheck({
+      check_1: !check.check_1,
+      check_2: !check.check_2,
+      check_3: !check.check_3,
+      check_4: !check.check_4,
+    });
+  };
 
   return (
-    <div className="bg-greyscale-10 mx-20pxr w-375pxr font-semibold">
-      <div className="border-greyscale-30 grid h-90pxr content-center rounded-t-lg border border-b-0 pr-50pxr">
+    <div className="mx-20pxr w-375pxr bg-greyscale-10 font-semibold">
+      <div className="grid h-90pxr content-center rounded-t-lg border border-b-0 border-greyscale-30 pr-50pxr">
         <div>
           <input
             className={inputCheckBox}
@@ -28,7 +63,7 @@ function CheckBox() {
         </span>
       </div>
       {/* 컴포넌트 분해 할거 ${라벨 이름 쓸거} {`스타일 css 공통적인거`}*/}
-      <div className="border-greyscale-30 h-50pxr border border-b-0">
+      <div className="h-50pxr border border-b-0 border-greyscale-30">
         <div className="mt-10pxr">
           <input
             className={inputCheckBox}
@@ -43,7 +78,7 @@ function CheckBox() {
           </label>
         </div>
       </div>
-      <div className="border-greyscale-30 h-50pxr border border-b-0">
+      <div className="h-50pxr border border-b-0 border-greyscale-30">
         <div className="mt-10pxr">
           <input
             className={inputCheckBox}
@@ -58,7 +93,7 @@ function CheckBox() {
           </label>
         </div>
       </div>
-      <div className="border-greyscale-30 h-50pxr border border-b-0">
+      <div className="h-50pxr border border-b-0 border-greyscale-30">
         <div className="mt-10pxr">
           <input
             className={inputCheckBox}
@@ -73,7 +108,7 @@ function CheckBox() {
           </label>
         </div>
       </div>
-      <div className="border-greyscale-30 h-50pxr border">
+      <div className="h-50pxr border border-greyscale-30">
         <div className="mt-10pxr">
           <input
             className={inputCheckBox}
