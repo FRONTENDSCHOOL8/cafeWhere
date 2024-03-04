@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function HeaderBar(props) {
@@ -13,7 +12,7 @@ function HeaderBar(props) {
     <div>
       <div className="flex flex-col">
         <div className="ml-5 mr-5 flex items-center justify-between py-4">
-          <button type="button" className="gap-10pxr" onClick={handleCheck}>
+          <button type="button" onClick={handleCheck}>
             <img src="/images/login/arrow.svg" alt="뒤로가기" />
           </button>
 
