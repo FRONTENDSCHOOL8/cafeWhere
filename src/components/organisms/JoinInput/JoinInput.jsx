@@ -1,5 +1,9 @@
 import { InputField } from '@/components/molecules';
 import { useState } from 'react';
+import CheckBox from '../CheckBox/JoinInputCheckBox';
+import LoginButton from '@/components/atoms/LoginButton/LoginButton';
+import { useNavigate } from 'react-router-dom';
+import pb from '@/utils/pocketbase';
 
 const isEmail = (email) => {
   const emailRegex =
@@ -32,17 +36,61 @@ function JoinInput() {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [userInfo, setUserInfo] = useState({
-    userEmail: '',
-    userPassword: '',
-    userName: '',
-    userNickname: '',
-    userPhone: '',
-    userBirth: '',
+    // userEmail: '',
+    // userPassword: '',
+    // userName: '',
+    // userNickname: '',
+    // userPhone: '',
+    // userBirth: '',
+    // "username": "test_username",
+    // "email": "test@example.com",
+    // "emailVisibility": true,
+    // "password": "12345678",
+    // "passwordConfirm": "12345678",
+    // "nickname": "test",
+    // "birth": "test",
+    // "phone": "test"
   });
 
+  let data = {
+    // email: userEmail,
+    // emailVisibility: true,
+    // password: userPassword,
+    // passwordConfirm: userPassword,
+    // nickname: 'test',
+    // birth: 'test',
+    // phone: 'test',
+
+    username: 'test789',
+    email: userEmail,
+    emailVisibility: true,
+    password: userPassword,
+    passwordConfirm: userPassword,
+    nickname: 'test789',
+    birth: 'test789',
+    phone: '010-789-789',
+  };
+
+  const navigate = useNavigate();
+
+  const handleJoin = (e) => {
+    e.preventDefault();
+    console.log(data);
+    pb.collection('users')
+      .create(data)
+      .then(() => {
+        alert('회원 가입 완료 했습니다');
+        navigate('/');
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('정보 입력이 잘못 되었습니다');
+      });
+  };
+
   return (
-    <div className="mx-auto my-20 w-full min-w-320pxr max-w-620pxr px-6">
-      <form>
+    <div className="mx-auto my-20  w-full min-w-320pxr max-w-620pxr  px-6">
+      <form className="flex flex-col gap-4">
         <InputField
           id="userEmail"
           label="이메일"
@@ -108,6 +156,14 @@ function JoinInput() {
           setUser={setUserPassword}
           validateInput={isBirth}
         />
+
+        <div className="my-4 h-1pxr bg-black"></div>
+
+        <CheckBox />
+
+        <div className="mt-20" onClick={handleJoin}>
+          <LoginButton>회원 가입</LoginButton>
+        </div>
       </form>
     </div>
   );
