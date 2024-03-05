@@ -1,15 +1,17 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, FreeMode, Pagination } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/free-mode';
 import CategoryCafeList from './CategoryCafeList';
+// import CategoryListName from './CategoryListName';
 
 function SwiperCafeList() {
   return (
-    <>
+    <div className="min-w-375pxr max-w-680pxr">
+      {/* CategoryListName을 어디다 넣어야 할지는 페이지 만들때 고민 */}
+      {/* <CategoryListName>노트북하기 최적화?!</CategoryListName> */}
       <Swiper
-        className="mySwiper min-w-375pxr max-w-680pxr"
+        className="mySwiper"
         slidesPerView={1.5}
         breakpoints={{
           375: {
@@ -25,8 +27,7 @@ function SwiperCafeList() {
             spaceBetween: 16,
           },
         }}
-        navigation={true}
-        modules={[Navigation, FreeMode, Pagination]}
+        modules={[FreeMode, Pagination]}
       >
         <SwiperSlide>
           <CategoryCafeList />
@@ -41,7 +42,7 @@ function SwiperCafeList() {
           <CategoryCafeList />
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 }
 
