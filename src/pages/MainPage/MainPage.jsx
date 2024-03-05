@@ -1,5 +1,5 @@
 import HeaderSwiper from '@/components/HeaderSwiper/HeaderSwiper';
-import { MainHeader } from '@/components/atoms';
+import { MainHeader, TabBar } from '@/components/atoms';
 
 function MainPage() {
   return (
@@ -10,6 +10,8 @@ function MainPage() {
 
           <HeaderSwiper />
         </div>
+
+        <TabBar />
       </div>
     </div>
   );

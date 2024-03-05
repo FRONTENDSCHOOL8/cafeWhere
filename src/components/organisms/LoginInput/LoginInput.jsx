@@ -1,5 +1,6 @@
 import LoginButton from '@/components/atoms/LoginButton/LoginButton';
 import { InputField } from '@/components/molecules';
+import { useTabStore } from '@/store/useTabStore';
 import pb from '@/utils/pocketbase';
 import { useRef } from 'react';
 import { useState } from 'react';
@@ -28,6 +29,8 @@ function LoginInput() {
   // const [userEmail, setUserEmail] = useState('');
   // const [userPassword, setUserPassword] = useState('');
 
+  const { activeTabState, setHome } = useTabStore();
+
   const navigate = useNavigate();
 
   const emailRef = useRef('');
@@ -39,6 +42,7 @@ function LoginInput() {
 
       .then((result) => {
         sessionStorage.setItem('token', 'login');
+        setHome();
         navigate('/main');
       })
       .catch((err) => {

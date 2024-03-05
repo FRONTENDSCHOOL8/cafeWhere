@@ -1,4 +1,4 @@
-import { HeaderBar } from '@/components/atoms';
+import { HeaderBar, TabBar } from '@/components/atoms';
 import React from 'react';
 import { useEffect } from 'react';
 import LoginPage from '../LoginPage/LoginPage';
@@ -95,6 +95,7 @@ function MyPage() {
                 <img src="/images/main/swiper/rightArrow.svg" alt="로그아웃" />
               </div>
             </div>
+            <TabBar />
           </div>
         </div>
       ) : (
