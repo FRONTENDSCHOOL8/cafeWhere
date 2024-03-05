@@ -25,7 +25,7 @@ function MyPage() {
             <img
               src="/images/mypageicon.svg"
               alt="마이페이지 이미지"
-              className="mx-auto mt-16"
+              className="mx-auto mt-24"
             />
 
             <div className="mt-8 text-center text-20pxr font-bold">깐부</div>
@@ -38,7 +38,7 @@ function MyPage() {
               <div>쿠폰 0</div>
             </div>
 
-            <div className="mt-16 flex flex-col">
+            <div className="mt-24 flex flex-col">
               <div className="mx-5 flex cursor-pointer items-center justify-between border-b border-[#D4D6DD] p-4">
                 <span>내 계정</span>
                 <img

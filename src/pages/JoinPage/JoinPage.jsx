@@ -10,10 +10,6 @@ function JoinPage() {
         <div className="mx-auto h-full min-w-320pxr max-w-620pxr bg-white">
           <HeaderBar name={'회원가입'} />
           <JoinInput />
-          <CheckBox />
-          <div className="mx-4 mt-20">
-            <LoginButton>회원 가입</LoginButton>
-          </div>
         </div>
       </div>
     </>
