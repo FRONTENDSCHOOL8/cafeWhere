@@ -7,7 +7,7 @@ function TabBar() {
     useTabStore();
   return (
     <div className="flex justify-center">
-      <div className="fixed bottom-0 z-50 flex h-88pxr w-full min-w-320pxr max-w-620pxr items-center justify-around rounded-t-[32px] bg-black shadow-lg">
+      <div className="fixed bottom-0 z-50 flex h-88pxr w-full min-w-375pxr max-w-680pxr items-center justify-around rounded-t-[32px] bg-black shadow-lg">
         <div onClick={setHome}>
           <Link to="/main">
             <img

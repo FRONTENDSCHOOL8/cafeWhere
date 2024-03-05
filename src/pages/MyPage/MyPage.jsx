@@ -20,7 +20,7 @@ function MyPage() {
     <div>
       {loginCheck ? (
         <div className="h-screen">
-          <div className=" mx-auto h-full min-w-320pxr max-w-620pxr bg-white">
+          <div className=" mx-auto h-full min-w-375pxr max-w-680pxr bg-white">
             <HeaderBar name={'프로필'} showHomeBtn={true} />
             <img
               src="/images/mypageicon.svg"
