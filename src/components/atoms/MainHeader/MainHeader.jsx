@@ -1,4 +1,5 @@
 import React from 'react';
+import SelectRegion from './../SelectRegion/SelectRegion';
 
 function MainHeader() {
   return (
@@ -20,12 +21,7 @@ function MainHeader() {
             />
           </button>
         </div>
-        <div className="flex items-center">
-          <span>서울시 종로구</span>
-          <button className="">
-            <img src="/images/main/header/arrow-down.svg" alt="" />
-          </button>
-        </div>
+        <SelectRegion />
       </div>
     </div>
   );
