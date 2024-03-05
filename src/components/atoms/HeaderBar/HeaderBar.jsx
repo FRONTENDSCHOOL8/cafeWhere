@@ -5,7 +5,7 @@ function HeaderBar(props) {
 
   const handleNavigateBack = () => {
     console.log(props.name);
-    backNavigation('../');
+    backNavigation(-1);
   };
 
   return (

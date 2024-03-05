@@ -41,8 +41,8 @@ function JoinInput() {
   });
 
   return (
-    <div className="mx-auto my-20 w-full min-w-320pxr max-w-620pxr px-6">
-      <form>
+    <div className="mx-auto my-20  w-full min-w-320pxr max-w-620pxr  px-6">
+      <form className="flex flex-col gap-4">
         <InputField
           id="userEmail"
           label="이메일"
