@@ -1,17 +1,18 @@
+import { useTabStore } from '@/store/useTabStore';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function TabBar() {
-  const [activeTab, setActiveTab] = useState('home');
-
+  const { activeTabState, setHome, setCafe, setReview, setWish, setMyicon } =
+    useTabStore();
   return (
     <div className="flex justify-center">
       <div className="fixed bottom-0 z-50 flex h-88pxr w-full min-w-320pxr max-w-620pxr items-center justify-around rounded-t-[32px] bg-black shadow-lg">
-        <div onClick={() => setActiveTab('home')}>
+        <div onClick={setHome}>
           <Link to="/main">
             <img
               src={
-                activeTab === 'home'
+                activeTabState === 'home'
                   ? '/images/main/tabbar/home-r.svg'
                   : '/images/main/tabbar/home-b.svg'
               }
@@ -19,41 +20,41 @@ function TabBar() {
           </Link>
         </div>
 
-        <div onClick={() => setActiveTab('cafeicon')}>
+        <div onClick={setCafe}>
           <img
             src={
-              activeTab === 'cafeicon'
+              activeTabState === 'cafeicon'
                 ? '/images/main/tabbar/cafeicon-r.svg'
                 : '/images/main/tabbar/cafeicon-b.svg'
             }
           />
         </div>
 
-        <div onClick={() => setActiveTab('review')}>
+        <div onClick={setReview}>
           <img
             src={
-              activeTab === 'review'
+              activeTabState === 'review'
                 ? '/images/main/tabbar/review-r.svg'
                 : '/images/main/tabbar/review-b.svg'
             }
           />
         </div>
 
-        <div onClick={() => setActiveTab('wish')}>
+        <div onClick={setWish}>
           <img
             src={
-              activeTab === 'wish'
+              activeTabState === 'wish'
                 ? '/images/main/tabbar/wish-r.svg'
                 : '/images/main/tabbar/wish-b.svg'
             }
           />
         </div>
 
-        <div onClick={() => setActiveTab('myicon')}>
+        <div onClick={setMyicon}>
           <Link to="/mypage">
             <img
               src={
-                activeTab === 'myicon'
+                activeTabState === 'myicon'
                   ? '/images/main/tabbar/myicon-r.svg'
                   : '/images/main/tabbar/myicon-b.svg'
               }
