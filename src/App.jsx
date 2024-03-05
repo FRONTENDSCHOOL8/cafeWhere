@@ -9,11 +9,19 @@ import TabBar from './components/atoms/TabBar/TabBar';
 import LoginPage from './pages/LoginPage/LoginPage';
 import { RouterProvider } from 'react-router-dom';
 import router from './routes';
+import SwiperCafeList from './components/SwiperCafeList/SwiperCafeList';
+import PreparingItem from './components/PreparingItem/PreparingItem';
+import CategoryCafeList from './components/SwiperCafeList/CategoryCafeList';
+import NoReview from './components/DetailReviewList/NoReview';
 
 function App() {
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      {/* <RouterProvider router={router} /> */}
+      {/* <SwiperCafeList /> */}
+      {/* <PreparingItem /> */}
+      {/* <CategoryCafeList /> */}
+      <NoReview />
     </div>
   );
 }

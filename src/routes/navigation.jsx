@@ -36,6 +36,12 @@ const navigationItems = [
     text: '메인 페이지 바로가기',
     element: <MainPage />,
   },
+  // {
+  //   id: 'review',
+  //   path: '/review',
+  //   text: '리뷰페이지 작성하기',
+  //   element: <Review />,
+  // },
 ];
 
 export default navigationItems;
