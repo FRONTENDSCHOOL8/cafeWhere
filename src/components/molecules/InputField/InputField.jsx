@@ -19,11 +19,11 @@ function InputField({
   setPasswordVisible,
 }) {
   const [error, setError] = useState({
-    borderColor: 'border-greyscale-100',
+    borderColor: 'border-greyscale-70',
     message: '',
   });
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 px-5">
       <UserInfoLabel id={id} label={label} />
       <div
         className={`flex h-12 items-center rounded-xl border bg-white ${error.borderColor}`}

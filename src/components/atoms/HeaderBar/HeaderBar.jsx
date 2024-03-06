@@ -16,7 +16,7 @@ function HeaderBar(props) {
             <img src="/images/login/arrow.svg" alt="뒤로가기" />
           </button>
 
-          <span className="text-black">{props.name}</span>
+          <span className="text-xl font-bold">{props.name}</span>
 
           {props.showHomeBtn ? (
             <button type="button" className="" onClick={handleNavigateBack}>
