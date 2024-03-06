@@ -1,10 +1,20 @@
-function SelectRegion() {
+function SelectRegion({ region, setRegion }) {
+  const handleChangeRegion = (e) => {
+    setRegion(e.target.value);
+  };
+
   return (
     <form className="mx-5 my-4">
       <label htmlFor="region" className="sr-only">
         지역검색
       </label>
-      <select name="region" id="region">
+      <select
+        name="region"
+        id="region"
+        className="bg-transparent"
+        onChange={handleChangeRegion}
+        value={region}
+      >
         <option value="강남구">서울 강남구</option>
         <option value="마포구">서울 마포구</option>
         <option value="서대문구">서울 서대문구</option>
