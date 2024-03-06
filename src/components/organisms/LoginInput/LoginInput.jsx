@@ -1,5 +1,6 @@
 import LoginButton from '@/components/atoms/LoginButton/LoginButton';
 import { InputField } from '@/components/molecules';
+import { useLoginStore, useUserIdStore } from '@/store/useLoginStore';
 import { useTabStore } from '@/store/useTabStore';
 import pb from '@/utils/pocketbase';
 import { useRef } from 'react';
@@ -33,16 +34,31 @@ function LoginInput() {
 
   const navigate = useNavigate();
 
+  const { setLogIn } = useLoginStore();
+
+  const { UserId, setUserId } = useUserIdStore();
+
   const emailRef = useRef('');
   const passwordRef = useRef('');
 
   const fetchCafeData = () => {
+    // pb.collection('users').authWithPassword(
+    //   `${emailRef.current}`,
+    //   `${passwordRef.current}`
+    // );
+
+    // console.log(pb.authStore.isValid);
+    // console.log(pb.authStore.token);
+    // console.log(pb.authStore.model.id);
+
     pb.collection('users')
       .authWithPassword(`${emailRef.current}`, `${passwordRef.current}`)
 
       .then((result) => {
         sessionStorage.setItem('token', 'login');
         setHome();
+        setLogIn();
+        setUserId(pb.authStore.model.id);
         navigate('/main');
       })
       .catch((err) => {
