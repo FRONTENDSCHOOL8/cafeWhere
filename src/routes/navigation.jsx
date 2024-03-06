@@ -3,10 +3,17 @@ import { MainHeader } from '@/components/atoms';
 import JoinPage from '@/pages/JoinPage/JoinPage';
 import LoginPage from '@/pages/LoginPage/LoginPage';
 import MainPage from '@/pages/MainPage/MainPage';
+import SearchRegionList from '@/pages/SearchRegionList/SearchRegionList';
 import MyPage from '@/pages/MyPage/MyPage';
 import SelectLoginPage from '@/pages/SelectLoginPage/SelectLoginPage';
 
 const navigationItems = [
+  {
+    id: 'searchRegionList',
+    path: '/region',
+    text: '지역검색 페이지',
+    element: <SearchRegionList />,
+  },
   {
     id: 'login',
     path: '/login',

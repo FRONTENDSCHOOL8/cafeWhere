@@ -2,6 +2,8 @@ import HeaderSwiper from '@/components/HeaderSwiper/HeaderSwiper';
 import { MainHeader, TabBar } from '@/components/atoms';
 
 function MainPage() {
+  const [region, setRegion] = useState('종로구');
+
   return (
     <div>
       <div className="h-screen ">
