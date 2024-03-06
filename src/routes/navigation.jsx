@@ -4,6 +4,7 @@ import JoinPage from '@/pages/JoinPage/JoinPage';
 import LoginPage from '@/pages/LoginPage/LoginPage';
 import MainPage from '@/pages/MainPage/MainPage';
 import SearchRegionList from '@/pages/SearchRegionList/SearchRegionList';
+import MyPage from '@/pages/MyPage/MyPage';
 import SelectLoginPage from '@/pages/SelectLoginPage/SelectLoginPage';
 
 const navigationItems = [
@@ -42,6 +43,12 @@ const navigationItems = [
     path: '/main',
     text: '메인 페이지 바로가기',
     element: <MainPage />,
+  },
+  {
+    id: 'mypage',
+    path: '/mypage',
+    text: '프로필 페이지 바로가기',
+    element: <MyPage />,
   },
 ];
 
