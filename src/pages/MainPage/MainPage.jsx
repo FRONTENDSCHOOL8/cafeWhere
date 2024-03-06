@@ -1,7 +1,15 @@
 import HeaderSwiper from '@/components/HeaderSwiper/HeaderSwiper';
 import { MainHeader, TabBar } from '@/components/atoms';
+import { useTabStore } from '@/store/useTabStore';
+import { useEffect } from 'react';
 
 function MainPage() {
+  const { activeTabState, setHome } = useTabStore();
+
+  useEffect(() => {
+    setHome();
+  }, []);
+
   const [region, setRegion] = useState('종로구');
 
   return (
