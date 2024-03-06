@@ -1,12 +1,13 @@
-function LoginButton() {
+function LoginButton(props) {
+  // * 기존의 로그인 대신 children으로 변경
   return (
     <>
       <div className="flex items-center justify-center">
         <button
-          type="button"
-          className="text-4 mx-5 h-12 w-full rounded-xl bg-primary-colors px-4 py-3 text-center text-white"
+          type="submit"
+          className="text-4 h-12 w-full rounded-xl bg-primary-colors px-4 py-3 text-center text-white"
         >
-          로그인
+          {props.children}
         </button>
       </div>
     </>

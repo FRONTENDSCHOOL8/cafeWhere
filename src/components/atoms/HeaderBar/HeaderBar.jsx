@@ -3,23 +3,23 @@ import { useNavigate } from 'react-router-dom';
 function HeaderBar(props) {
   let backNavigation = useNavigate();
 
-  const handleCheck = () => {
+  const handleNavigateBack = () => {
     console.log(props.name);
-    backNavigation('../');
+    backNavigation(-1);
   };
 
   return (
     <div>
       <div className="flex flex-col">
         <div className="ml-5 mr-5 flex items-center justify-between py-4">
-          <button type="button" onClick={handleCheck}>
+          <button type="button" onClick={handleNavigateBack}>
             <img src="/images/login/arrow.svg" alt="뒤로가기" />
           </button>
 
-          <span className=" text-black">{props.name}</span>
+          <span className="text-black">{props.name}</span>
 
           {props.showHomeBtn ? (
-            <button type="button" className="" onClick={handleCheck}>
+            <button type="button" className="" onClick={handleNavigateBack}>
               <img
                 className="justify-center"
                 src="/images/login/HomeIcon.svg"

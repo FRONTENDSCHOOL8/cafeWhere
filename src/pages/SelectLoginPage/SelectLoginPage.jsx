@@ -17,13 +17,13 @@ function SelectLoginPage() {
     <>
       <div className="h-screen">
         <div className="mx-auto  flex h-full w-full min-w-320pxr max-w-620pxr flex-col bg-white">
-          <div className="mb-43pxr mt-197pxr flex justify-center pt-10">
-            <img src="/images/biglogo2.svg"></img>
+          <div className="mb-44pxr mt-197pxr flex justify-center pt-10">
+            <img src="/images/biglogo2.svg" alt="카페어디 빅사이즈 로고" />
           </div>
 
           <div className="flex flex-col gap-4">
             <div onClick={handleLoginPage} className="mx-20pxr">
-              <LoginButton />
+              <LoginButton>로그인</LoginButton>
             </div>
             <Divider />
             <SocialLoginButton />
