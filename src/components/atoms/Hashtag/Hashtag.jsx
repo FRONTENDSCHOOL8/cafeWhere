@@ -9,8 +9,8 @@ function Hashtag({ icon, keyword }) {
   };
 
   const className = isClicked
-    ? 'inline-flex items-start gap-1 rounded border border-transparent bg-secondary3-colors px-2 py-1 text-10pxr font-semibold leading-5 text-white shadow-[2px_2px_4px_0_rgba(0,0,0,0.25)]'
-    : 'inline-flex items-start gap-1 rounded border border-transparent bg-[#F9F9F9] px-2 py-1 text-10pxr font-semibold leading-5 text-[#6B6B6B] shadow-[2px_2px_4px_0_rgba(0,0,0,0.25)] ';
+    ? 'hashtag-button bg-secondary3-colors text-white'
+    : 'hashtag-button bg-[#F9F9F9] text-[#6B6B6B]';
 
   return (
     <button
