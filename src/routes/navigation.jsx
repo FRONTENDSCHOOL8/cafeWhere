@@ -1,5 +1,6 @@
 import HeaderSwiper from '@/components/HeaderSwiper/HeaderSwiper';
 import { MainHeader } from '@/components/atoms';
+import DetailPage from '@/pages/DetailPage/DetailPage';
 import JoinPage from '@/pages/JoinPage/JoinPage';
 import LoginPage from '@/pages/LoginPage/LoginPage';
 import MainPage from '@/pages/MainPage/MainPage';
@@ -16,11 +17,18 @@ const navigationItems = [
     element: <SearchRegionList />,
   },
   {
+    id: 'detail',
+    path: '/detail/:id',
+    text: '로그인 페이지',
+    element: <DetailPage />,
+  },
+  {
     id: 'login',
     path: '/login',
     text: '로그인 페이지',
     element: <LoginPage />,
   },
+
   {
     id: 'join',
     path: '/join',
