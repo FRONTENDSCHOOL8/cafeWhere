@@ -7,10 +7,7 @@ function NoReview() {
       <span>작성된 리뷰가 없습니다.</span>
       {/* 리뷰작성 페이지 나오고 Link태그로 수정 */}
       {/* <Link  to="/">+ 리뷰작성</Link> */}
-      <button
-        className="h-30pxr w-120pxr rounded-[4px] bg-[#D9D9D9]"
-        type="button"
-      >
+      <button className="h-30pxr w-120pxr rounded bg-[#D9D9D9]" type="button">
         + 리뷰작성
       </button>
     </div>
