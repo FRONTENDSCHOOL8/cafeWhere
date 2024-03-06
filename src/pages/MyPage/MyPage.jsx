@@ -1,4 +1,4 @@
-import { HeaderBar } from '@/components/atoms';
+import { HeaderBar, TabBar } from '@/components/atoms';
 import React from 'react';
 import { useEffect } from 'react';
 import LoginPage from '../LoginPage/LoginPage';
@@ -20,7 +20,7 @@ function MyPage() {
     <div>
       {loginCheck ? (
         <div className="h-screen">
-          <div className=" mx-auto h-full min-w-320pxr max-w-620pxr bg-white">
+          <div className=" mx-auto h-full min-w-375pxr max-w-680pxr bg-white">
             <HeaderBar name={'프로필'} showHomeBtn={true} />
             <img
               src="/images/mypageicon.svg"
@@ -95,6 +95,7 @@ function MyPage() {
                 <img src="/images/main/swiper/rightArrow.svg" alt="로그아웃" />
               </div>
             </div>
+            <TabBar />
           </div>
         </div>
       ) : (
