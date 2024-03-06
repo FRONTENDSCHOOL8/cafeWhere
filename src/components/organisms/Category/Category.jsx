@@ -13,7 +13,7 @@ console.log(category);
 
 function Category() {
   return (
-    <div className="mx-10 my-5 flex w-375pxr flex-wrap gap-x-4 gap-y-2">
+    <div className="my-5 flex min-w-375pxr max-w-680pxr flex-wrap justify-center gap-y-2">
       {category.map(({ id, icon, collectionId, backgroundColor, keyword }) => (
         <CategoryItem
           key={id}
