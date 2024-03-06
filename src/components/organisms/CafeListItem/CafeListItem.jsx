@@ -1,7 +1,6 @@
 import { Wish } from '@/components/atoms'; // Wish 컴포넌트 불러오기
 import Hashtag from '@/components/atoms/Hashtag/Hashtag';
-import pb, { pbImg } from '@/utils/pocketbase'; // PocketBase 라이브러리 불러오기
-import { useEffect } from 'react';
+import { pbImg } from '@/utils/pocketbase'; // PocketBase 라이브러리 불러오기
 import { Link } from 'react-router-dom'; // Link 컴포넌트 불러오기
 
 function CafeListItem({ data }) {

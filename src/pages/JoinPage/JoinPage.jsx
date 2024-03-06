@@ -1,13 +1,11 @@
 import { HeaderBar } from '@/components/atoms';
-import LoginButton from '@/components/atoms/LoginButton/LoginButton';
 import { JoinInput } from '@/components/organisms';
-import CheckBox from '@/components/organisms/CheckBox/JoinInputCheckBox';
 
 function JoinPage() {
   return (
     <>
-      <div className="h-screen">
-        <div className="mx-auto h-full min-w-320pxr max-w-620pxr bg-white">
+      <div className="h-full">
+        <div className="mx-auto  min-w-375pxr max-w-680pxr">
           <HeaderBar name={'회원가입'} />
           <JoinInput />
         </div>
