@@ -7,6 +7,7 @@ import MainPage from '@/pages/MainPage/MainPage';
 import SearchRegionList from '@/pages/SearchRegionList/SearchRegionList';
 import MyPage from '@/pages/MyPage/MyPage';
 import SelectLoginPage from '@/pages/SelectLoginPage/SelectLoginPage';
+import CafeListPage from '@/pages/CafeListPage/CafeListPage';
 // import NoReview from '@/components/DetailReviewList/NoReview';
 
 const navigationItems = [
@@ -21,6 +22,12 @@ const navigationItems = [
     path: '/detail/:id',
     text: '로그인 페이지',
     element: <DetailPage />,
+  },
+  {
+    id: 'cafe',
+    path: '/cafeList/:keyword',
+    text: '카페리스트 페이지',
+    element: <CafeListPage />,
   },
   {
     id: 'login',

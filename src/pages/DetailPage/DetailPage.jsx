@@ -60,7 +60,7 @@ function DetailPage() {
         <img
           src={imageURL}
           alt={data?.cafeName}
-          className="max-h-480pxr w-full"
+          className="max-h-360pxr w-full"
         />
         <>
           <div className="flex items-start justify-between p-5">
