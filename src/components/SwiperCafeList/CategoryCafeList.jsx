@@ -4,9 +4,6 @@ import Hashtag from '../atoms/Hashtag/Hashtag';
 function CategoryCafeList() {
   return (
     <>
-      <h2 className="mb-4 ml-5 text-20pxr font-semibold leading-5">
-        노트북 하기 최적화?!
-      </h2>
       <div className="ml-5 h-285pxr w-200pxr rounded-[12px] border border-greyscale-50 bg-additional-colors-white p-4 font-medium leading-[100%]">
         <div className="relative">
           <img src="/images/main/test.png" alt="현재 카페 상세페이지" />

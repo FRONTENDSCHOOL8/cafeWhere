@@ -87,7 +87,7 @@ function LoginInput() {
           setPasswordVisible={setPasswordVisible}
         />
         <div className="mx-0 mb-40pxr mt-14">
-          <LoginButton />
+          <LoginButton> 로그인 </LoginButton>
         </div>
       </form>
     </div>

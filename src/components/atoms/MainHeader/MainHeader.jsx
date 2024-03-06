@@ -1,6 +1,7 @@
 import React from 'react';
+import SelectRegion from './../SelectRegion/SelectRegion';
 
-function MainHeader() {
+function MainHeader({ region, setRegion }) {
   return (
     <div>
       <div className="flex flex-col ">
@@ -20,12 +21,7 @@ function MainHeader() {
             />
           </button>
         </div>
-        <div className="flex items-center">
-          <span>서울시 종로구</span>
-          <button className="">
-            <img src="/images/main/header/arrow-down.svg" alt="" />
-          </button>
-        </div>
+        <SelectRegion region={region} setRegion={setRegion} />
       </div>
     </div>
   );

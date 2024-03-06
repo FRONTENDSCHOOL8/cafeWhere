@@ -41,8 +41,10 @@ function CheckBox() {
     });
   };
 
+  // * 임시로 w 길이 변경 -> 기존 w-375pxr
+
   return (
-    <div className="mx-20pxr w-375pxr bg-greyscale-10 font-semibold">
+    <div className="mx-20pxr w-575pxr bg-greyscale-10 font-semibold">
       <div className="grid h-90pxr content-center rounded-t-lg border border-b-0 border-greyscale-30 pr-50pxr">
         <div>
           <input
