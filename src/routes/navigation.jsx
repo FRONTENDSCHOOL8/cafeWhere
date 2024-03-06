@@ -6,6 +6,7 @@ import MainPage from '@/pages/MainPage/MainPage';
 import SearchRegionList from '@/pages/SearchRegionList/SearchRegionList';
 import MyPage from '@/pages/MyPage/MyPage';
 import SelectLoginPage from '@/pages/SelectLoginPage/SelectLoginPage';
+// import NoReview from '@/components/DetailReviewList/NoReview';
 
 const navigationItems = [
   {
@@ -44,6 +45,18 @@ const navigationItems = [
     text: '메인 페이지 바로가기',
     element: <MainPage />,
   },
+  // {
+  //   id: 'NoReview',
+  //   path: '/test2',
+  //   text: '리뷰없음 작성하기',
+  //   element: <NoReview />,
+  // },
+  // {
+  //   id: 'review',
+  //   path: '/review',
+  //   text: '리뷰페이지 작성하기',
+  //   element: <Review />,
+  // },
   {
     id: 'mypage',
     path: '/mypage',
