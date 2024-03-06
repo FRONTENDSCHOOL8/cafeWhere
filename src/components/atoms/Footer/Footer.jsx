@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="w-full bg-[#E1E1E1] p-5 text-xs">
       <div>
-        <ul className="footer-accordian">
+        <ul>
           <li>
             <p className="font-semibold">(주)구조요청</p>
             <div className="item-container my-10pxr leading-[180%]">
