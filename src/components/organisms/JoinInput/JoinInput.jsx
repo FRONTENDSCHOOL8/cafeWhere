@@ -61,14 +61,14 @@ function JoinInput() {
     // birth: 'test',
     // phone: 'test',
 
-    username: 'test789',
+    username: 'test1234',
     email: userEmail,
     emailVisibility: true,
     password: userPassword,
     passwordConfirm: userPassword,
-    nickname: 'test789',
-    birth: 'test789',
-    phone: '010-789-789',
+    nickname: 'test1234',
+    birth: 'test1234',
+    phone: '010-111-234',
   };
 
   const navigate = useNavigate();
@@ -89,7 +89,7 @@ function JoinInput() {
   };
 
   return (
-    <div className="mx-auto my-20  w-full min-w-375pxr max-w-680pxr  px-6">
+    <div className="mx-auto mt-2 w-full min-w-375pxr max-w-680pxr px-6">
       <form className="flex flex-col gap-4">
         <InputField
           id="userEmail"
@@ -157,11 +157,11 @@ function JoinInput() {
           validateInput={isBirth}
         />
 
-        <div className="my-4 h-1pxr bg-black"></div>
+        <div className="my-4 h-1pxr bg-greyscale-50"></div>
 
         <CheckBox />
 
-        <div className="mt-20" onClick={handleJoin}>
+        <div className="mb-10 mt-4" onClick={handleJoin}>
           <LoginButton>회원 가입</LoginButton>
         </div>
       </form>

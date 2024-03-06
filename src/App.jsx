@@ -21,7 +21,7 @@ export const queryClient = new QueryClient({
 
 function App() {
   return (
-    <div className="App">
+    <div className="App mx-auto h-full min-w-375pxr max-w-680pxr">
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
       </QueryClientProvider>

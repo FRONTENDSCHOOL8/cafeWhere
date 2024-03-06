@@ -25,7 +25,7 @@ function UserInfoInput({
           if (validateInput?.(value) || value === '') {
             setUser?.(value);
             setError?.({
-              borderColor: 'border-greyscale-100',
+              borderColor: 'border-greyscale-70',
               message: '',
             });
           } else {
