@@ -1,7 +1,9 @@
+// CafeInfoTab.js
 import { useState } from 'react';
+import TabButton from '../TabButton/TabButton';
 
 function CafeInfoTab() {
-  const [activeTab, setActiveTab] = useState('info'); // 초기값으로 'info' 탭을 활성화
+  const [activeTab, setActiveTab] = useState('info');
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -9,20 +11,18 @@ function CafeInfoTab() {
 
   return (
     <div className="flex justify-center text-15pxr">
-      <button
-        className={`w-full rounded-t-lg border border-l border-r border-t border-[#999] bg-white px-4 py-3 text-center leading-5
-        ${activeTab === 'info' ? 'border-b-0' : ''}`}
+      <TabButton
+        active={activeTab === 'info'}
         onClick={() => handleTabClick('info')}
       >
         정보
-      </button>
-      <button
-        className={`w-full rounded-t-lg border border-l border-r border-t border-[#999] bg-white px-4 py-3 text-center leading-5
-        ${activeTab === 'review' ? 'border-b-0' : ''}`}
+      </TabButton>
+      <TabButton
+        active={activeTab === 'review'}
         onClick={() => handleTabClick('review')}
       >
         리뷰
-      </button>
+      </TabButton>
     </div>
   );
 }
