@@ -1,7 +1,7 @@
 import React from 'react';
 import SelectRegion from './../SelectRegion/SelectRegion';
 
-function MainHeader() {
+function MainHeader({ region, setRegion }) {
   return (
     <div>
       <div className="flex flex-col ">
@@ -21,7 +21,7 @@ function MainHeader() {
             />
           </button>
         </div>
-        <SelectRegion />
+        <SelectRegion region={region} setRegion={setRegion} />
       </div>
     </div>
   );
