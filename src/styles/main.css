@@ -1,1 +1,16 @@
 @import url('./tailwind.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@layer base {
+  body {
+    font:
+      1rem/1.5 'Noto Sans',
+      sans-serif;
+    background: #eee;
+  }
+
+  .App {
+    background-color: #f6f6f6;
+    box-shadow: 0px 4px 24px 10px rgba(184, 184, 184, 0.25);
+  }
+}
