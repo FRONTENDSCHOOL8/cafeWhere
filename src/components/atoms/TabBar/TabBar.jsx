@@ -50,13 +50,15 @@ function TabBar() {
         </div>
 
         <div onClick={() => setActiveTab('myicon')}>
-          <img
-            src={
-              activeTab === 'myicon'
-                ? '/images/main/tabbar/myicon-r.svg'
-                : '/images/main/tabbar/myicon-b.svg'
-            }
-          />
+          <Link to="/mypage">
+            <img
+              src={
+                activeTab === 'myicon'
+                  ? '/images/main/tabbar/myicon-r.svg'
+                  : '/images/main/tabbar/myicon-b.svg'
+              }
+            />
+          </Link>
         </div>
       </div>
     </div>
