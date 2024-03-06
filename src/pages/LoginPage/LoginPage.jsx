@@ -9,7 +9,7 @@ function LoginPage() {
   return (
     <>
       <div className="h-screen">
-        <div className="mx-auto h-full w-full min-w-320pxr max-w-620pxr bg-white">
+        <div className="mx-auto h-full w-full min-w-375pxr max-w-680pxr bg-white">
           <HeaderBar name={'로그인'} />
           <div className="flex justify-center pt-10">
             <img src="/images/LoginLogo.svg" alt="여기어때 로고" />

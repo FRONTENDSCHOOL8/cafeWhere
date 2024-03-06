@@ -1,18 +1,27 @@
 import HeaderSwiper from '@/components/HeaderSwiper/HeaderSwiper';
-import { MainHeader } from '@/components/atoms';
-import { useState } from 'react';
+import { MainHeader, TabBar } from '@/components/atoms';
+import { useTabStore } from '@/store/useTabStore';
+import { useEffect } from 'react';
 
 function MainPage() {
+  const { activeTabState, setHome } = useTabStore();
+
+  useEffect(() => {
+    setHome();
+  }, []);
+
   const [region, setRegion] = useState('종로구');
 
   return (
     <div>
       <div className="h-screen ">
-        <div className="mx-auto h-full w-full min-w-320pxr max-w-620pxr bg-white">
-          <MainHeader region={region} setRegion={setRegion} />
+        <div className="mx-auto h-full w-full min-w-375pxr max-w-680pxr bg-white">
+          <MainHeader />
 
           <HeaderSwiper />
         </div>
+
+        <TabBar />
       </div>
     </div>
   );
