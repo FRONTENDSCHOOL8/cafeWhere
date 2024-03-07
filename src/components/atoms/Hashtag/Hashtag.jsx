@@ -16,7 +16,7 @@ function Hashtag({ icon, keyword }) {
     <button
       className={className}
       onClick={handleHashtagClick}
-      cheked={isClicked}
+      checked={isClicked}
     >
       <span className="text-12pxr">{icon}</span>
       <span>{keyword}</span>

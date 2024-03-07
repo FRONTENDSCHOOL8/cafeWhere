@@ -3,13 +3,13 @@ import Hashtag from '../../atoms/Hashtag/Hashtag';
 function ReviewList() {
   return (
     <div className="mx-5 flex justify-center text-greyscale-80">
-      <article className="w-335pxr rounded-[15px] border border-greyscale-40 p-20pxr">
+      <article className="w-335pxr rounded-[15px] border border-greyscale-40 p-5">
         <span className="mr-2 text-14pxr font-semibold text-additional-colors-dark">
           닉네임 넣을 곳
         </span>
         <img
           className="inline-block"
-          src="/images/review/Property-0.5.svg"
+          src="/images/review/property-0.5.svg"
           alt="0.5점짜리 평점"
         />
         <p className="mb-1 mt-6pxr text-10pxr">24.03.06</p>
@@ -35,7 +35,7 @@ function ReviewList() {
         </span>
         <img
           className="inline-block"
-          src="/images/review/Property-0.5.svg"
+          src="/images/review/property-0.5.svg"
           alt="0.5점짜리 평점"
         />
         <p className="mb-1 mt-6pxr text-10pxr">24.03.06</p>
@@ -67,7 +67,7 @@ function ReviewList() {
         </span>
         <img
           className="inline-block"
-          src="/images/review/Property-0.5.svg"
+          src="/images/review/property-0.5.svg"
           alt="0.5점짜리 평점"
         />
         <p className="mb-1 mt-6pxr text-10pxr">24.03.06</p>
