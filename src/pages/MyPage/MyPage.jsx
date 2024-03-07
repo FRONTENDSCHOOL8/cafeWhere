@@ -1,7 +1,7 @@
 import { HeaderBar, TabBar } from '@/components/atoms';
 import { useNavigate } from 'react-router-dom';
 import SelectLoginPage from '../SelectLoginPage/SelectLoginPage';
-import { useUserIdStore } from '@/store/useLoginStore';
+import { useUserDataStore, useUserIdStore } from '@/store/useLoginStore';
 import pb from '@/utils/pocketbase';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -30,20 +30,33 @@ function MyPage() {
 
   const { UserId } = useUserIdStore();
 
-  const handleUserId = async () => {
-    const viewId = await pb.collection('users').getOne(UserId);
-    console.log('현재 정보', viewId.username);
-    setUserData(viewId);
-    // console.log('현재 데이터', viewId);
-  };
+  const { userDataState } = useUserDataStore();
+
+  // const handleUserId = async () => {
+  //   pb.collection('users')
+  //     .getOne(UserId)
+  //     .then((viewId) => {
+  //       console.log('현재 정보', viewId.username);
+  //       setUserData(viewId);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
   const handleCheck = () => {
-    console.log(userData.username);
+    // const records = await pb.collection('review').getList(1, 2, {
+    //   sort: '-created',
+    // });
+
+    // console.log(records);
+
+    console.log(userDataState);
   };
 
-  useEffect(() => {
-    handleUserId();
-  }, []);
+  // useEffect(() => {
+  //   handleUserId();
+  // }, []);
 
   return (
     <div>
@@ -58,7 +71,7 @@ function MyPage() {
             />
 
             <div className="mt-8 text-center text-20pxr font-bold">
-              {userData.username}
+              {userDataState.username}
             </div>
 
             <div className="mt-10 flex justify-center gap-4">
@@ -99,10 +112,7 @@ function MyPage() {
                 />
               </div>
 
-              <div
-                className="mx-5 flex cursor-pointer items-center justify-between border-b border-[#D4D6DD] p-4"
-                onClick={handleCheck}
-              >
+              <div className="mx-5 flex cursor-pointer items-center justify-between border-b border-[#D4D6DD] p-4">
                 <span>찜 목록</span>
                 <img
                   src="/images/main/swiper/rightArrow.svg"
@@ -120,7 +130,7 @@ function MyPage() {
 
               <div
                 className="mx-5 flex cursor-pointer items-center justify-between border-b border-[#D4D6DD] p-4"
-                onClick={handleUserId}
+                onClick={handleCheck}
               >
                 <span>설정</span>
                 <img
