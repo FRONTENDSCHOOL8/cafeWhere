@@ -17,7 +17,7 @@ function PasswordIcon({ passwordVisible, setPasswordVisible }) {
   return (
     <button
       type="button"
-      className="cursor-pointer p-1"
+      className="cursor-pointer p-4"
       onClick={() => setPasswordVisible(!passwordVisible)}
       title={iconType.alt}
     >

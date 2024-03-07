@@ -1,11 +1,24 @@
 import { HeaderBar, TabBar } from '@/components/atoms';
-import React from 'react';
-import { useEffect } from 'react';
-import LoginPage from '../LoginPage/LoginPage';
 import { useNavigate } from 'react-router-dom';
 import SelectLoginPage from '../SelectLoginPage/SelectLoginPage';
+import { useUserDataStore, useUserIdStore } from '@/store/useLoginStore';
+import pb from '@/utils/pocketbase';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useLoaderData } from 'react-router-dom';
+
+/* 나중에 컴포넌트분리용 */
+// function PageSection({ title }) {
+//   return (
+//     <div className="mx-5 flex cursor-pointer items-center justify-between border-b border-[#D4D6DD] p-4">
+//       <span>{title}</span>
+//       <img src="/images/main/swiper/rightArrow.svg" alt={`${title}으로 이동`} />
+//     </div>
+//   );
+// }
 
 function MyPage() {
+  const [userData, setUserData] = useState({});
   const loginCheck = sessionStorage.getItem('token');
 
   const navigate = useNavigate();
@@ -16,19 +29,54 @@ function MyPage() {
     navigate('/');
   };
 
+  const { UserId } = useUserIdStore();
+
+  const { userDataState } = useUserDataStore();
+
+  const productReview = useLoaderData();
+
+  // const handleUserId = async () => {
+  //   pb.collection('users')
+  //     .getOne(UserId)
+  //     .then((viewId) => {
+  //       console.log('현재 정보', viewId.username);
+  //       setUserData(viewId);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  const handleCheck = async () => {
+    // const records = await pb.collection('review').getList(1, 2, {
+    //   sort: '-created',
+    // });
+
+    // console.log(records);
+    console.log('loader', productReview);
+
+    console.log(userDataState);
+  };
+
+  // useEffect(() => {
+  //   handleUserId();
+  // }, []);
+
   return (
     <div>
       {loginCheck ? (
         <div className="h-screen">
-          <div className=" mx-auto h-full min-w-375pxr max-w-680pxr bg-white">
+          <div className=" mx-auto h-full min-w-375pxr max-w-680pxr">
             <HeaderBar name={'프로필'} showHomeBtn={true} />
             <img
               src="/images/mypageicon.svg"
               alt="마이페이지 이미지"
-              className="mx-auto mt-24"
+              className="mx-auto mt-24 rounded-[50%]"
             />
 
-            <div className="mt-8 text-center text-20pxr font-bold">깐부</div>
+            <div className="mt-8 text-center text-20pxr font-bold">
+              {userDataState.username}
+            </div>
 
             <div className="mt-10 flex justify-center gap-4">
               <div>리뷰 17</div>
@@ -39,6 +87,12 @@ function MyPage() {
             </div>
 
             <div className="mt-24 flex flex-col">
+              {/* <PageSection title="내 계정" />
+              <PageSection title="비밀번호 변경" />
+              <PageSection title="리뷰관리" />
+              <PageSection title="찜 목록" />
+              <PageSection title="공지사항" /> */}
+
               <div className="mx-5 flex cursor-pointer items-center justify-between border-b border-[#D4D6DD] p-4">
                 <span>내 계정</span>
                 <img
@@ -46,7 +100,6 @@ function MyPage() {
                   alt="내 계정으로 이동"
                 />
               </div>
-
               <div className="mx-5 flex cursor-pointer items-center justify-between border-b border-[#D4D6DD] p-4">
                 <span>비밀번호 변경</span>
                 <img
@@ -79,14 +132,16 @@ function MyPage() {
                 />
               </div>
 
-              <div className="mx-5 flex cursor-pointer items-center justify-between border-b border-[#D4D6DD] p-4">
+              <div
+                className="mx-5 flex cursor-pointer items-center justify-between border-b border-[#D4D6DD] p-4"
+                onClick={handleCheck}
+              >
                 <span>설정</span>
                 <img
                   src="/images/main/swiper/rightArrow.svg"
                   alt="설정으로 이동"
                 />
               </div>
-
               <div
                 className="mx-5 flex cursor-pointer items-center justify-between border-b border-[#D4D6DD] p-4"
                 onClick={handleLogout}
@@ -106,3 +161,10 @@ function MyPage() {
 }
 
 export default MyPage;
+
+// 비동기 호출 get
+export async function loader() {
+  return await pb.collection('review').getList(1, 2, {
+    sort: '-created',
+  });
+}

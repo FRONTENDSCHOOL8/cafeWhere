@@ -31,6 +31,10 @@ const isBirth = (birth) => {
   return birthRegex.test(birth);
 };
 
+const isText = (text) => {
+  return text;
+};
+
 function JoinInput() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [userEmail, setUserEmail] = useState('');
@@ -50,6 +54,15 @@ function JoinInput() {
     // "nickname": "test",
     // "birth": "test",
     // "phone": "test"
+
+    username: '',
+    email: '',
+    emailVisibility: true,
+    password: '',
+    passwordConfirm: '',
+    nickname: '',
+    birth: '',
+    phone: '',
   });
 
   let data = {
@@ -61,23 +74,24 @@ function JoinInput() {
     // birth: 'test',
     // phone: 'test',
 
-    username: 'test789',
+    username: 'test1234',
     email: userEmail,
     emailVisibility: true,
     password: userPassword,
     passwordConfirm: userPassword,
-    nickname: 'test789',
-    birth: 'test789',
-    phone: '010-789-789',
+    nickname: 'test1234',
+    birth: 'test1234',
+    phone: '010-111-234',
   };
 
   const navigate = useNavigate();
 
   const handleJoin = (e) => {
     e.preventDefault();
-    console.log(data);
+    // console.log(data);
+    console.log(userInfo);
     pb.collection('users')
-      .create(data)
+      .create(userInfo)
       .then(() => {
         alert('회원 가입 완료 했습니다');
         navigate('/');
@@ -89,7 +103,7 @@ function JoinInput() {
   };
 
   return (
-    <div className="mx-auto my-20  w-full min-w-375pxr max-w-680pxr  px-6">
+    <div className="mx-auto mt-2 w-full min-w-375pxr max-w-680pxr px-6">
       <form className="flex flex-col gap-4">
         <InputField
           id="userEmail"
@@ -98,7 +112,13 @@ function JoinInput() {
           placeholder="이메일을 입력해주세요."
           required
           message="이메일 형식에 맞게 입력해주세요."
-          setUser={setUserEmail}
+          // setUser={setUserEmail}
+          setUser={(value) =>
+            setUserInfo({
+              ...userInfo,
+              email: value,
+            })
+          }
           validateInput={isEmail}
         />
         <InputField
@@ -108,7 +128,13 @@ function JoinInput() {
           placeholder="비밀번호를 입력해주세요."
           required
           message="특수문자를 포함하여 8~15자 이내로 입력해주세요."
-          setUser={setUserPassword}
+          // setUser={setUserPassword}
+          setUser={(value) =>
+            setUserInfo({
+              ...userInfo,
+              password: value,
+            })
+          }
           validateInput={isPassword}
           passwordVisible={passwordVisible}
           setPasswordVisible={setPasswordVisible}
@@ -120,7 +146,12 @@ function JoinInput() {
           placeholder="비밀번호를 입력해주세요."
           required
           message="비밀번호를 한 번 더 입력해주세요."
-          setUser={setUserPassword}
+          setUser={(value) =>
+            setUserInfo({
+              ...userInfo,
+              passwordConfirm: value,
+            })
+          }
           validateInput={isPassword}
           passwordVisible={passwordVisible}
           setPasswordVisible={setPasswordVisible}
@@ -130,22 +161,38 @@ function JoinInput() {
           label="이름"
           type="text"
           placeholder="이름을 입력해주세요."
-          setUser={setUserPassword}
+          setUser={(value) =>
+            setUserInfo({
+              ...userInfo,
+              username: value,
+            })
+          }
+          validateInput={isText}
         />
         <InputField
           id="userNickname"
           label="닉네임"
           type="text"
           placeholder="닉네임을 입력해주세요."
-          setUser={setUserPassword}
-          validateInput={isPassword}
+          setUser={(value) =>
+            setUserInfo({
+              ...userInfo,
+              nickname: value,
+            })
+          }
+          validateInput={isText}
         />
         <InputField
           id="userPhone"
           label="휴대전화"
           type="text"
           placeholder="- 제외하고 번호 입력"
-          setUser={setUserPassword}
+          setUser={(value) =>
+            setUserInfo({
+              ...userInfo,
+              phone: value,
+            })
+          }
           validateInput={isPhone}
         />
         <InputField
@@ -153,15 +200,20 @@ function JoinInput() {
           label="생년월일"
           type="text"
           placeholder="YYYY / MM / DD"
-          setUser={setUserPassword}
+          setUser={(value) =>
+            setUserInfo({
+              ...userInfo,
+              birth: value,
+            })
+          }
           validateInput={isBirth}
         />
 
-        <div className="my-4 h-1pxr bg-black"></div>
+        <div className="my-4 h-1pxr bg-greyscale-50"></div>
 
         <CheckBox />
 
-        <div className="mt-20" onClick={handleJoin}>
+        <div className="mb-10 mt-4" onClick={handleJoin}>
           <LoginButton>회원 가입</LoginButton>
         </div>
       </form>

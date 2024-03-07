@@ -1,7 +1,6 @@
 import { Wish } from '@/components/atoms'; // Wish 컴포넌트 불러오기
 import Hashtag from '@/components/atoms/Hashtag/Hashtag';
-import pb, { pbImg } from '@/utils/pocketbase'; // PocketBase 라이브러리 불러오기
-import { useEffect } from 'react';
+import { pbImg } from '@/utils/pocketbase'; // PocketBase 라이브러리 불러오기
 import { Link } from 'react-router-dom'; // Link 컴포넌트 불러오기
 
 function CafeListItem({ data }) {
@@ -19,7 +18,7 @@ function CafeListItem({ data }) {
           </div>
         </div>
 
-        <Link to="/" className="w-160pxr overflow-hidden">
+        <Link to={`/detail/${data.id}`} className="w-160pxr overflow-hidden">
           <h3 className="text-14pxr font-semibold text-greyscale-100">
             {data.cafeName}
           </h3>
