@@ -18,7 +18,7 @@ function CafeListItem({ data }) {
           </div>
         </div>
 
-        <Link to="/" className="w-160pxr overflow-hidden">
+        <Link to={`/detail/${data.id}`} className="w-160pxr overflow-hidden">
           <h3 className="text-14pxr font-semibold text-greyscale-100">
             {data.cafeName}
           </h3>
