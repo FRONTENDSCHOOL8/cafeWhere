@@ -1,14 +1,13 @@
+import { HeaderBar, TabBar } from '@/components/atoms';
 import CafeListItem from '@/components/organisms/CafeListItem/CafeListItem';
+import { useCafeStore } from '@/store';
 import pb from '@/utils/pocketbase';
-import { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { HeaderBar, TabBar } from '@/components/atoms';
 
 function CafeListPage() {
   const params = useParams();
-  console.log(params.keyword);
-  const [cafe, setCafe] = useState([]);
+  const { cafe, setCafe } = useCafeStore();
 
   useEffect(() => {
     const fetchData = async () => {

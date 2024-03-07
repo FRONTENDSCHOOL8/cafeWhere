@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import pb, { pbImg } from '@/utils/pocketbase';
 import Wish from '@/components/atoms/Wish/Wish';
 import clock from '/images/detail/clock.svg';
@@ -8,15 +8,16 @@ import { useParams } from 'react-router-dom';
 import { HeaderBar } from '@/components/atoms';
 import Hashtag from '@/components/atoms/Hashtag/Hashtag';
 import CafeInfoTab from '@/components/atoms/CafeInfoTab/CafeInfoTab';
+import { useCafeStore } from '@/store';
 
 function DetailPage() {
-  const [data, setData] = useState(null);
+  const { cafe, setCafe } = useCafeStore();
   const params = useParams();
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await pb.collection('cafe').getOne(params.id);
-        setData({ ...response });
+        setCafe({ ...response });
       } catch (error) {
         console.error(error);
       }
@@ -41,37 +42,37 @@ function DetailPage() {
         }
       };
 
-      places.keywordSearch(data?.cafeName, callback);
+      places.keywordSearch(cafe?.cafeName, callback);
     });
   }, []);
 
-  if (!data) {
+  if (!cafe) {
     return <div>Loading...</div>;
   }
 
-  const imageURL = pbImg(data?.collectionId, data?.id, data?.mainImage);
-  const info = data.facilityInformation.split(', ');
+  const imageURL = pbImg(cafe?.collectionId, cafe?.id, cafe?.mainImage);
+  const info = cafe.facilityInformation.split(', ');
 
   return (
     <>
       <HeaderBar showHomeBtn />
 
-      <div key={data.id} className="mx-auto w-full">
+      <div key={cafe.id} className="mx-auto w-full">
         <img
           src={imageURL}
-          alt={data?.cafeName}
+          alt={cafe?.cafeName}
           className="max-h-360pxr w-full"
         />
         <>
           <div className="flex items-start justify-between p-5">
             <div>
-              <h2 className="mb-2 text-xl font-semibold">{data.cafeName}</h2>
+              <h2 className="mb-2 text-xl font-semibold">{cafe.cafeName}</h2>
               <p className="mb-4 text-xs text-greyscale-70">
-                {data.description}
+                {cafe.description}
               </p>
               <p className="mb-4 text-sm">
-                평점: <span>{data.score.toFixed(1)}</span> 리뷰 (
-                {data.reviewQuantity})
+                평점: <span>{cafe.score.toFixed(1)}</span> 리뷰 (
+                {cafe.reviewQuantity})
               </p>
               <div className="h-">
                 <Hashtag icon={'☕'} keyword={'커피가 맛있어요'} />
@@ -90,17 +91,17 @@ function DetailPage() {
                   <img src={clock} alt="영업시간 안내" className="mt-1.5" />
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: data?.businessHours,
+                      __html: cafe?.businessHours,
                     }}
                   />
                 </div>
                 <div className="flex gap-3">
                   <img src={phone} alt="연락처" />
-                  <span>{data.storePhoneNumber}</span>
+                  <span>{cafe.storePhoneNumber}</span>
                 </div>
                 <div className="flex gap-3">
                   <img src={location} alt="장소" />
-                  <span>{data.address}</span>
+                  <span>{cafe.address}</span>
                 </div>
                 <div>
                   <h3 className="mb-2 font-semibold">시설정보</h3>
