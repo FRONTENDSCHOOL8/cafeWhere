@@ -6,6 +6,7 @@ import CafeListItem from '@/components/organisms/CafeListItem/CafeListItem';
 import { useTabStore } from '@/store/useTabStore';
 import pb from '@/utils/pocketbase';
 import { useEffect, useState } from 'react';
+import Category from '@/components/organisms/Category/Category';
 
 function MainPage() {
   const { activeTabState, setHome } = useTabStore();
@@ -32,9 +33,8 @@ function MainPage() {
       <div className="h-full">
         <div className="mx-auto w-full min-w-375pxr max-w-680pxr">
           <MainHeader region={region} setRegion={setRegion} />
-
           <HeaderSwiper />
-
+          <Category />
           <div className="mt-12">
             <CategoryListName>노트북하기 최적화?!</CategoryListName>
             <SwiperCafeList />
