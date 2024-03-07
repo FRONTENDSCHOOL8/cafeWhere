@@ -5,9 +5,11 @@ import JoinPage from '@/pages/JoinPage/JoinPage';
 import LoginPage from '@/pages/LoginPage/LoginPage';
 import MainPage from '@/pages/MainPage/MainPage';
 import SearchRegionList from '@/pages/SearchRegionList/SearchRegionList';
-import MyPage from '@/pages/MyPage/MyPage';
+import MyPage, { loader as reviewLoder } from '@/pages/MyPage/MyPage';
 import SelectLoginPage from '@/pages/SelectLoginPage/SelectLoginPage';
 import CafeListPage from '@/pages/CafeListPage/CafeListPage';
+import pb from '@/utils/pocketbase';
+
 // import NoReview from '@/components/DetailReviewList/NoReview';
 
 const navigationItems = [
@@ -77,6 +79,15 @@ const navigationItems = [
     path: '/mypage',
     text: '프로필 페이지 바로가기',
     element: <MyPage />,
+
+    loader: reviewLoder,
+
+    // loader: async () => {
+    //   // 비동기 호출 코드 작성
+    //   return await pb.collection('review').getList(1, 2, {
+    //     sort: '-created',
+    //   });
+    // },
   },
 ];
 
