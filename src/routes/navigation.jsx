@@ -9,6 +9,7 @@ import {
   SearchRegionList,
   SelectLoginPage,
 } from '@/pages';
+import { loader as reviewLoder } from '@/pages/MyPage/MyPage';
 
 // import NoReview from '@/components/DetailReviewList/NoReview';
 
