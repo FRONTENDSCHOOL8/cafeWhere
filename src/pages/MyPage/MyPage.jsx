@@ -5,6 +5,7 @@ import { useUserDataStore, useUserIdStore } from '@/store/useLoginStore';
 import pb from '@/utils/pocketbase';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 /* 나중에 컴포넌트분리용 */
 // function PageSection({ title }) {
@@ -32,6 +33,8 @@ function MyPage() {
 
   const { userDataState } = useUserDataStore();
 
+  const productReview = useLoaderData();
+
   // const handleUserId = async () => {
   //   pb.collection('users')
   //     .getOne(UserId)
@@ -44,12 +47,13 @@ function MyPage() {
   //     });
   // };
 
-  const handleCheck = () => {
+  const handleCheck = async () => {
     // const records = await pb.collection('review').getList(1, 2, {
     //   sort: '-created',
     // });
 
     // console.log(records);
+    console.log('loader', productReview);
 
     console.log(userDataState);
   };
@@ -157,3 +161,10 @@ function MyPage() {
 }
 
 export default MyPage;
+
+// 비동기 호출 get
+export async function loader() {
+  return await pb.collection('review').getList(1, 2, {
+    sort: '-created',
+  });
+}
