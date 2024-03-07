@@ -13,7 +13,7 @@ const icon = {
   },
 };
 
-function Wish() {
+function Wish({ customSize = '' }) {
   const [wish, setWish] = useState(false);
   return (
     <>
@@ -21,7 +21,7 @@ function Wish() {
         <img
           src={wish ? icon.favorites.src : icon.removeFavorites.src}
           alt={wish ? icon.favorites.alt : icon.removeFavorites.alt}
-          className="cursor-pointer"
+          className={`cursor-pointer ${customSize}`}
           onClick={() => {
             setWish(!wish);
           }}
