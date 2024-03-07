@@ -3,7 +3,6 @@ import SelectRegion from './../SelectRegion/SelectRegion';
 import { Link } from 'react-router-dom';
 
 function MainHeader({ region, setRegion }) {
-  console.log(region);
   return (
     <div>
       <div className="flex flex-col ">
