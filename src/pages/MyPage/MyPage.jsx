@@ -1,6 +1,11 @@
 import { HeaderBar, TabBar } from '@/components/atoms';
 import { useNavigate } from 'react-router-dom';
 import SelectLoginPage from '../SelectLoginPage/SelectLoginPage';
+import { useUserDataStore, useUserIdStore } from '@/store/useLoginStore';
+import pb from '@/utils/pocketbase';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 /* 나중에 컴포넌트분리용 */
 // function PageSection({ title }) {
@@ -13,6 +18,7 @@ import SelectLoginPage from '../SelectLoginPage/SelectLoginPage';
 // }
 
 function MyPage() {
+  const [userData, setUserData] = useState({});
   const loginCheck = sessionStorage.getItem('token');
 
   const navigate = useNavigate();
@@ -22,6 +28,39 @@ function MyPage() {
     alert('로그아웃 되었습니다');
     navigate('/');
   };
+
+  const { UserId } = useUserIdStore();
+
+  const { userDataState } = useUserDataStore();
+
+  const productReview = useLoaderData();
+
+  // const handleUserId = async () => {
+  //   pb.collection('users')
+  //     .getOne(UserId)
+  //     .then((viewId) => {
+  //       console.log('현재 정보', viewId.username);
+  //       setUserData(viewId);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  const handleCheck = async () => {
+    // const records = await pb.collection('review').getList(1, 2, {
+    //   sort: '-created',
+    // });
+
+    // console.log(records);
+    console.log('loader', productReview);
+
+    console.log(userDataState);
+  };
+
+  // useEffect(() => {
+  //   handleUserId();
+  // }, []);
 
   return (
     <div>
@@ -35,7 +74,9 @@ function MyPage() {
               className="mx-auto mt-24 rounded-[50%]"
             />
 
-            <div className="mt-8 text-center text-20pxr font-bold">깐부</div>
+            <div className="mt-8 text-center text-20pxr font-bold">
+              {userDataState.username}
+            </div>
 
             <div className="mt-10 flex justify-center gap-4">
               <div>리뷰 17</div>
@@ -91,7 +132,10 @@ function MyPage() {
                 />
               </div>
 
-              <div className="mx-5 flex cursor-pointer items-center justify-between border-b border-[#D4D6DD] p-4">
+              <div
+                className="mx-5 flex cursor-pointer items-center justify-between border-b border-[#D4D6DD] p-4"
+                onClick={handleCheck}
+              >
                 <span>설정</span>
                 <img
                   src="/images/main/swiper/rightArrow.svg"
@@ -117,3 +161,10 @@ function MyPage() {
 }
 
 export default MyPage;
+
+// 비동기 호출 get
+export async function loader() {
+  return await pb.collection('review').getList(1, 2, {
+    sort: '-created',
+  });
+}

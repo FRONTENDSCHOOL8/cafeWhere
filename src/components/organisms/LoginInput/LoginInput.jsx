@@ -1,6 +1,11 @@
 import LoginButton from '@/components/atoms/LoginButton/LoginButton';
 import { InputField } from '@/components/molecules';
 import { useTabStore } from '@/store';
+import {
+  useLoginStore,
+  useUserDataStore,
+  useUserIdStore,
+} from '@/store/useLoginStore';
 import pb from '@/utils/pocketbase';
 import { useRef } from 'react';
 import { useState } from 'react';
@@ -33,16 +38,49 @@ function LoginInput() {
 
   const navigate = useNavigate();
 
+  const { setLogIn } = useLoginStore();
+
+  const { UserId, setUserId } = useUserIdStore();
+
+  const { userDataState, setUserData } = useUserDataStore();
+
   const emailRef = useRef('');
   const passwordRef = useRef('');
 
+  const handleUserId = async (id) => {
+    await pb
+      .collection('users')
+      .getOne(id)
+      .then((view) => {
+        console.log('현재 정보', view);
+        setUserData(view);
+        console.log(userDataState);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // console.log('현재 데이터', viewId);
+  };
+
   const fetchCafeData = () => {
+    // pb.collection('users').authWithPassword(
+    //   `${emailRef.current}`,
+    //   `${passwordRef.current}`
+    // );
+
+    // console.log(pb.authStore.isValid);
+    // console.log(pb.authStore.token);
+    // console.log(pb.authStore.model.id);
+
     pb.collection('users')
       .authWithPassword(`${emailRef.current}`, `${passwordRef.current}`)
 
       .then((result) => {
         sessionStorage.setItem('token', 'login');
         setHome();
+        setLogIn();
+        setUserId(pb.authStore.model.id);
+        handleUserId(pb.authStore.model.id);
         navigate('/main');
       })
       .catch((err) => {

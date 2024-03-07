@@ -9,6 +9,7 @@ import {
   SearchRegionList,
   SelectLoginPage,
 } from '@/pages';
+
 // import NoReview from '@/components/DetailReviewList/NoReview';
 
 const navigationItems = [
@@ -78,6 +79,15 @@ const navigationItems = [
     path: '/mypage',
     text: '프로필 페이지 바로가기',
     element: <MyPage />,
+
+    loader: reviewLoder,
+
+    // loader: async () => {
+    //   // 비동기 호출 코드 작성
+    //   return await pb.collection('review').getList(1, 2, {
+    //     sort: '-created',
+    //   });
+    // },
   },
 ];
 
