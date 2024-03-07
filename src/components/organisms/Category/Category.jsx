@@ -1,15 +1,17 @@
 import { CategoryItem } from '@/components/atoms';
+import { useEffect } from 'react';
 
 const CATEGORY_URL = `${import.meta.env.VITE_PB_URL}/api/collections/category/records`;
 
-const getData = async () => {
-  const response = await fetch(CATEGORY_URL);
-  const data = await response.json();
+useEffect(() => {
+  const getData = async () => {
+    const response = await fetch(CATEGORY_URL);
+    const data = await response.json();
 
-  return data.items;
-};
-const category = await getData();
-console.log(category);
+    return data.items;
+  };
+  getData();
+}, []);
 
 function Category() {
   return (
