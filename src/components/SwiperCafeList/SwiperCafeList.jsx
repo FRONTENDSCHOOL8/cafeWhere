@@ -10,19 +10,19 @@ function SwiperCafeList() {
       {/* CategoryListName을 어디다 넣어야 할지는 페이지 만들때 고민 */}
       <Swiper
         className="mySwiper"
-        slidesPerView={1.5}
+        slidesPerView={1.7}
         breakpoints={{
           375: {
-            slidesPerView: 1.5,
-            spaceBetween: 16,
+            slidesPerView: 1.8,
+            spaceBetween: 10,
           },
           425: {
-            slidesPerView: 2,
+            slidesPerView: 2.1,
             spaceBetween: 16,
           },
           680: {
-            slidesPerView: 3,
-            spaceBetween: 16,
+            slidesPerView: 3.3,
+            spaceBetween: 10,
           },
         }}
         modules={[FreeMode, Pagination]}
