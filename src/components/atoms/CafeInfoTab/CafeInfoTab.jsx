@@ -10,7 +10,7 @@ function CafeInfoTab() {
   };
 
   return (
-    <div className="flex justify-center text-15pxr">
+    <div className="flex text-15pxr">
       <TabButton
         active={activeTab === 'info'}
         onClick={() => handleTabClick('info')}
