@@ -1,3 +1,4 @@
+import pb from '@/utils/pocketbase';
 import Hashtag from '../../atoms/Hashtag/Hashtag';
 
 function ReviewList() {

@@ -9,6 +9,10 @@ import MyPage, { loader as reviewLoder } from '@/pages/MyPage/MyPage';
 import SelectLoginPage from '@/pages/SelectLoginPage/SelectLoginPage';
 import CafeListPage from '@/pages/CafeListPage/CafeListPage';
 import pb from '@/utils/pocketbase';
+import MyReviewPage, {
+  loader as rvLoder,
+} from '@/pages/MyReviewPage/MyReviewPage';
+// import MyRev, { loader as rvLoder } from '@/pages/MyReviewPage/MyReviewPage';
 
 // import NoReview from '@/components/DetailReviewList/NoReview';
 
@@ -88,6 +92,15 @@ const navigationItems = [
     //     sort: '-created',
     //   });
     // },
+  },
+
+  {
+    id: 'myreview',
+    path: '/myreview',
+    text: '내가 쓴 리뷰',
+    element: <MyReviewPage />,
+
+    loader: rvLoder,
   },
 ];
 

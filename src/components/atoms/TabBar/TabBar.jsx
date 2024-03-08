@@ -31,13 +31,15 @@ function TabBar() {
         </div>
 
         <div onClick={setReview}>
-          <img
-            src={
-              activeTabState === 'review'
-                ? '/images/main/tabbar/review-r.svg'
-                : '/images/main/tabbar/review-b.svg'
-            }
-          />
+          <Link to="/myreview">
+            <img
+              src={
+                activeTabState === 'review'
+                  ? '/images/main/tabbar/review-r.svg'
+                  : '/images/main/tabbar/review-b.svg'
+              }
+            />
+          </Link>
         </div>
 
         <div onClick={setWish}>
