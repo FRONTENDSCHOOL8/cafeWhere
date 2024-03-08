@@ -1,14 +1,15 @@
 import HeaderSwiper from '@/components/HeaderSwiper/HeaderSwiper';
-import { MainHeader } from '@/components/atoms';
-import DetailPage from '@/pages/DetailPage/DetailPage';
-import JoinPage from '@/pages/JoinPage/JoinPage';
-import LoginPage from '@/pages/LoginPage/LoginPage';
-import MainPage from '@/pages/MainPage/MainPage';
-import SearchRegionList from '@/pages/SearchRegionList/SearchRegionList';
-import MyPage, { loader as reviewLoder } from '@/pages/MyPage/MyPage';
-import SelectLoginPage from '@/pages/SelectLoginPage/SelectLoginPage';
-import CafeListPage from '@/pages/CafeListPage/CafeListPage';
-import pb from '@/utils/pocketbase';
+import {
+  CafeListPage,
+  DetailPage,
+  JoinPage,
+  LoginPage,
+  MainPage,
+  MyPage,
+  SearchRegionList,
+  SelectLoginPage,
+} from '@/pages';
+import { loader as reviewLoder } from '@/pages/MyPage/MyPage';
 import MyReviewPage, {
   loader as rvLoder,
 } from '@/pages/MyReviewPage/MyReviewPage';
@@ -26,7 +27,7 @@ const navigationItems = [
   {
     id: 'detail',
     path: '/detail/:id',
-    text: '로그인 페이지',
+    text: '카페 상세 페이지',
     element: <DetailPage />,
   },
   {
