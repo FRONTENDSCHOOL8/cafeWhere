@@ -1,11 +1,11 @@
 import LoginButton from '@/components/atoms/LoginButton/LoginButton';
 import { InputField } from '@/components/molecules';
+import { useTabStore } from '@/store';
 import {
   useLoginStore,
   useUserDataStore,
   useUserIdStore,
 } from '@/store/useLoginStore';
-import { useTabStore } from '@/store/useTabStore';
 import pb from '@/utils/pocketbase';
 import { useRef } from 'react';
 import { useState } from 'react';

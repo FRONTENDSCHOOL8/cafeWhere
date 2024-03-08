@@ -1,4 +1,8 @@
-function SelectRegion({ region, setRegion }) {
+import { useRegionStore } from '@/store';
+
+function SelectRegion() {
+  const { region, setRegion } = useRegionStore();
+
   const handleChangeRegion = (e) => {
     setRegion(e.target.value);
   };

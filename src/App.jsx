@@ -1,16 +1,10 @@
-import CheckBox from './components/organisms/CheckBox/JoinInputCheckBox';
-// import CheckBox from './components/atoms/CheckBox/LastCheckBox.jsx';
-import HeaderBar from './components/atoms/HeaderBar/HeaderBar';
-import HeaderSwiper from './components/HeaderSwiper/HeaderSwiper';
-import Preparing from './pages/Preparing/Preparing';
-import { LoginInput } from './components/organisms';
-import MainHeader from './components/atoms/MainHeader/MainHeader';
-import TabBar from './components/atoms/TabBar/TabBar';
-import LoginPage from './pages/LoginPage/LoginPage';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import router from './routes';
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
+// App 컴포넌트 외부에서 QueryClient 인스턴스 생성
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -19,10 +13,29 @@ export const queryClient = new QueryClient({
   },
 });
 
+const ReactQueryDevtoolsProduction = lazy(() =>
+  import('@tanstack/react-query-devtools/build/modern/production.js').then(
+    (d) => ({
+      default: d.ReactQueryDevtools,
+    })
+  )
+);
+
 function App() {
+  const [showDevtools, setShowDevtools] = useState(false);
+  useEffect(() => {
+    window.toggleDevtools = () => setShowDevtools((old) => !old);
+  }, []);
+
   return (
     <div className="App mx-auto h-full min-w-375pxr max-w-680pxr">
       <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen />
+        {showDevtools && (
+          <Suspense fallback={null}>
+            <ReactQueryDevtoolsProduction />
+          </Suspense>
+        )}
         <RouterProvider router={router} />
       </QueryClientProvider>
     </div>

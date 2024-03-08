@@ -1,4 +1,4 @@
-import { useTabStore } from '@/store/useTabStore';
+import { useTabStore } from '@/store';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
