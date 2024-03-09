@@ -18,6 +18,8 @@ function DetailPage() {
   const { activeTab } = useActiveTabStore();
   const params = useParams();
 
+  const { kakao } = window;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
