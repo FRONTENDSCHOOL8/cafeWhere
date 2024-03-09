@@ -1,9 +1,9 @@
 // CafeInfoTab.js
-import { useState } from 'react';
 import TabButton from '../TabButton/TabButton';
+import { useActiveTabStore } from '@/store';
 
 function CafeInfoTab() {
-  const [activeTab, setActiveTab] = useState('info');
+  const { activeTab, setActiveTab } = useActiveTabStore();
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
