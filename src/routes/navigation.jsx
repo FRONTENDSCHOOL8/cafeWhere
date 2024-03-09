@@ -2,10 +2,13 @@ import HeaderSwiper from '@/components/HeaderSwiper/HeaderSwiper';
 import {
   CafeListPage,
   DetailPage,
+  HashSearchPage,
   JoinPage,
   LoginPage,
   MainPage,
   MyPage,
+  MyWishPage,
+  ReviewPage,
   SearchRegionList,
   SelectLoginPage,
 } from '@/pages';
@@ -63,6 +66,12 @@ const navigationItems = [
     text: '메인 페이지 바로가기',
     element: <MainPage />,
   },
+  {
+    id: 'myWish',
+    path: '/myWish',
+    text: '찜목록 페이지 바로가기',
+    element: <MyWishPage />,
+  },
   // {
   //   id: 'NoReview',
   //   path: '/test2',
@@ -75,6 +84,18 @@ const navigationItems = [
   //   text: '리뷰페이지 작성하기',
   //   element: <Review />,
   // },
+  {
+    id: 'hashSearch',
+    path: '/hashSearch',
+    text: '해시태그 검색 페이지 바로가기',
+    element: <HashSearchPage />,
+  },
+  {
+    id: 'review',
+    path: '/review',
+    text: '리뷰 페이지 바로가기',
+    element: <ReviewPage />,
+  },
   {
     id: 'mypage',
     path: '/mypage',
