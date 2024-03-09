@@ -193,7 +193,7 @@ function JoinInput() {
               phone: value,
             })
           }
-          validateInput={isPhone}
+          validateInput={isText}
         />
         <InputField
           id="userBirth"
@@ -206,7 +206,7 @@ function JoinInput() {
               birth: value,
             })
           }
-          validateInput={isBirth}
+          validateInput={isText}
         />
 
         <div className="my-4 h-1pxr bg-greyscale-50"></div>
