@@ -33,7 +33,7 @@ function TabBar() {
         </div>
 
         <div onClick={setReview}>
-          <Link to="/review">
+          <Link to="/myreview">
             <img
               src={
                 activeTabState === 'review'
