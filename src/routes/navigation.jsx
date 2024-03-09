@@ -2,6 +2,7 @@ import pb from '@/utils/pocketbase';
 import {
   CafeListPage,
   DetailPage,
+  HashResultPage,
   HashSearchPage,
   JoinPage,
   LoginPage,
@@ -93,6 +94,12 @@ const navigationItems = [
     path: '/hashSearch',
     text: '해시태그 검색 페이지 바로가기',
     element: <HashSearchPage />,
+  },
+  {
+    id: 'hashSearchResult',
+    path: '/hash',
+    text: '해시태그 검색 결과 페이지',
+    element: <HashResultPage />,
   },
   {
     id: 'review',
