@@ -35,8 +35,6 @@ function MyPage() {
 
   const { userDataState } = useUserDataStore();
 
-  const productReview = useLoaderData();
-
   // const handleUserId = async () => {
   //   pb.collection('users')
   //     .getOne(UserId)
@@ -64,7 +62,6 @@ function MyPage() {
     console.log('이건 db에서 가져온것', records);
     // console.log('loader', productReview);
 
-    console.log('이건 loader로 가져온 것 ', productReview.items);
     // console.log(userDataState);
     console.log('이건 유저 id', UserId);
   };
