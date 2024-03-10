@@ -29,7 +29,7 @@ function Hashtag({ icon, keyword, click, test, handleClickEvent }) {
       className={className && toggle}
       onClick={handleHashtagClick}
       checked={isClicked}
-      id={id}
+      // id={id}
     >
       {isIcon}
       <span>{keyword}</span>
