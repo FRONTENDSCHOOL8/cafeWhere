@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'; // Link 컴포넌트 불러오기
 
 function CafeListItem({ data }) {
   return (
-    <div className="mx-5 flex justify-center">
+    <div className="mx-5 flex ">
       <article className="flex w-335pxr gap-4 rounded-xl border border-greyscale-50 p-3">
         <div className="relative h-120pxr w-1/2">
           <img

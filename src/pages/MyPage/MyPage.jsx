@@ -1,11 +1,9 @@
 import { HeaderBar, TabBar } from '@/components/atoms';
-import { useNavigate } from 'react-router-dom';
-import SelectLoginPage from '../SelectLoginPage/SelectLoginPage';
 import { useUserDataStore, useUserIdStore } from '@/store/useLoginStore';
 import pb from '@/utils/pocketbase';
 import { useState } from 'react';
-import { useEffect } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import SelectLoginPage from '../SelectLoginPage/SelectLoginPage';
 
 /* 나중에 컴포넌트분리용 */
 // function PageSection({ title }) {
@@ -23,6 +21,8 @@ function MyPage() {
 
   const navigate = useNavigate();
 
+  const test = 'qllgr0lfq2fxadq';
+
   const handleLogout = () => {
     sessionStorage.removeItem('token');
     alert('로그아웃 되었습니다');
@@ -32,8 +32,6 @@ function MyPage() {
   const { UserId } = useUserIdStore();
 
   const { userDataState } = useUserDataStore();
-
-  const productReview = useLoaderData();
 
   // const handleUserId = async () => {
   //   pb.collection('users')
@@ -52,20 +50,24 @@ function MyPage() {
     //   sort: '-created',
     // });
 
-    // console.log(records);
-    console.log('loader', productReview);
+    const records = await pb.collection('review').getList(1, 4, {
+      sort: '-created',
+      filter: `email="${UserId}"`,
+    });
 
-    console.log(userDataState);
+    // const records = await pb.collection('review').getOne('aoeeyehl39p9nwi');
+
+    console.log('이건 db에서 가져온것', records);
+    // console.log('loader', productReview);
+
+    // console.log(userDataState);
+    console.log('이건 유저 id', UserId);
   };
 
-  // useEffect(() => {
-  //   handleUserId();
-  // }, []);
-
   return (
-    <div>
+    <div className="h-svh pb-100pxr">
       {loginCheck ? (
-        <div className="h-screen">
+        <div className="">
           <div className=" mx-auto h-full min-w-375pxr max-w-680pxr">
             <HeaderBar name={'프로필'} showHomeBtn={true} />
             <img
@@ -163,8 +165,9 @@ function MyPage() {
 export default MyPage;
 
 // 비동기 호출 get
-export async function loader() {
-  return await pb.collection('review').getList(1, 2, {
-    sort: '-created',
-  });
-}
+// export async function loader() {
+//   return await pb.collection('review').getList(1, 4, {
+//     sort: '-created',
+//     // filter: `email="${UserId}"`,
+//   });
+// }
