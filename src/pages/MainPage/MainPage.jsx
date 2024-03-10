@@ -40,11 +40,11 @@ function MainPage() {
           <Category />
           <div className="mt-12">
             <CategoryListName>노트북하기 최적화?!</CategoryListName>
-            <SwiperCafeList data={cafeList} />
+            <SwiperCafeList data={cafeData} />
           </div>
           <div className="mt-12">
             <CategoryListName>너도 나도 인스타 업로드!!</CategoryListName>
-            <SwiperCafeList data={cafeList} />
+            <SwiperCafeList data={cafeData} />
           </div>
           <div className="mt-12">
             <CategoryListName>전체보기</CategoryListName>

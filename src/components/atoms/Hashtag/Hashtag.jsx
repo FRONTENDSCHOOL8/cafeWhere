@@ -1,8 +1,10 @@
+import { useHashtagStore } from '@/store';
 import { useState } from 'react';
 
 // 검색 페이지에서만 클릭할 수 있도록 제어
 function Hashtag({ icon, keyword, click, test, handleClickEvent }) {
   const [isClicked, setIsClicked] = useState(false);
+  const { hashtag, setHashtag } = useHashtagStore();
 
   const handleHashtagClick = () => {
     setIsClicked(!isClicked);
@@ -27,6 +29,7 @@ function Hashtag({ icon, keyword, click, test, handleClickEvent }) {
       className={className && toggle}
       onClick={handleHashtagClick}
       checked={isClicked}
+      id={id}
     >
       {isIcon}
       <span>{keyword}</span>

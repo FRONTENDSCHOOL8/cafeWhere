@@ -1,7 +1,8 @@
-import HeaderSwiper from '@/components/HeaderSwiper/HeaderSwiper';
+import pb from '@/utils/pocketbase';
 import {
   CafeListPage,
   DetailPage,
+  HashResultPage,
   HashSearchPage,
   JoinPage,
   LoginPage,
@@ -12,7 +13,11 @@ import {
   SearchRegionList,
   SelectLoginPage,
 } from '@/pages';
-import { loader as reviewLoder } from '@/pages/MyPage/MyPage';
+// import { loader as reviewLoder } from '@/pages/MyPage/MyPage';
+import MyReviewPage, {
+  loader as rvLoder,
+} from '@/pages/MyReviewPage/MyReviewPage';
+// import MyRev, { loader as rvLoder } from '@/pages/MyReviewPage/MyReviewPage';
 
 // import NoReview from '@/components/DetailReviewList/NoReview';
 
@@ -48,12 +53,12 @@ const navigationItems = [
     text: '회원가입 페이지 바로가기',
     element: <JoinPage />,
   },
-  {
-    id: 'test',
-    path: '/test',
-    text: '테스트용 탭바',
-    element: <HeaderSwiper />,
-  },
+  // {
+  //   id: 'test',
+  //   path: '/test',
+  //   text: '테스트용 탭바',
+  //   element: <HeaderSwiper />,
+  // },
   {
     id: 'selectlogin',
     path: '/',
@@ -91,6 +96,12 @@ const navigationItems = [
     element: <HashSearchPage />,
   },
   {
+    id: 'hashSearchResult',
+    path: '/hash',
+    text: '해시태그 검색 결과 페이지',
+    element: <HashResultPage />,
+  },
+  {
     id: 'review',
     path: '/review',
     text: '리뷰 페이지 바로가기',
@@ -102,7 +113,7 @@ const navigationItems = [
     text: '프로필 페이지 바로가기',
     element: <MyPage />,
 
-    loader: reviewLoder,
+    // loader: reviewLoder,
 
     // loader: async () => {
     //   // 비동기 호출 코드 작성
@@ -110,6 +121,15 @@ const navigationItems = [
     //     sort: '-created',
     //   });
     // },
+  },
+
+  {
+    id: 'myreview',
+    path: '/myreview',
+    text: '내가 쓴 리뷰',
+    element: <MyReviewPage />,
+
+    loader: rvLoder,
   },
 ];
 
