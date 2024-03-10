@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 function SearchRegionList() {
   const { region } = useRegionStore();
   const { cafeList, setCafeList } = useCafeListStore();
+  const { kakao } = window;
 
   useEffect(() => {
     const fetchData = async () => {

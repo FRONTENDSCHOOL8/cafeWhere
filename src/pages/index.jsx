@@ -10,5 +10,6 @@ export { default as ReviewPage } from './ReviewPage/ReviewPage';
 export { default as CafeListPage } from './CafeListPage/CafeListPage';
 export { default as AllHashtagList } from './AllHashtagList/AllHashtagList';
 export { default as HashSearchPage } from './HashSearchPage/HashSearchPage';
+export { default as HashResultPage } from './HashResultPage/HashResultPage';
 export { default as SelectLoginPage } from './SelectLoginPage/SelectLoginPage';
 export { default as SearchRegionList } from './SearchRegionList/SearchRegionList';
