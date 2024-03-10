@@ -21,33 +21,39 @@ function TabBar() {
         </div>
 
         <div onClick={setCafe}>
-          <img
-            src={
-              activeTabState === 'cafeicon'
-                ? '/images/main/tabbar/cafeicon-r.svg'
-                : '/images/main/tabbar/cafeicon-b.svg'
-            }
-          />
+          <Link to="/hashSearch">
+            <img
+              src={
+                activeTabState === 'cafeicon'
+                  ? '/images/main/tabbar/cafeicon-r.svg'
+                  : '/images/main/tabbar/cafeicon-b.svg'
+              }
+            />
+          </Link>
         </div>
 
         <div onClick={setReview}>
-          <img
-            src={
-              activeTabState === 'review'
-                ? '/images/main/tabbar/review-r.svg'
-                : '/images/main/tabbar/review-b.svg'
-            }
-          />
+          <Link to="/myreview">
+            <img
+              src={
+                activeTabState === 'review'
+                  ? '/images/main/tabbar/review-r.svg'
+                  : '/images/main/tabbar/review-b.svg'
+              }
+            />
+          </Link>
         </div>
 
         <div onClick={setWish}>
-          <img
-            src={
-              activeTabState === 'wish'
-                ? '/images/main/tabbar/wish-r.svg'
-                : '/images/main/tabbar/wish-b.svg'
-            }
-          />
+          <Link to="/myWish">
+            <img
+              src={
+                activeTabState === 'wish'
+                  ? '/images/main/tabbar/wish-r.svg'
+                  : '/images/main/tabbar/wish-b.svg'
+              }
+            />
+          </Link>
         </div>
 
         <div onClick={setMyicon}>

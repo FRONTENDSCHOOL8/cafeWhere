@@ -1,10 +1,8 @@
 function NoResult() {
   return (
-    <div>
-      <div className="flex h-screen flex-col items-center justify-center">
-        <img src="/cup.png" alt="빈 컵" />
-        <p className="">검색 결과가 없습니다.</p>
-      </div>
+    <div className="my-auto flex flex-col items-center ">
+      <img src="/cup.png" alt="빈 컵" />
+      <p>검색 결과가 없습니다.</p>
     </div>
   );
 }
