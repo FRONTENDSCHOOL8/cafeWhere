@@ -1,3 +1,4 @@
+import ReviewWrite from '@/components/organisms/ReviewWrite/ReviewWrite';
 import {
   CafeListPage,
   DetailPage,
@@ -11,9 +12,7 @@ import {
   ReviewPage,
   SearchRegionList,
   SelectLoginPage,
-  SearchPage,
 } from '@/pages';
-import ReviewWrite from '@/components/organisms/ReviewWrite/ReviewWrite';
 import MyReviewPage, {
   loader as rvLoder,
 } from '@/pages/MyReviewPage/MyReviewPage';
