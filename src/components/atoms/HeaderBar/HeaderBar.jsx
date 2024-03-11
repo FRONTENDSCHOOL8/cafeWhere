@@ -4,7 +4,7 @@ function HeaderBar(props) {
   const backNavigation = useNavigate();
 
   const handleNavigateHome = () => {
-    backNavigation('/main');
+    backNavigation('/');
   };
 
   const handleNavigateBack = () => {
