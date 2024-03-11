@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
 function HeaderBar(props) {
-  let backNavigation = useNavigate();
+  const backNavigation = useNavigate();
 
   const handleNavigateHome = () => {
-    backNavigation('/main');
+    backNavigation('/');
   };
 
   const handleNavigateBack = () => {

@@ -65,9 +65,9 @@ function MyPage() {
   };
 
   return (
-    <div>
+    <div className="h-pull pb-32">
       {loginCheck ? (
-        <div className="h-screen">
+        <div className="">
           <div className=" mx-auto h-full min-w-375pxr max-w-680pxr">
             <HeaderBar name={'프로필'} showHomeBtn={true} />
             <img

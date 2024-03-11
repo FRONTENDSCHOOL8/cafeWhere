@@ -10,18 +10,10 @@ function HeaderSwiper() {
   const [swiperIndex, setSwiperIndex] = useState(0);
   const [swiper, setSwiper] = useState(); // 슬라이드용
 
-  const handlePrev = () => {
-    swiper?.slidePrev();
-  };
-
-  const handleNext = () => {
-    swiper?.slideNext();
-  };
-
   return (
     <div className="relative">
       <Swiper
-        className="swiper1 h-300pxr min-w-375pxr max-w-680pxr bg-slate-500"
+        className="swiper1 min-w-375pxr max-w-680pxr"
         slidesPerView={1}
         modules={[Pagination, Navigation, Autoplay]}
         navigation={{
@@ -60,21 +52,6 @@ function HeaderSwiper() {
         <span>{'/'}</span>
         <span>{3}</span>
       </div>
-      {/* <div>
-        <button
-          onClick={handlePrev}
-          className=" absolute left-200pxr top-20 rounded-full bg-slate-400 "
-        >
-          <img src="/images/main/swiper/leftArrow.svg" alt="" />
-        </button>
-        
-        <button
-          onClick={handleNext}
-          className="absolute right-200pxr top-20 rounded-full bg-slate-400"
-        >
-          <img src="/images/main/swiper/rightArrow.svg" alt="" />
-        </button>
-      </div> */}
     </div>
   );
 }

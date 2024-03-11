@@ -7,9 +7,7 @@ import {
   useUserIdStore,
 } from '@/store/useLoginStore';
 import pb from '@/utils/pocketbase';
-import { useRef } from 'react';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRef, useState } from 'react';
 
 const isEmail = (email) => {
   const emailRegex =
@@ -31,16 +29,12 @@ const isPassword = (password) => {
 
 function LoginInput() {
   const [PasswordVisible, setPasswordVisible] = useState(false);
-  // const [userEmail, setUserEmail] = useState('');
-  // const [userPassword, setUserPassword] = useState('');
 
-  const { activeTabState, setHome } = useTabStore();
-
-  const navigate = useNavigate();
+  const { setActiveTab } = useTabStore();
 
   const { setLogIn } = useLoginStore();
 
-  const { UserId, setUserId } = useUserIdStore();
+  const { setUserId } = useUserIdStore();
 
   const { userDataState, setUserData } = useUserDataStore();
 
@@ -59,29 +53,19 @@ function LoginInput() {
       .catch((error) => {
         console.log(error);
       });
-    // console.log('현재 데이터', viewId);
   };
 
   const fetchCafeData = () => {
-    // pb.collection('users').authWithPassword(
-    //   `${emailRef.current}`,
-    //   `${passwordRef.current}`
-    // );
-
-    // console.log(pb.authStore.isValid);
-    // console.log(pb.authStore.token);
-    // console.log(pb.authStore.model.id);
-
     pb.collection('users')
       .authWithPassword(`${emailRef.current}`, `${passwordRef.current}`)
 
       .then((result) => {
         sessionStorage.setItem('token', 'login');
-        setHome();
+        setActiveTab('home');
         setLogIn();
         setUserId(pb.authStore.model.id);
         handleUserId(pb.authStore.model.id);
-        navigate('/main');
+        history.back(-2);
       })
       .catch((err) => {
         console.log(err);
@@ -129,7 +113,7 @@ function LoginInput() {
           setPasswordVisible={setPasswordVisible}
         />
         <div className="mx-0 mb-40pxr mt-14">
-          <LoginButton> 로그인 </LoginButton>
+          <LoginButton>로그인</LoginButton>
         </div>
       </form>
     </div>
