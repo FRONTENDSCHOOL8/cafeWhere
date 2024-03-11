@@ -127,31 +127,16 @@ function ReviewWrite() {
 
   const [reviewText, setReviewText] = useState(''); // 초기값으로 0을 설정합니다.
   const [imagePreview, setImagePreview] = useState(null); // 리뷰 작성 텍스트 영역의 이미지 미리보기
-  const [imageFile, setImageFile] = useState(null); // 업로드할 이미지 파일
 
   const handleReviewCheck = (e) => {
     e.preventDefault();
+
     testRecord();
   };
 
   const formData = new FormData();
-  // const handleImageChange = (e) => {
-  //   const file = e.target.files[0];
 
-  //   // **파일 유효성 검사 추가 (선택사항)**
-
-  //   const reader = new FileReader();
-
-  //   reader.onload = (e) => {
-  //     setImagePreview(e.target.result);
-  //   };
-
-  //   reader.readAsDataURL(file);
-
-  //   formData.append('image', file);
-  //   setImageFile(file);
-  //   console.log(formData);
-  // };
+  const [imageList, setImageList] = useState([]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -160,7 +145,7 @@ function ReviewWrite() {
 
     // 이미지 업로드를 위한 formData에 파일 추가
     formData.append('image', file);
-    console.log(formData); // formData 객체 확인
+    // console.log(formData); // formData 객체 확인
 
     reader.onload = (e) => {
       setImagePreview(e.target.result);
@@ -195,6 +180,7 @@ function ReviewWrite() {
         <form
           onSubmit={handleReviewCheck}
           className="flex flex-col items-center gap-4 rounded-lg bg-white py-4"
+          encType="multipart/form-data"
         >
           <span className="text-lg font-semibold">리뷰 쓰기</span>
           <RatingScore rating={rating} setRating={setRating} />
@@ -206,7 +192,14 @@ function ReviewWrite() {
           ></textarea>
 
           <div className="flex flex-col items-center">
-            <input type="file" multiple onChange={handleImageChange} />
+            <input
+              type="file"
+              accept="*.jpg,*.png,*.jpeg,*.webp,*.avif,*.svg"
+              multiple
+              id="photos"
+              name="photos"
+              onChange={handleImageChange}
+            />
 
             {imagePreview && <img src={imagePreview} alt="테스트 이미지" />}
           </div>
