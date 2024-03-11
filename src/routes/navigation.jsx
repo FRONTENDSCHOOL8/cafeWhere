@@ -85,31 +85,6 @@ const navigationItems = [
     element: <ReviewPage />,
   },
   {
-<<<<<<< HEAD
-    id: 'search',
-    path: '/search',
-    text: '검색 페이지 바로가기',
-    element: <SearchPage />,
-  },
-  {
-    id: 'mypage',
-    path: '/mypage',
-    text: '프로필 페이지 바로가기',
-    element: <MyPage />,
-
-    // loader: reviewLoder,
-
-    // loader: async () => {
-    //   // 비동기 호출 코드 작성
-    //   return await pb.collection('review').getList(1, 2, {
-    //     sort: '-created',
-    //   });
-    // },
-  },
-
-  {
-=======
->>>>>>> develop
     id: 'myreview',
     path: '/myreview',
     text: '내가 쓴 리뷰',
