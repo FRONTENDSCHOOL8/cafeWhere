@@ -28,7 +28,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App mx-auto h-svh min-w-375pxr max-w-680pxr">
+    <div className="App mx-auto h-full min-w-375pxr max-w-680pxr">
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen />
         {showDevtools && (

@@ -9,7 +9,7 @@ function MainHeader() {
           <img src="/images/main/header/mapLogo.svg" alt="지도로 이동" />
         </Link>
 
-        <Link to="/main">
+        <Link to="/">
           <img src="/images/main/header/mainLogo.svg" alt="메인 로고" />
         </Link>
 

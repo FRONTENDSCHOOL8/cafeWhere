@@ -101,8 +101,8 @@ function MyReviewPage() {
   }, []);
 
   return (
-    <div className="h-screen">
-      <div className="mx-auto  h-full min-w-375pxr max-w-680pxr px-6">
+    <>
+      <div className="px-6">
         <HeaderBar name={'내가 쓴 리뷰'} />
         <button onClick={handleReview}>test</button>
         {/* <Link to="/myreview?size=123">
@@ -177,10 +177,9 @@ function MyReviewPage() {
           })}
         </ul>
         {/* <ReviewInfo /> */}
-
-        <TabBar />
       </div>
-    </div>
+      <TabBar />
+    </>
   );
 }
 

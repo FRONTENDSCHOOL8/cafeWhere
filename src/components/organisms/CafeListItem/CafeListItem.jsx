@@ -7,7 +7,7 @@ function CafeListItem({ data }) {
   return (
     <div className="mx-5 flex min-w-375pxr justify-start">
       <article className="flex w-full gap-4 rounded-xl border border-greyscale-50 p-3">
-        <div className="relative h-120pxr w-160pxr">
+        <div className="relative h-120pxr w-200pxr">
           <img
             src={`${pbImg(data.collectionId, data.id, data.mainImage)}`}
             alt="cafeList"
@@ -18,7 +18,7 @@ function CafeListItem({ data }) {
           </div>
         </div>
 
-        <Link to={`/detail/${data.id}`} className="">
+        <Link to={`/detail/${data.id}`} className="w-full">
           <h3 className="text-14pxr font-semibold text-greyscale-100">
             {data.cafeName}
           </h3>
