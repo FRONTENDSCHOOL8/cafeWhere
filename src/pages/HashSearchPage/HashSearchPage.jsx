@@ -31,14 +31,15 @@ function HashSearchPage() {
     let filterQuery = hashtag?.map((tag) => `hashtag~'${tag}'`).join(' && ');
     const resultList = await pb.collection('cafe').getList(1, 50, {
       filter: filterQuery,
+      expand: 'hashtag',
     });
 
     setSearchHashtag(resultList);
   };
 
   return (
-    <div className="min-h-svh">
-      <div className="pb-100pxr">
+    <div className="h-full">
+      <div className="pb-32">
         <HeaderBar name="해시태그 검색" />
         <SearchBar />
         <AllHashtagList />

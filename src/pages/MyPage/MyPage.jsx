@@ -65,7 +65,7 @@ function MyPage() {
   };
 
   return (
-    <div className="h-svh pb-100pxr">
+    <div className="h-pull pb-32">
       {loginCheck ? (
         <div className="">
           <div className=" mx-auto h-full min-w-375pxr max-w-680pxr">

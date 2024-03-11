@@ -33,7 +33,11 @@ function CafeListItem({ data }) {
             <li className="my-1 mr-1">
               {data.expand
                 ? data.expand.hashtag.map((item) => (
-                    <Hashtag icon={item.icon} keyword={item.keyword} />
+                    <Hashtag
+                      key={item.id}
+                      icon={item.icon}
+                      keyword={item.keyword}
+                    />
                   ))
                 : ''}
             </li>

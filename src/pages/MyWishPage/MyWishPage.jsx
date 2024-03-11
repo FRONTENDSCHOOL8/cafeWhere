@@ -21,10 +21,8 @@ function MyWishPage() {
     fetchDeta();
   }, []);
 
-  console.log(wishCafe);
-
   return (
-    <div>
+    <div className="h-svh pb-32">
       {loginCheck ? (
         <>
           <HeaderBar name={'찜한 카페'} />

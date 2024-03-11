@@ -69,7 +69,7 @@ function DetailPage() {
   const imageURL = pbImg(cafe?.collectionId, cafe?.id, cafe?.mainImage);
 
   return (
-    <>
+    <div className="h-full pb-12">
       <HeaderBar showHomeBtn />
 
       <div key={cafe.id} className="mx-auto w-full">
@@ -109,7 +109,7 @@ function DetailPage() {
           </div>
         </>
       </div>
-    </>
+    </div>
   );
 }
 
