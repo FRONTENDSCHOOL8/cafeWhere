@@ -1,7 +1,7 @@
 import { HeaderBar } from '@/components/atoms';
 import Divider from '@/components/atoms/Divider/Divider';
 import LoginButton from '@/components/atoms/LoginButton/LoginButton';
-import SignUpLink from '@/components/atoms/SIgnUpLink/SignUpLink';
+import SignUpLink from '@/components/atoms/SignUpZone/SignUpZone';
 import SocialLoginButton from '@/components/atoms/SocialLoginButton/SocialLoginButton';
 import { LoginInput } from '@/components/organisms';
 
