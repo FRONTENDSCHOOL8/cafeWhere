@@ -11,6 +11,7 @@ import {
   ReviewPage,
   SearchRegionList,
   SelectLoginPage,
+  SearchPage,
 } from '@/pages';
 import ReviewWrite from '@/components/organisms/ReviewWrite/ReviewWrite';
 import MyReviewPage, {
