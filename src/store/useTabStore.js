@@ -2,7 +2,7 @@ import { create } from 'zustand';
 
 const initialState = {};
 
-export const useTabStore = create((set) => ({
+const useTabStore = create((set) => ({
   activeTabState: 'home',
 
   setHome: () => set((state) => ({ activeTabState: 'home' })),
@@ -12,3 +12,5 @@ export const useTabStore = create((set) => ({
   setMyicon: () => set((state) => ({ activeTabState: 'myicon' })),
   setTabState: (tab) => set((state) => ({ activeTabState: tab })),
 }));
+
+export default useTabStore;
