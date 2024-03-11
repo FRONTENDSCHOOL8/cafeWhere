@@ -1,25 +1,30 @@
 import SearchField from '@/components/molecules/SearchField/SearchField';
 import CafeListItem from '@/components/organisms/CafeListItem/CafeListItem';
+import pb from '@/utils/pocketbase';
+import { useEffect, useState } from 'react';
 
-//! 데이터 불러와야 함
-// const CAFELIST_URL = `${import.meta.env.VITE_PB_URL}/api/collections/cafe/records`;
-// const getData = async () => {
-//   const response = await fetch(CAFELIST_URL);
-//   const data = await response.json();
+// 카페명, 리뷰 별점, 리뷰 갯수, 해시태그
 
-//   return data.items;
-// };
-// const cafeList = await getData();
-// console.log(cafeList);
-
-//! 필터 넣어야 함
+//! 해당 컴포넌트 사용시 router 필요
 function ResultListPage() {
+  const [cafes, setCafes] = useState([]);
+
+  const fetchData = async () => {
+    const allCafes = await pb.collection('cafe').getFullList();
+    setCafes(allCafes);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="h-screen">
       <div className="mx-auto h-full w-full min-w-375pxr max-w-680pxr">
         <SearchField />
         <span>총 건이 검색되었습니다.</span>
-        <CafeListItem />
+        {cafes.map((data) => (
+          <CafeListItem key={data.id} data={data} />
+        ))}
       </div>
     </div>
   );
