@@ -11,41 +11,16 @@ import { useNavigate } from 'react-router-dom';
 function SelectLoginPage() {
   let navigate = useNavigate();
 
-  const [reviewData, setReviewData] = useState([]);
   const handleLoginPage = (e) => {
     e.preventDefault();
     navigate('/login');
   };
 
-  const handleTest = () => {
-    console.log(reviewData[0].cafeId);
-  };
-
-  const handleCheck = async () => {
-    const records = await pb.collection('review').getList(1, 2, {
-      sort: '-created',
-    });
-
-    console.log(records.items);
-
-    setReviewData(records.items);
-    // console.log('loader', productReview);
-
-    // console.log(userDataState);
-  };
-
-  useEffect(() => {
-    handleCheck();
-  }, []);
-
   return (
     <>
       <div className="h-screen">
         <div className="mx-auto flex h-full w-full min-w-375pxr max-w-680pxr flex-col">
-          <div
-            className="mb-44pxr mt-197pxr flex justify-center pt-10"
-            onClick={handleTest}
-          >
+          <div className="mb-44pxr mt-197pxr flex justify-center pt-10">
             <img src="/images/biglogo2.svg" alt="카페어디 빅사이즈 로고" />
           </div>
 
