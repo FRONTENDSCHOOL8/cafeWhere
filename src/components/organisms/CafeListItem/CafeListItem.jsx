@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'; // Link 컴포넌트 불러오기
 
 function CafeListItem({ data }) {
   return (
-    <div className="mx-5 flex ">
-      <article className="flex w-335pxr gap-4 rounded-xl border border-greyscale-50 p-3">
-        <div className="relative h-120pxr w-1/2">
+    <div className="mx-5 flex min-w-375pxr justify-start">
+      <article className="flex w-full gap-4 rounded-xl border border-greyscale-50 p-3">
+        <div className="relative h-120pxr w-160pxr">
           <img
             src={`${pbImg(data.collectionId, data.id, data.mainImage)}`}
             alt="cafeList"
@@ -18,7 +18,7 @@ function CafeListItem({ data }) {
           </div>
         </div>
 
-        <Link to={`/detail/${data.id}`} className="w-160pxr overflow-hidden">
+        <Link to={`/detail/${data.id}`} className="">
           <h3 className="text-14pxr font-semibold text-greyscale-100">
             {data.cafeName}
           </h3>
@@ -31,7 +31,11 @@ function CafeListItem({ data }) {
           </p>
           <ul className="flex flex-wrap items-center">
             <li className="my-1 mr-1">
-              <Hashtag icon={'🍰'} keyword={'디저트가 맛있어요'} />
+              {data.expand
+                ? data.expand.hashtag.map((item) => (
+                    <Hashtag icon={item.icon} keyword={item.keyword} />
+                  ))
+                : ''}
             </li>
           </ul>
         </Link>

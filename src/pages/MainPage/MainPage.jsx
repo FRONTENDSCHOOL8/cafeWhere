@@ -9,7 +9,6 @@ import pb from '@/utils/pocketbase';
 import { useQuery } from '@tanstack/react-query';
 import Footer from './../../components/atoms/Footer/Footer';
 import { useEffect } from 'react';
-// import { useEffect } from 'react';
 
 function MainPage() {
   const { region } = useRegionStore();
@@ -20,6 +19,7 @@ function MainPage() {
     queryFn: async () =>
       await pb.collection('cafe').getFullList({
         filter: `address~'${region}'`,
+        expand: 'hashtag',
         sort: '-created',
       }),
 
@@ -32,7 +32,7 @@ function MainPage() {
 
   return (
     <>
-      <div className="pb-8">
+      <div className="h-full pb-8">
         <MainHeader />
         <HeaderSwiper />
         <Category />
