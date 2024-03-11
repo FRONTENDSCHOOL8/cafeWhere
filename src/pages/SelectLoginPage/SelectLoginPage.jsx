@@ -1,3 +1,4 @@
+import { HeaderBar } from '@/components/atoms';
 import Divider from '@/components/atoms/Divider/Divider';
 import LoginButton from '@/components/atoms/LoginButton/LoginButton';
 import SignUpLink from '@/components/atoms/SIgnUpLink/SignUpLink';
@@ -5,7 +6,7 @@ import SocialLoginButton from '@/components/atoms/SocialLoginButton/SocialLoginB
 import { useNavigate } from 'react-router-dom';
 
 function SelectLoginPage() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLoginPage = (e) => {
     e.preventDefault();
@@ -15,6 +16,7 @@ function SelectLoginPage() {
   return (
     <>
       <div className="h-screen">
+        <HeaderBar />
         <div className="mx-auto flex h-full w-full min-w-375pxr max-w-680pxr flex-col">
           <div className="mb-44pxr mt-197pxr flex justify-center pt-10">
             <img src="/images/biglogo2.svg" alt="카페어디 빅사이즈 로고" />

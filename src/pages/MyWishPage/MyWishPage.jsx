@@ -2,11 +2,13 @@ import { HeaderBar, TabBar } from '@/components/atoms';
 import CafeListItem from '@/components/organisms/CafeListItem/CafeListItem';
 import pb from '@/utils/pocketbase';
 import { useEffect, useState } from 'react';
+import SelectLoginPage from '../SelectLoginPage/SelectLoginPage';
 
 function MyWishPage() {
   const userId = JSON.parse(localStorage.getItem('pocketbase_auth')).model.id;
 
   const [wishCafe, setWishCafe] = useState([]);
+  const loginCheck = sessionStorage.getItem('token');
 
   useEffect(() => {
     const fetchDeta = async () => {
@@ -23,11 +25,17 @@ function MyWishPage() {
 
   return (
     <div>
-      <HeaderBar name={'찜한 카페'} />
-      {wishCafe.map((data) => (
-        <CafeListItem data={data} />
-      ))}
-      <TabBar />
+      {loginCheck ? (
+        <>
+          <HeaderBar name={'찜한 카페'} />
+          {wishCafe.map((data) => (
+            <CafeListItem data={data} />
+          ))}
+          <TabBar />
+        </>
+      ) : (
+        <SelectLoginPage />
+      )}
     </div>
   );
 }

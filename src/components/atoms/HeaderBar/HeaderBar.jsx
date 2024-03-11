@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 function HeaderBar(props) {
-  let backNavigation = useNavigate();
+  const backNavigation = useNavigate();
 
   const handleNavigateBack = () => {
     console.log(props.name);
