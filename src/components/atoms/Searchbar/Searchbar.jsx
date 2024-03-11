@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function SearchBar() {
+function SearchBar({ onSearch }) {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleInputChange = (e) => {
@@ -9,8 +9,7 @@ function SearchBar() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // 검색 로직을 여기에 추가
-    console.log('검색어:', searchTerm);
+    onSearch(searchTerm);
   };
 
   return (

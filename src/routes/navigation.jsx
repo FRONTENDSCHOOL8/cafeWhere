@@ -11,6 +11,7 @@ import {
   ReviewPage,
   SearchRegionList,
   SelectLoginPage,
+  SearchPage,
 } from '@/pages';
 import MyReviewPage, {
   loader as rvLoder,
