@@ -15,7 +15,7 @@ function SearchBar() {
 
   return (
     <form
-      className="mx-5 flex items-center overflow-hidden rounded-xl bg-gray-200 p-3"
+      className="mx-5 flex w-full items-center overflow-hidden rounded-xl bg-gray-200 p-3"
       onSubmit={handleSearch}
     >
       <input
@@ -23,7 +23,7 @@ function SearchBar() {
         value={searchTerm}
         onChange={handleInputChange}
         placeholder="검색어를 입력하세요"
-        className="w-full bg-gray-200 focus:outline-none"
+        className="w-full bg-gray-200 text-base font-medium focus:outline-none"
       />
       <button type="submit">
         <img src="/glass.svg" alt="검색" />
