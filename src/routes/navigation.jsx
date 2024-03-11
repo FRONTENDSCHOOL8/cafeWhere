@@ -46,7 +46,6 @@ const navigationItems = [
     text: '로그인 페이지',
     element: <LoginPage />,
   },
-
   {
     id: 'join',
     path: '/join',
