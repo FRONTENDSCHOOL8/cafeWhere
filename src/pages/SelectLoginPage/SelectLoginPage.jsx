@@ -1,4 +1,3 @@
-import { Wish } from '@/components/atoms';
 import Divider from '@/components/atoms/Divider/Divider';
 import LoginButton from '@/components/atoms/LoginButton/LoginButton';
 import SignUpLink from '@/components/atoms/SIgnUpLink/SignUpLink';

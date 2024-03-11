@@ -100,6 +100,9 @@ devDependencies:
   prop-types:
     specifier: ^15.8.1
     version: 15.8.1
+  simple-zustand-devtools:
+    specifier: ^1.1.0
+    version: 1.1.0(@types/react-dom@18.2.19)(@types/react@18.2.58)(react-dom@18.2.0)(react@18.2.0)(zustand@4.5.1)
   storybook:
     specifier: ^7.6.17
     version: 7.6.17
@@ -8328,6 +8331,22 @@ packages:
     engines: {node: '>=14'}
     dev: true
 
+  /simple-zustand-devtools@1.1.0(@types/react-dom@18.2.19)(@types/react@18.2.58)(react-dom@18.2.0)(react@18.2.0)(zustand@4.5.1):
+    resolution: {integrity: sha512-Axfcfr9L3YL3kto7aschCQLY2VUlXXMnIVtaTe9Y0qWbNmPsX/y7KsNprmxBZoB0pww5ZGs1u/ohcrvQ3tE6jA==}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      '@types/react-dom': '>=18.0.0'
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+      zustand: '>=1.0.2'
+    dependencies:
+      '@types/react': 18.2.58
+      '@types/react-dom': 18.2.19
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      zustand: 4.5.1(@types/react@18.2.58)(react@18.2.0)
+    dev: true
+
   /sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
     dev: true
@@ -9033,7 +9052,6 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
-    dev: false
 
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -9319,4 +9337,3 @@ packages:
       '@types/react': 18.2.58
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
-    dev: false

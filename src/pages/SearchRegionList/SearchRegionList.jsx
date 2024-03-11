@@ -1,12 +1,14 @@
 import { HeaderBar } from '@/components/atoms';
 import SelectRegion from '@/components/atoms/SelectRegion/SelectRegion';
 import CafeListItem from '@/components/organisms/CafeListItem/CafeListItem';
+import { useCafeListStore, useRegionStore } from '@/store';
 import pb from '@/utils/pocketbase';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 function SearchRegionList() {
-  const [region, setRegion] = useState('종로구');
-  const [cafeList, setCafeList] = useState([]);
+  const { region } = useRegionStore();
+  const { cafeList, setCafeList } = useCafeListStore();
+  const { kakao } = window;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +39,7 @@ function SearchRegionList() {
     ps.keywordSearch(`${region} 카페`, placesSearchCB);
 
     // 키워드 검색 완료 시 호출되는 콜백함수 입니다
-    function placesSearchCB(data, status, pagination) {
+    function placesSearchCB(data, status) {
       if (status === kakao.maps.services.Status.OK) {
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가합니다
@@ -65,10 +67,7 @@ function SearchRegionList() {
 
   return (
     <>
-      <HeaderBar
-        name={<SelectRegion region={region} setRegion={setRegion} />}
-        showHomeBtn
-      />
+      <HeaderBar name={<SelectRegion />} showHomeBtn />
 
       <div id="map" className="mb-3 mt-[-12px] h-237pxr w-full"></div>
 
