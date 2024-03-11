@@ -1,11 +1,7 @@
-import { Wish } from '@/components/atoms';
 import Divider from '@/components/atoms/Divider/Divider';
 import LoginButton from '@/components/atoms/LoginButton/LoginButton';
 import SignUpLink from '@/components/atoms/SIgnUpLink/SignUpLink';
 import SocialLoginButton from '@/components/atoms/SocialLoginButton/SocialLoginButton';
-import pb from '@/utils/pocketbase';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function SelectLoginPage() {
