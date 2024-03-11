@@ -12,6 +12,7 @@ import {
   ReviewPage,
   SearchRegionList,
   SelectLoginPage,
+  SearchPage,
 } from '@/pages';
 // import { loader as reviewLoder } from '@/pages/MyPage/MyPage';
 import MyReviewPage, {
@@ -106,6 +107,12 @@ const navigationItems = [
     path: '/review',
     text: '리뷰 페이지 바로가기',
     element: <ReviewPage />,
+  },
+  {
+    id: 'search',
+    path: '/search',
+    text: '검색 페이지 바로가기',
+    element: <SearchPage />,
   },
   {
     id: 'mypage',
