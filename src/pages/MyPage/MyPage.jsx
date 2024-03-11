@@ -1,11 +1,9 @@
 import { HeaderBar, TabBar } from '@/components/atoms';
-import { useNavigate } from 'react-router-dom';
-import SelectLoginPage from '../SelectLoginPage/SelectLoginPage';
 import { useUserDataStore, useUserIdStore } from '@/store/useLoginStore';
 import pb from '@/utils/pocketbase';
 import { useState } from 'react';
-import { useEffect } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import SelectLoginPage from '../SelectLoginPage/SelectLoginPage';
 
 /* 나중에 컴포넌트분리용 */
 // function PageSection({ title }) {
@@ -67,9 +65,9 @@ function MyPage() {
   };
 
   return (
-    <div>
+    <div className="h-pull pb-32">
       {loginCheck ? (
-        <div className="h-screen">
+        <div className="">
           <div className=" mx-auto h-full min-w-375pxr max-w-680pxr">
             <HeaderBar name={'프로필'} showHomeBtn={true} />
             <img

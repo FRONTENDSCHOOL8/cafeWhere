@@ -1,6 +1,5 @@
 import HeaderBar from '@/components/atoms/HeaderBar/HeaderBar';
 import PreparingItem from '@/components/PreparingItem/PreparingItem';
-import React from 'react';
 
 function Preparing() {
   return (

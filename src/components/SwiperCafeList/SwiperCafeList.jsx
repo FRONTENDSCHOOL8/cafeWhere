@@ -31,8 +31,8 @@ function SwiperCafeList({ data }) {
         {/* 추후에 카테고리 별로 데이터 가져오기 수정 & 사진크기 수정 */}
         {data &&
           data.map((data) => (
-            <SwiperSlide>
-              <CategoryCafeList key={data.id} data={data} />
+            <SwiperSlide key={data.id}>
+              <CategoryCafeList data={data} />
             </SwiperSlide>
           ))}
       </Swiper>
