@@ -12,6 +12,7 @@ import {
   SearchRegionList,
   SelectLoginPage,
 } from '@/pages';
+import ReviewWrite from '@/components/organisms/ReviewWrite/ReviewWrite';
 import MyReviewPage, {
   loader as rvLoder,
 } from '@/pages/MyReviewPage/MyReviewPage';
@@ -82,6 +83,12 @@ const navigationItems = [
     path: '/review',
     text: '리뷰 페이지 바로가기',
     element: <ReviewPage />,
+  },
+  {
+    id: 'reviewWrite',
+    path: '/reviewWrite/:keyword',
+    text: '리뷰 작성 페이지 바로가기',
+    element: <ReviewWrite />,
   },
   {
     id: 'myreview',

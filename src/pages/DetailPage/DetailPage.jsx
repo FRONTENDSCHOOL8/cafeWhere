@@ -1,22 +1,22 @@
-import { useEffect } from 'react';
-import pb, { pbImg } from '@/utils/pocketbase';
 import Wish from '@/components/atoms/Wish/Wish';
+import pb, { pbImg } from '@/utils/pocketbase';
+import { useEffect } from 'react';
 
-import { useParams } from 'react-router-dom';
+import CategoryListName from '@/components/SwiperCafeList/CategoryListName';
+import SwiperCafeList from '@/components/SwiperCafeList/SwiperCafeList';
 import { HeaderBar } from '@/components/atoms';
-import Hashtag from '@/components/atoms/Hashtag/Hashtag';
 import CafeInfoTab from '@/components/atoms/CafeInfoTab/CafeInfoTab';
+import Hashtag from '@/components/atoms/Hashtag/Hashtag';
+import ReviewButton from '@/components/atoms/ReviewButton/ReviewButton';
 import {
   useActiveTabStore,
   useCafeListStore,
   useCafeStore,
   useRegionStore,
 } from '@/store';
+import { useParams } from 'react-router-dom';
 import DetailInfo from './DetailInfo';
 import DetailReview from './DetailReview';
-import CategoryListName from '@/components/SwiperCafeList/CategoryListName';
-import SwiperCafeList from '@/components/SwiperCafeList/SwiperCafeList';
-import HashtagCard from '@/components/organisms/DetailReviewList/HashtagCard';
 
 function DetailPage() {
   const { region } = useRegionStore();
@@ -26,7 +26,6 @@ function DetailPage() {
   const params = useParams();
 
   const { kakao } = window;
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -78,7 +77,7 @@ function DetailPage() {
           alt={cafe?.cafeName}
           className="max-h-360pxr w-full"
         />
-        <>
+        <div className="w-full">
           <div className="flex items-start justify-between p-5">
             <div>
               <h2 className="mb-2 text-xl font-semibold">{cafe.cafeName}</h2>
@@ -107,7 +106,12 @@ function DetailPage() {
             <CategoryListName>{region} 카페 추천</CategoryListName>
             <SwiperCafeList data={cafeList} />
           </div>
-        </>
+          {activeTab === 'review' && cafe.reviewQuantity > 0 ? (
+            <ReviewButton />
+          ) : (
+            ''
+          )}
+        </div>
       </div>
     </div>
   );
