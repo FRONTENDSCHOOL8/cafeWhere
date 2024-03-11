@@ -7,10 +7,12 @@ import ReviewInfo from '@/components/atoms/ReviewInfo/ReviewInfo';
 import CoffeeScore from '@/components/atoms/CoffeeScore/CoffeeScore';
 import RatingScore from '@/components/atoms/RatingScore/RatingScore';
 import ReviewWrite from '@/components/organisms/ReviewWrite/ReviewWrite';
+import ReviewList from '@/components/organisms/DetailReviewList/ReviewList';
 
 function MyReviewPage() {
   const { userDataState } = useUserDataStore();
-  const { UserId } = useUserIdStore();
+  // const { UserId } = useUserIdStore();
+  const UserId = JSON.parse(localStorage.getItem('pocketbase_auth')).model.id;
 
   const [reviewRecord, setReviewRecord] = useState([]);
   const userReviewData = useLoaderData();
@@ -101,8 +103,8 @@ function MyReviewPage() {
   }, []);
 
   return (
-    <div className="h-screen">
-      <div className="mx-auto  h-full min-w-375pxr max-w-680pxr px-6">
+    <>
+      <div className="px-6">
         <HeaderBar name={'내가 쓴 리뷰'} />
         <button onClick={handleReview}>test</button>
         {/* <Link to="/myreview?size=123">
@@ -139,7 +141,7 @@ function MyReviewPage() {
           </div>
         </div> */}
 
-        <ReviewWrite />
+        {/* <ReviewWrite /> */}
 
         {/* <imput type="file" onChange={handleImageUpload}></imput> */}
 
@@ -148,39 +150,41 @@ function MyReviewPage() {
         <ul className="flex flex-col gap-4">
           {reviewRecord.map((data, index) => {
             return (
-              <li key={data.id} className="flex flex-col gap-2 bg-slate-400">
-                <span>카페이름 : {data.cafeName}</span>
-                <span>리뷰 정보 : {data.contents}</span>
-                <span>점수 : {data.score}</span>
+              // <li key={data.id} className="flex flex-col gap-2 bg-slate-400">
+              //   <span>카페이름 : {data.cafeName}</span>
+              //   <span>리뷰 정보 : {data.contents}</span>
+              //   <span>점수 : {data.score}</span>
 
-                <span>해시태그 : {data.hashtag}</span>
-                <span>업로드 : {data.updated}</span>
-                {/* <img
-                src={pbImg(data.collectionId, data.id, data.image[0])}
-                alt=""
-                className="h-70pxr w-70pxr"
-              /> */}
+              //   <span>해시태그 : {data.hashtag}</span>
+              //   <span>업로드 : {data.updated.slice(0, 10)}</span>
+              //   {/* <img
+              //   src={pbImg(data.collectionId, data.id, data.image[0])}
+              //   alt=""
+              //   className="h-70pxr w-70pxr"
+              // /> */}
 
-                <div className="flex gap-2">
-                  {data.image.map((img) => (
-                    <img
-                      className="h-90pxr w-90pxr"
-                      src={pbImg(data.collectionId, data.id, img)}
-                      alt="" //변경해야됨
-                    />
-                  ))}
-                </div>
+              //   <div className="flex gap-2">
+              //     {data.image.map((img) => (
+              //       <img
+              //         className="h-90pxr w-90pxr"
+              //         src={pbImg(data.collectionId, data.id, img)}
+              //         alt="" //변경해야됨
+              //       />
+              //     ))}
+              //   </div>
 
-                <br />
-              </li>
+              //   <br />
+              // </li>
+              <div>
+                <ReviewList key={data.id} data={data} />
+              </div>
             );
           })}
         </ul>
         {/* <ReviewInfo /> */}
-
-        <TabBar />
       </div>
-    </div>
+      <TabBar />
+    </>
   );
 }
 

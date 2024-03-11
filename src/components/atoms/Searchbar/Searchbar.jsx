@@ -14,7 +14,7 @@ function SearchBar({ onSearch }) {
 
   return (
     <form
-      className="mx-5 flex w-full items-center overflow-hidden rounded-xl bg-gray-200 p-3"
+      className="mx-5 flex items-center overflow-hidden rounded-xl bg-gray-200 p-3"
       onSubmit={handleSearch}
     >
       <input

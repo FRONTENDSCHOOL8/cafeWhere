@@ -1,7 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 
 function HeaderBar(props) {
-  let backNavigation = useNavigate();
+  const backNavigation = useNavigate();
+
+  const handleNavigateHome = () => {
+    backNavigation('/');
+  };
 
   const handleNavigateBack = () => {
     console.log(props.name);
@@ -18,7 +22,7 @@ function HeaderBar(props) {
         <span className="text-xl font-bold">{props.name}</span>
 
         {props.showHomeBtn ? (
-          <button type="button" className="" onClick={handleNavigateBack}>
+          <button type="button" className="" onClick={handleNavigateHome}>
             <img
               className="justify-center"
               src="/images/login/HomeIcon.svg"
