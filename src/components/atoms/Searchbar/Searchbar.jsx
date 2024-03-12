@@ -1,7 +1,12 @@
-import { useState } from 'react';
+import { useWordStore } from '@/store';
+import useSearchTermStore from '@/store/useSearchTermStore';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function SearchBar({ onSearch }) {
-  const [searchTerm, setSearchTerm] = useState('');
+function SearchBar() {
+  const navigate = useNavigate();
+  const { searchTerm, setSearchTerm } = useSearchTermStore();
+  const { words, setWords } = useWordStore();
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
@@ -9,8 +14,17 @@ function SearchBar({ onSearch }) {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    onSearch(searchTerm);
+    if (!words.includes(searchTerm)) {
+      setWords([...words, searchTerm]);
+    }
+
+    navigate(`/searchResult/${searchTerm}`);
+    setSearchTerm('');
   };
+
+  useEffect(() => {
+    setSearchTerm('');
+  }, [navigate]);
 
   return (
     <form
