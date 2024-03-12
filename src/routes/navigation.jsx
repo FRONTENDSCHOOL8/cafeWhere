@@ -10,12 +10,15 @@ import {
   MyPage,
   MyWishPage,
   ReviewPage,
+  SearchPage,
   SearchRegionList,
+  SearchResultPage,
   SelectLoginPage,
 } from '@/pages';
 import MyReviewPage, {
   loader as rvLoder,
 } from '@/pages/MyReviewPage/MyReviewPage';
+import { fetchSearch } from '@/pages/SearchResultPage/SearchResultPage';
 
 const navigationItems = [
   {
@@ -59,6 +62,20 @@ const navigationItems = [
     path: '/cafeList/:keyword',
     text: '카페리스트 페이지',
     element: <CafeListPage />,
+  },
+  {
+    id: 'search',
+    path: '/search',
+    text: '검색 페이지 바로가기',
+    element: <SearchPage />,
+  },
+  {
+    id: 'searchResult',
+    path: '/searchResult/:keyword',
+    // path: '/searchResult',
+    text: '검색 결과 페이지',
+    element: <SearchResultPage />,
+    loader: fetchSearch,
   },
   {
     id: 'hashSearch',

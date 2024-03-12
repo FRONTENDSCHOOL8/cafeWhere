@@ -1,9 +1,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, FreeMode, Pagination } from 'swiper/modules';
+import { FreeMode, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import CategoryCafeList from './CategoryCafeList';
-import { pbImg } from '@/utils/pocketbase';
 
 function SwiperCafeList({ data }) {
   return (
