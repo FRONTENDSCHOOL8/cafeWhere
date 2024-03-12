@@ -32,7 +32,10 @@ function DetailInfo() {
             <h3 className="mb-2 font-semibold">시설정보</h3>
             <div className="flex flex-wrap gap-2">
               {info.map((infoItem) => (
-                <span className="rounded-xl border bg-white px-2 py-1 text-center text-xs">
+                <span
+                  key={infoItem}
+                  className="rounded-xl border bg-white px-2 py-1 text-center text-xs"
+                >
                   {infoItem}
                 </span>
               ))}

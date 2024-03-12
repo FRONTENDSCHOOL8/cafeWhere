@@ -13,9 +13,9 @@ function MainHeader() {
           <img src="/images/main/header/mainLogo.svg" alt="메인 로고" />
         </Link>
 
-        <button type="button">
+        <Link to="/search">
           <img src="/images/main/header/searchIcon.svg" alt="검색창으로 이동" />
-        </button>
+        </Link>
       </div>
       <SelectRegion />
     </>
