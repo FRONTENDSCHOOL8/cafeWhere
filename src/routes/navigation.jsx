@@ -1,3 +1,4 @@
+import ReviewWrite from '@/components/organisms/ReviewWrite/ReviewWrite';
 import {
   CafeListPage,
   DetailPage,
@@ -11,7 +12,6 @@ import {
   ReviewPage,
   SearchRegionList,
   SelectLoginPage,
-  // SearchPage,
 } from '@/pages';
 import MyReviewPage, {
   loader as rvLoder,
@@ -83,6 +83,12 @@ const navigationItems = [
     path: '/review',
     text: '리뷰 페이지 바로가기',
     element: <ReviewPage />,
+  },
+  {
+    id: 'reviewWrite',
+    path: '/reviewWrite/:keyword',
+    text: '리뷰 작성 페이지 바로가기',
+    element: <ReviewWrite />,
   },
   {
     id: 'myreview',
