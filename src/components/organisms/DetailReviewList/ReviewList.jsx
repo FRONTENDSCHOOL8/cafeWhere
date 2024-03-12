@@ -38,17 +38,12 @@ function ReviewList() {
               <p className="mb-1 mt-1pxr text-12pxr text-greyscale-60">
                 {data.updated.slice(0, 10)}
               </p>
-              {/* <div className="mb-3 grid grid-cols-3 gap-2pxr">
-                <img src="/images/review/test.png" alt="김밤비!!! 사진" />
-                <img src="/images/review/test.png" alt="김밤비!!! 사진" />
-                <img src="/images/review/test.png" alt="김밤비!!! 사진" />
-              </div> */}
               <div className="mb-3 grid auto-cols-max grid-flow-col gap-2pxr">
                 {data.image.map((img) => (
                   <img
                     className="h-90pxr w-90pxr"
                     src={pbImg(data.collectionId, data.id, img)}
-                    alt={data.cafeName} //변경해야됨
+                    alt={data.cafeName}
                   />
                 ))}
               </div>

@@ -3,6 +3,7 @@ import CafeListItem from '@/components/organisms/CafeListItem/CafeListItem';
 import pb from '@/utils/pocketbase';
 import { useEffect, useState } from 'react';
 import SelectLoginPage from '../SelectLoginPage/SelectLoginPage';
+import ReviewWrite from '@/components/organisms/ReviewWrite/ReviewWrite';
 
 function MyWishPage() {
   const userId = JSON.parse(localStorage.getItem('pocketbase_auth')).model.id;
@@ -23,6 +24,9 @@ function MyWishPage() {
 
   return (
     <div className="h-svh pb-32">
+      {/* <ReviewWrite /> */}
+      <ReviewWrite />
+
       {loginCheck ? (
         <>
           <HeaderBar name={'찜한 카페'} />
