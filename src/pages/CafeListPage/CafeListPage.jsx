@@ -1,6 +1,6 @@
 import { HeaderBar, TabBar } from '@/components/atoms';
 import CafeListItem from '@/components/organisms/CafeListItem/CafeListItem';
-import { useCafeListStore, useCafeStore, useRegionStore } from '@/store';
+import { useCafeListStore, useRegionStore } from '@/store';
 import pb from '@/utils/pocketbase';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';

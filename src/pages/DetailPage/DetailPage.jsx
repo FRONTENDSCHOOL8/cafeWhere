@@ -42,25 +42,27 @@ function DetailPage() {
   }, []);
 
   useEffect(() => {
-    kakao.maps.load(() => {
-      const places = new kakao.maps.services.Places();
-
-      const callback = (result, status) => {
-        if (status === kakao.maps.services.Status.OK && result) {
-          const staticMapContainer = document.getElementById('staticMap');
-          const staticMapOption = {
-            center: new kakao.maps.LatLng(result[0].y, result[0].x),
-            level: 3,
-            marker: {
-              position: new kakao.maps.LatLng(result[0].y, result[0].x),
-            },
-          };
-          new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
-        }
-      };
-      places.keywordSearch(cafe?.cafeName, callback);
-    });
-  }, [cafe, activeTab]);
+    if (cafe?.cafeName) {
+      console.log(cafe?.cafeName);
+      kakao.maps.load(() => {
+        const places = new kakao.maps.services.Places();
+        const callback = (result, status) => {
+          if (status === kakao.maps.services.Status.OK && result) {
+            const staticMapContainer = document.getElementById('staticMap');
+            const staticMapOption = {
+              center: new kakao.maps.LatLng(result[0].y, result[0].x),
+              level: 3,
+              marker: {
+                position: new kakao.maps.LatLng(result[0].y, result[0].x),
+              },
+            };
+            new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
+          }
+        };
+        places.keywordSearch(cafe?.cafeName, callback);
+      });
+    }
+  }, [cafe?.cafeName, activeTab]);
 
   if (!cafe) {
     return <div>Loading...</div>;
