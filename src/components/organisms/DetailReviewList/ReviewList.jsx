@@ -8,7 +8,7 @@ import { useCafeStore } from '@/store';
 function ReviewList() {
   const [reviewData, setReviewData] = useState([]);
   const { cafe } = useCafeStore();
-
+  const userId = JSON.parse(localStorage.getItem('pocketbase_auth')).model.id;
   useEffect(() => {
     handleCheck();
   }, []);
@@ -30,11 +30,24 @@ function ReviewList() {
           key={data.id}
           className="min-w-335pxr rounded-[15px] border border-greyscale-40 p-5"
         >
-          <div className="flex items-center">
-            <span className="mr-5pxr text-15pxr font-semibold text-additional-colors-dark">
-              {data.expand.users.nickname}
-            </span>
-            <CoffeeScore score={data.score} />
+          <div className="flex items-center first:justify-between">
+            <div className="flex items-center">
+              <span className="mr-5pxr text-15pxr font-semibold text-additional-colors-dark">
+                {data.expand.users.id === userId
+                  ? data.cafeName
+                  : data.expand.users.nickname}
+              </span>
+              <CoffeeScore score={data.score} />
+            </div>
+            {data.expand.users.id === userId ? (
+              <div className="flex gap-1 text-11pxr text-greyscale-60">
+                <button className="hover:text-greyscale-90">수정</button>
+                <span>│</span>
+                <button className="hover:text-greyscale-90">삭제</button>
+              </div>
+            ) : (
+              ''
+            )}
           </div>
           <p className="mb-1 mt-1pxr text-12pxr text-greyscale-60">
             {data.updated.slice(0, 10)}
