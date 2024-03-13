@@ -8,7 +8,6 @@ function HeaderBar(props) {
   };
 
   const handleNavigateBack = () => {
-    console.log(props.name);
     backNavigation(-1);
   };
 
