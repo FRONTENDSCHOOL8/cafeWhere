@@ -17,7 +17,6 @@ function MyReviewPage() {
     loginCheck === 'login'
       ? JSON.parse(localStorage.getItem('pocketbase_auth')).model.id
       : userId;
-
   const handleReview = async () => {
     const records = await pb.collection('review').getList(1, 50, {
       sort: '-created',

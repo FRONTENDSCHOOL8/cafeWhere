@@ -50,8 +50,8 @@ function AllHashtagList() {
     hastag();
   }, []);
   return (
-    <div className="px-5 py-10">
-      <div className="flex flex-col gap-8 rounded-xl px-3">
+    <div className="px-5 py-6">
+      <div className="flex flex-col gap-4 rounded-xl px-3">
         <CategoryHashtagList title="음식/가격" category={tag.foodPrice} />
         <CategoryHashtagList title="분위기" category={tag.atmosphere} />
         <CategoryHashtagList title="편의시설/기타" category={tag.facilities} />

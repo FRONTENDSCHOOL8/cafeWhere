@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import SelectLoginPage from '../SelectLoginPage/SelectLoginPage';
 import { useUserIdStore } from '@/store/useLoginStore';
 import { useTabStore } from '@/store';
-import ReviewWrite from '@/components/organisms/ReviewWrite/ReviewWrite';
 
 function MyWishPage() {
   // const userId = JSON.parse(localStorage.getItem('pocketbase_auth')).model.id;
