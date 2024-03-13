@@ -26,6 +26,9 @@ function MainPage() {
 
     enabled: !!region,
   });
+  useEffect(() => {
+    setActiveTab('home');
+  }, []);
 
   useEffect(() => {
     setActiveTab('home');

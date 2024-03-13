@@ -11,7 +11,7 @@ function NoReview() {
       <img src="/images/detail/noReview.svg" alt="리뷰 없을때 나오는 커피" />
       <span>작성된 리뷰가 없습니다.</span>
       <Link
-        to={`/reviewWrite/${cafe.id}`}
+        to={`/selecthashtagList/${cafe.id}`}
         className="flex h-30pxr w-120pxr items-center justify-center rounded bg-[#D9D9D9]"
         type="button"
       >

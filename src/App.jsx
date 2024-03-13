@@ -30,10 +30,10 @@ function App() {
   return (
     <div className="App mx-auto h-full min-w-375pxr max-w-680pxr">
       <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools initialIsOpen />
+        {/* <ReactQueryDevtools initialIsOpen /> */}
         {showDevtools && (
           <Suspense fallback={null}>
-            <ReactQueryDevtoolsProduction />
+            {/* <ReactQueryDevtoolsProduction /> */}
           </Suspense>
         )}
         <RouterProvider router={router} />

@@ -28,6 +28,10 @@ function MyPage() {
     navigate('/');
   };
 
+  // const userDataState = JSON.parse(
+  //   localStorage.getItem('pocketbase_auth')
+  // ).model;
+
   const { userDataState } = useUserDataStore();
 
   useEffect(() => {
