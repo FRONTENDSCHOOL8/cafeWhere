@@ -34,13 +34,13 @@ function HeaderSwiper() {
         }}
       >
         <SwiperSlide className="h-full">
-          <img src="/images/main/swiper/swiperBigImg.svg" alt="" />
+          <img src="/images/main/swiper/swipermainimage1.svg" alt="" />
         </SwiperSlide>
         <SwiperSlide className="h-full">
-          <img src="/images/main/swiper/swiperBigImg2.svg" alt="" />
+          <img src="/images/main/swiper/swipermainimage2.svg" alt="" />
         </SwiperSlide>
         <SwiperSlide className="h-full">
-          <img src="/images/main/swiper/swiperBigImg3.svg" alt="" />
+          <img src="/images/main/swiper/swipermainimage3.svg" alt="" />
         </SwiperSlide>
       </Swiper>
       <div className={`prev-slide-button left-20pxr ${slideButtonStyle}`}>
