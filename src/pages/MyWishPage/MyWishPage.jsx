@@ -24,9 +24,6 @@ function MyWishPage() {
 
   return (
     <div className="h-svh pb-32">
-      {/* <ReviewWrite /> */}
-      <ReviewWrite />
-
       {loginCheck ? (
         <>
           <HeaderBar name={'찜한 카페'} />
