@@ -68,7 +68,7 @@ function SearchRegionList() {
     <>
       <HeaderBar name={<SelectRegion />} showHomeBtn />
 
-      <div id="map" className="mb-3 mt-[-12px] h-237pxr w-full"></div>
+      <div id="map" className="my-3 h-237pxr w-full"></div>
 
       <div className="flex flex-col gap-3">
         {cafeList?.map((data) => (
