@@ -6,7 +6,6 @@ export { default as Preparing } from './Preparing/Preparing';
 export { default as RootLayout } from './RootLayout/RootLayout';
 export { default as MyWishPage } from './MyWishPage/MyWishPage';
 export { default as DetailPage } from './DetailPage/DetailPage';
-export { default as ReviewPage } from './ReviewPage/ReviewPage';
 export { default as CafeListPage } from './CafeListPage/CafeListPage';
 export { default as AllHashtagList } from './AllHashtagList/AllHashtagList';
 export { default as HashSearchPage } from './HashSearchPage/HashSearchPage';

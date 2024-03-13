@@ -5,7 +5,6 @@ import { useCafeStore } from '@/store';
 
 function DetailReview() {
   const { cafe } = useCafeStore();
-  console.log(cafe);
   return (
     <>
       <ReviewKeywordsRank />

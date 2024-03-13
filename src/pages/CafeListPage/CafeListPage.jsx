@@ -23,7 +23,7 @@ function CafeListPage() {
   return (
     <>
       <HeaderBar name={'카페리스트'} />
-      <div className=" flex flex-col gap-3">
+      <div className="flex h-svh flex-col gap-3">
         {cafeList?.map((item) => (
           <CafeListItem data={item} />
         ))}

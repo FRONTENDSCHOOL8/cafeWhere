@@ -14,6 +14,7 @@ export const fetchSearch = async ({ params }) => {
   if (keyword) {
     data = await pb.collection('cafe').getList(1, 10, {
       filter: `cafeName~"${keyword}"`,
+      expand: ['hashtag', 'review'],
     });
   } else {
     data = await pb.collection('cafe').getList(1, 10, {});
@@ -30,12 +31,12 @@ function SearchResultPage() {
 
   const totalResults = loadedData.items.length;
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-svh flex-col">
       <HeaderBar name="카페 검색하기" />
       <SearchBar />
-      <span className="flex flex-col px-5 py-4">
-        총 {totalResults}건이 검색되었습니다.
-      </span>
+      <div className="px-5 py-4">
+        총 <strong>{totalResults}</strong>건이 검색되었습니다.
+      </div>
       {loadedData.items.length > 0 ? (
         <div className="mt-4 flex flex-col gap-3">
           {loadedData.items.map((item) => (

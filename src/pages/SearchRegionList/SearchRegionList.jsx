@@ -7,7 +7,8 @@ import { useEffect } from 'react';
 
 function SearchRegionList() {
   const { region } = useRegionStore();
-  const { cafeList, setCafeList } = useCafeListStore();
+  const { setCafeList } = useCafeListStore();
+  const cafeList = JSON.parse(sessionStorage.getItem('cafeList'));
   const { kakao } = window;
 
   useEffect(() => {
@@ -18,6 +19,7 @@ function SearchRegionList() {
       });
 
       setCafeList(resultList.items);
+      sessionStorage.setItem('cafeList', JSON.stringify(resultList.items));
     };
     fetchData();
 
@@ -66,10 +68,10 @@ function SearchRegionList() {
     <>
       <HeaderBar name={<SelectRegion />} showHomeBtn />
 
-      <div id="map" className="mb-3 mt-[-12px] h-237pxr w-full"></div>
+      <div id="map" className="my-3 h-237pxr w-full"></div>
 
       <div className="flex flex-col gap-3">
-        {cafeList.map((data) => (
+        {cafeList?.map((data) => (
           <CafeListItem key={data.id} data={data} />
         ))}
       </div>

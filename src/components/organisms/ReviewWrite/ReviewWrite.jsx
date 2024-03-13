@@ -18,8 +18,8 @@ function ReviewWrite() {
   const [imagePreview, setImagePreview] = useState(null); // 리뷰 작성 텍스트 영역의 이미지 미리보기
 
   // 효진님이 주신 소중한 코드
-  const { hashtag } = useHashtagStore();
-
+  const { hashtag, resetHashtag } = useHashtagStore();
+  console.log(hashtag);
   const { cafe } = useCafeStore();
 
   const handleReviewCheck = async (e) => {
@@ -36,7 +36,7 @@ function ReviewWrite() {
     // };
 
     formData.append('cafeName', cafe.cafeName);
-    formData.append('email', UserId);
+    formData.append('users', UserId);
     formData.append('contents', reviewText);
     formData.append('hashtag', hashtag);
     formData.append('score', rating);
@@ -49,6 +49,7 @@ function ReviewWrite() {
       .create(formData)
       .then(() => {
         alert('전송 완료');
+        resetHashtag();
         history.back(-2);
       })
       .catch((err) => {
