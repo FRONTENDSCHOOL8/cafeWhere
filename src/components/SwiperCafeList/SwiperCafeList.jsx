@@ -1,9 +1,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, FreeMode, Pagination } from 'swiper/modules';
+import { FreeMode, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import CategoryCafeList from './CategoryCafeList';
-import { pbImg } from '@/utils/pocketbase';
 
 function SwiperCafeList({ data }) {
   return (
@@ -31,8 +30,8 @@ function SwiperCafeList({ data }) {
         {/* 추후에 카테고리 별로 데이터 가져오기 수정 & 사진크기 수정 */}
         {data &&
           data.map((data) => (
-            <SwiperSlide>
-              <CategoryCafeList key={data.id} data={data} />
+            <SwiperSlide key={data.id}>
+              <CategoryCafeList data={data} />
             </SwiperSlide>
           ))}
       </Swiper>

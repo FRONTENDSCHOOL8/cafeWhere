@@ -1,7 +1,12 @@
-import { useState } from 'react';
+import { useWordStore } from '@/store';
+import useSearchTermStore from '@/store/useSearchTermStore';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function SearchBar() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+  const { searchTerm, setSearchTerm } = useSearchTermStore();
+  const { words, setWords } = useWordStore();
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
@@ -9,13 +14,24 @@ function SearchBar() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // 검색 로직을 여기에 추가
-    console.log('검색어:', searchTerm);
+
+    if (!searchTerm) return;
+
+    if (!words.includes(searchTerm)) {
+      setWords([...words, searchTerm]);
+    }
+
+    navigate(`/searchResult/${searchTerm}`);
+    setSearchTerm('');
   };
+
+  useEffect(() => {
+    setSearchTerm('');
+  }, [navigate]);
 
   return (
     <form
-      className="mx-5 flex w-full items-center overflow-hidden rounded-xl bg-gray-200 p-3"
+      className="mx-5 flex items-center overflow-hidden rounded-xl bg-gray-200 p-3"
       onSubmit={handleSearch}
     >
       <input

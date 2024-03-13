@@ -1,40 +1,24 @@
 import { HeaderBar, TabBar } from '@/components/atoms';
-import { useUserDataStore, useUserIdStore } from '@/store/useLoginStore';
-import { useLoaderData } from 'react-router-dom';
+import MyReviewList from '@/components/organisms/DetailReviewList/MyReviewList';
+import { useUserDataStore } from '@/store/useLoginStore';
 import pb, { pbImg } from '@/utils/pocketbase';
-import { useState, useEffect, useRef } from 'react';
-import ReviewInfo from '@/components/atoms/ReviewInfo/ReviewInfo';
-import CoffeeScore from '@/components/atoms/CoffeeScore/CoffeeScore';
-import RatingScore from '@/components/atoms/RatingScore/RatingScore';
-import ReviewWrite from '@/components/organisms/ReviewWrite/ReviewWrite';
+import { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 function MyReviewPage() {
   const { userDataState } = useUserDataStore();
-  const { UserId } = useUserIdStore();
+  // const { UserId } = useUserIdStore();
+  const UserId = JSON.parse(localStorage.getItem('pocketbase_auth')).model.id;
 
   const [reviewRecord, setReviewRecord] = useState([]);
   const userReviewData = useLoaderData();
 
   const handleReview = async () => {
-    const records = await pb.collection('review').getList(1, 4, {
+    const records = await pb.collection('review').getList(1, 50, {
       sort: '-created',
-      filter: `email="${UserId}"`,
+      filter: `users="${UserId}"`,
     });
 
-    console.log(userReviewData);
-    console.log('UserId는', UserId);
-    console.log('Userdata는', userDataState);
-    console.log('db는', records.items);
-
-    // const rdata = [{ ...records.items, imgurl: imageURL }];
-    // const imageURL = pbImg(
-    //   'ofcpmbz8qsj8nh9',
-    //   'aoeeyehl39p9nwi',
-    //   'kakao_talk_20230110_083752801_86IXwFsbgj.jpg'
-    // );
-    // const rdata = [{ ...records.items, imgurl: imageURL }];
-
-    // console.log('rdata는', rdata);
     setReviewRecord(records.items);
   };
   const imageURL = pbImg(
@@ -101,10 +85,10 @@ function MyReviewPage() {
   }, []);
 
   return (
-    <div className="h-screen">
-      <div className="mx-auto  h-full min-w-375pxr max-w-680pxr px-6">
+    <>
+      <div className="px-6">
         <HeaderBar name={'내가 쓴 리뷰'} />
-        <button onClick={handleReview}>test</button>
+        {/* <button onClick={handleReview}>test</button> */}
         {/* <Link to="/myreview?size=123">
         데이터 가져오기(with &apos;?size=123&apos;)
       </Link> */}
@@ -139,7 +123,7 @@ function MyReviewPage() {
           </div>
         </div> */}
 
-        <ReviewWrite />
+        {/* <ReviewWrite /> */}
 
         {/* <imput type="file" onChange={handleImageUpload}></imput> */}
 
@@ -148,39 +132,41 @@ function MyReviewPage() {
         <ul className="flex flex-col gap-4">
           {reviewRecord.map((data, index) => {
             return (
-              <li key={data.id} className="flex flex-col gap-2 bg-slate-400">
-                <span>카페이름 : {data.cafeName}</span>
-                <span>리뷰 정보 : {data.contents}</span>
-                <span>점수 : {data.score}</span>
+              // <li key={data.id} className="flex flex-col gap-2 bg-slate-400">
+              //   <span>카페이름 : {data.cafeName}</span>
+              //   <span>리뷰 정보 : {data.contents}</span>
+              //   <span>점수 : {data.score}</span>
 
-                <span>해시태그 : {data.hashtag}</span>
-                <span>업로드 : {data.updated}</span>
-                {/* <img
-                src={pbImg(data.collectionId, data.id, data.image[0])}
-                alt=""
-                className="h-70pxr w-70pxr"
-              /> */}
+              //   <span>해시태그 : {data.hashtag}</span>
+              //   <span>업로드 : {data.updated.slice(0, 10)}</span>
+              //   {/* <img
+              //   src={pbImg(data.collectionId, data.id, data.image[0])}
+              //   alt=""
+              //   className="h-70pxr w-70pxr"
+              // /> */}
 
-                <div className="flex gap-2">
-                  {data.image.map((img) => (
-                    <img
-                      className="h-90pxr w-90pxr"
-                      src={pbImg(data.collectionId, data.id, img)}
-                      alt="" //변경해야됨
-                    />
-                  ))}
-                </div>
+              //   <div className="flex gap-2">
+              //     {data.image.map((img) => (
+              //       <img
+              //         className="h-90pxr w-90pxr"
+              //         src={pbImg(data.collectionId, data.id, img)}
+              //         alt="" //변경해야됨
+              //       />
+              //     ))}
+              //   </div>
 
-                <br />
-              </li>
+              //   <br />
+              // </li>
+              <div>
+                <MyReviewList key={data.id} data={data} />
+              </div>
             );
           })}
         </ul>
         {/* <ReviewInfo /> */}
-
-        <TabBar />
       </div>
-    </div>
+      <TabBar />
+    </>
   );
 }
 

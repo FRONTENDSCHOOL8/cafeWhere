@@ -1,4 +1,4 @@
-import pb from '@/utils/pocketbase';
+import ReviewWrite from '@/components/organisms/ReviewWrite/ReviewWrite';
 import {
   CafeListPage,
   DetailPage,
@@ -9,19 +9,41 @@ import {
   MainPage,
   MyPage,
   MyWishPage,
-  ReviewPage,
+  SearchPage,
   SearchRegionList,
+  SearchResultPage,
   SelectLoginPage,
 } from '@/pages';
-// import { loader as reviewLoder } from '@/pages/MyPage/MyPage';
 import MyReviewPage, {
   loader as rvLoder,
 } from '@/pages/MyReviewPage/MyReviewPage';
-// import MyRev, { loader as rvLoder } from '@/pages/MyReviewPage/MyReviewPage';
-
-// import NoReview from '@/components/DetailReviewList/NoReview';
+import { fetchSearch } from '@/pages/SearchResultPage/SearchResultPage';
 
 const navigationItems = [
+  {
+    id: 'main',
+    path: '/',
+    text: '메인 페이지 바로가기',
+    element: <MainPage />,
+  },
+  {
+    id: 'selectlogin',
+    path: '/selectLogin',
+    text: '이메일 로그인과 소셜 로그인',
+    element: <SelectLoginPage />,
+  },
+  {
+    id: 'login',
+    path: '/login',
+    text: '로그인 페이지',
+    element: <LoginPage />,
+  },
+  {
+    id: 'join',
+    path: '/join',
+    text: '회원가입 페이지 바로가기',
+    element: <JoinPage />,
+  },
   {
     id: 'searchRegionList',
     path: '/region',
@@ -41,53 +63,19 @@ const navigationItems = [
     element: <CafeListPage />,
   },
   {
-    id: 'login',
-    path: '/login',
-    text: '로그인 페이지',
-    element: <LoginPage />,
+    id: 'search',
+    path: '/search',
+    text: '검색 페이지 바로가기',
+    element: <SearchPage />,
   },
   {
-    id: 'join',
-    path: '/join',
-    text: '회원가입 페이지 바로가기',
-    element: <JoinPage />,
+    id: 'searchResult',
+    path: '/searchResult/:keyword',
+    // path: '/searchResult',
+    text: '검색 결과 페이지',
+    element: <SearchResultPage />,
+    loader: fetchSearch,
   },
-  // {
-  //   id: 'test',
-  //   path: '/test',
-  //   text: '테스트용 탭바',
-  //   element: <HeaderSwiper />,
-  // },
-  {
-    id: 'selectlogin',
-    path: '/',
-    text: '이메일 로그인과 소셜 로그인',
-    element: <SelectLoginPage />,
-  },
-  {
-    id: 'main',
-    path: '/main',
-    text: '메인 페이지 바로가기',
-    element: <MainPage />,
-  },
-  {
-    id: 'myWish',
-    path: '/myWish',
-    text: '찜목록 페이지 바로가기',
-    element: <MyWishPage />,
-  },
-  // {
-  //   id: 'NoReview',
-  //   path: '/test2',
-  //   text: '리뷰없음 작성하기',
-  //   element: <NoReview />,
-  // },
-  // {
-  //   id: 'review',
-  //   path: '/review',
-  //   text: '리뷰페이지 작성하기',
-  //   element: <Review />,
-  // },
   {
     id: 'hashSearch',
     path: '/hashSearch',
@@ -101,27 +89,17 @@ const navigationItems = [
     element: <HashResultPage />,
   },
   {
-    id: 'review',
-    path: '/review',
-    text: '리뷰 페이지 바로가기',
-    element: <ReviewPage />,
+    id: 'myWish',
+    path: '/myWish',
+    text: '찜목록 페이지 바로가기',
+    element: <MyWishPage />,
   },
   {
-    id: 'mypage',
-    path: '/mypage',
-    text: '프로필 페이지 바로가기',
-    element: <MyPage />,
-
-    // loader: reviewLoder,
-
-    // loader: async () => {
-    //   // 비동기 호출 코드 작성
-    //   return await pb.collection('review').getList(1, 2, {
-    //     sort: '-created',
-    //   });
-    // },
+    id: 'reviewWrite',
+    path: '/reviewWrite/:keyword',
+    text: '리뷰 작성 페이지 바로가기',
+    element: <ReviewWrite />,
   },
-
   {
     id: 'myreview',
     path: '/myreview',
@@ -129,6 +107,12 @@ const navigationItems = [
     element: <MyReviewPage />,
 
     loader: rvLoder,
+  },
+  {
+    id: 'mypage',
+    path: '/mypage',
+    text: '프로필 페이지 바로가기',
+    element: <MyPage />,
   },
 ];
 

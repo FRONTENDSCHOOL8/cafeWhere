@@ -1,13 +1,13 @@
 import { HeaderBar, TabBar } from '@/components/atoms';
 import CafeListItem from '@/components/organisms/CafeListItem/CafeListItem';
-import { useCafeStore, useRegionStore } from '@/store';
+import { useCafeListStore, useRegionStore } from '@/store';
 import pb from '@/utils/pocketbase';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 function CafeListPage() {
   const { region } = useRegionStore();
-  const { cafe, setCafe } = useCafeStore();
+  const { cafeList, setCafeList } = useCafeListStore();
   const params = useParams();
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function CafeListPage() {
       const resultList = await pb.collection('cafe').getList(1, 50, {
         filter: `category~'${params.keyword}' && address~'${region}'`,
       });
-      setCafe(resultList.items);
+      setCafeList(resultList.items);
     };
     fetchData();
   }, []);
@@ -23,8 +23,8 @@ function CafeListPage() {
   return (
     <>
       <HeaderBar name={'카페리스트'} />
-      <div className=" flex flex-col gap-3">
-        {cafe?.map((item) => (
+      <div className="flex h-svh flex-col gap-3">
+        {cafeList?.map((item) => (
           <CafeListItem data={item} />
         ))}
       </div>

@@ -160,7 +160,7 @@ function JoinInput() {
           id="userName"
           label="이름"
           type="text"
-          placeholder="이름을 입력해주세요."
+          placeholder="영어로 이름을 입력해주세요."
           setUser={(value) =>
             setUserInfo({
               ...userInfo,

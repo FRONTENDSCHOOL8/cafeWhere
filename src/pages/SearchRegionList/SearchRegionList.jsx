@@ -7,7 +7,8 @@ import { useEffect } from 'react';
 
 function SearchRegionList() {
   const { region } = useRegionStore();
-  const { cafeList, setCafeList } = useCafeListStore();
+  const { setCafeList } = useCafeListStore();
+  const cafeList = JSON.parse(sessionStorage.getItem('cafeList'));
   const { kakao } = window;
 
   useEffect(() => {
@@ -18,18 +19,16 @@ function SearchRegionList() {
       });
 
       setCafeList(resultList.items);
+      sessionStorage.setItem('cafeList', JSON.stringify(resultList.items));
     };
     fetchData();
 
-    // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-
-    const mapContainer = document.getElementById('map'), // 지도를 표시할 div
+    const mapContainer = document.getElementById('map'),
       mapOption = {
-        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-        level: 3, // 지도의 확대 레벨
+        center: new kakao.maps.LatLng(37.566826, 126.9786567),
+        level: 3,
       };
 
-    // 지도를 생성합니다
     const map = new kakao.maps.Map(mapContainer, mapOption);
 
     // 장소 검색 객체를 생성합니다
@@ -69,10 +68,10 @@ function SearchRegionList() {
     <>
       <HeaderBar name={<SelectRegion />} showHomeBtn />
 
-      <div id="map" className="mb-3 mt-[-12px] h-237pxr w-full"></div>
+      <div id="map" className="my-3 h-237pxr w-full"></div>
 
       <div className="flex flex-col gap-3">
-        {cafeList.map((data) => (
+        {cafeList?.map((data) => (
           <CafeListItem key={data.id} data={data} />
         ))}
       </div>

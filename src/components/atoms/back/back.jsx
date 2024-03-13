@@ -1,10 +1,18 @@
+import { useNavigate } from 'react-router-dom';
+
 function Back() {
-  const handleClick = () => {
-    return window.history.back();
+  // const handleClick = () => {
+  //   return window.history.back();
+  // };
+
+  const backNavigation = useNavigate();
+
+  const handleNavigateBack = () => {
+    backNavigation(-1);
   };
 
   return (
-    <button onClick={handleClick}>
+    <button onClick={handleNavigateBack}>
       <svg
         width="15"
         height="13"

@@ -8,20 +8,14 @@ import 'swiper/css/pagination';
 
 function HeaderSwiper() {
   const [swiperIndex, setSwiperIndex] = useState(0);
-  const [swiper, setSwiper] = useState(); // 슬라이드용
+  const [swiper, setSwiper] = useState();
 
-  const handlePrev = () => {
-    swiper?.slidePrev();
-  };
-
-  const handleNext = () => {
-    swiper?.slideNext();
-  };
-
+  const slideButtonStyle =
+    'absolute top-[50%] translate-y-[-50%] z-10 rounded-full bg-slate-200/60';
   return (
     <div className="relative">
       <Swiper
-        className="swiper1 h-300pxr min-w-375pxr max-w-680pxr bg-slate-500"
+        className="swiper1 min-w-375pxr max-w-680pxr"
         slidesPerView={1}
         modules={[Pagination, Navigation, Autoplay]}
         navigation={{
@@ -40,41 +34,29 @@ function HeaderSwiper() {
         }}
       >
         <SwiperSlide className="h-full">
-          <img src="/images/main/swiper/swiperBigImg.svg" alt="" />
+          <img src="/images/main/swiper/swipermainimage1.svg" alt="" />
         </SwiperSlide>
         <SwiperSlide className="h-full">
-          <img src="/images/main/swiper/swiperBigImg2.svg" alt="" />
+          <img src="/images/main/swiper/swipermainimage2.svg" alt="" />
         </SwiperSlide>
         <SwiperSlide className="h-full">
-          <img src="/images/main/swiper/swiperBigImg3.svg" alt="" />
+          <img src="/images/main/swiper/swipermainimage3.svg" alt="" />
         </SwiperSlide>
       </Swiper>
-      <div className="prev-slide-button absolute left-20pxr top-125pxr z-10 rounded-full bg-slate-200/60">
-        <img src="/images/main/swiper/leftArrow.svg" alt="" />
-      </div>
-      <div className="next-slide-button absolute right-20pxr top-125pxr z-10 rounded-full bg-slate-200/60">
-        <img src="/images/main/swiper/rightArrow.svg" alt="" />
-      </div>
-      <div className=" absolute bottom-3 right-20pxr z-10 flex h-20pxr w-50pxr items-center justify-center rounded-xl bg-gray-500/60 text-center text-white">
+      <button className={`prev-slide-button left-20pxr ${slideButtonStyle}`}>
+        <img src="/images/main/swiper/leftArrow.svg" alt="이전 스와이퍼 보기" />
+      </button>
+      <button className={`next-slide-button right-20pxr ${slideButtonStyle}`}>
+        <img
+          src="/images/main/swiper/rightArrow.svg"
+          alt="다음 스와이퍼 보기"
+        />
+      </button>
+      <div className="absolute bottom-3 right-20pxr z-10 flex h-20pxr w-50pxr items-center justify-center rounded-xl bg-gray-500/60 text-center text-white">
         <span>{swiperIndex + 1}</span>
         <span>{'/'}</span>
         <span>{3}</span>
       </div>
-      {/* <div>
-        <button
-          onClick={handlePrev}
-          className=" absolute left-200pxr top-20 rounded-full bg-slate-400 "
-        >
-          <img src="/images/main/swiper/leftArrow.svg" alt="" />
-        </button>
-        
-        <button
-          onClick={handleNext}
-          className="absolute right-200pxr top-20 rounded-full bg-slate-400"
-        >
-          <img src="/images/main/swiper/rightArrow.svg" alt="" />
-        </button>
-      </div> */}
     </div>
   );
 }

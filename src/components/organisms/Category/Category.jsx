@@ -11,7 +11,7 @@ function Category() {
       try {
         const response = await fetch(CATEGORY_URL);
         const data = await response.json();
-        setCategories(data.items); // 데이터 가져온 후 state 업데이트
+        setCategories(data.items);
       } catch (error) {
         console.error('카테고리 데이터 가져오기 오류:', error);
       }
@@ -21,7 +21,7 @@ function Category() {
   }, []);
 
   return (
-    <div className="my-5 flex min-w-375pxr max-w-680pxr flex-wrap justify-center gap-y-2">
+    <div className="my-5 flex flex-wrap gap-y-4">
       {categories.map(
         ({ id, icon, collectionId, backgroundColor, keyword }) => (
           <CategoryItem

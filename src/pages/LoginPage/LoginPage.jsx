@@ -1,8 +1,5 @@
 import { HeaderBar } from '@/components/atoms';
-import Divider from '@/components/atoms/Divider/Divider';
-import LoginButton from '@/components/atoms/LoginButton/LoginButton';
-import SignUpLink from '@/components/atoms/SIgnUpLink/SignUpLink';
-import SocialLoginButton from '@/components/atoms/SocialLoginButton/SocialLoginButton';
+import SignUpLink from '@/components/atoms/SignUpZone/SignUpZone';
 import { LoginInput } from '@/components/organisms';
 
 function LoginPage() {
@@ -16,10 +13,8 @@ function LoginPage() {
           </div>
           <LoginInput />
           <div className="flex flex-col gap-83pxr">
-            {/* <LoginButton /> */}
             <SignUpLink />
           </div>
-          {/* <SocialLoginButton /> */}
         </div>
       </div>
     </>

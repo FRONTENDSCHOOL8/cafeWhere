@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-function SignUpLink() {
+function SignUpZone() {
   let joinNavigation = useNavigate();
 
   const handleJoin = () => {
@@ -17,4 +17,4 @@ function SignUpLink() {
   );
 }
 
-export default SignUpLink;
+export default SignUpZone;
