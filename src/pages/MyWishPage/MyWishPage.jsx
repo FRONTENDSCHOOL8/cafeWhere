@@ -4,13 +4,14 @@ import pb from '@/utils/pocketbase';
 import { useEffect, useState } from 'react';
 import SelectLoginPage from '../SelectLoginPage/SelectLoginPage';
 import { useUserIdStore } from '@/store/useLoginStore';
+import { useTabStore } from '@/store';
 
 function MyWishPage() {
   // const userId = JSON.parse(localStorage.getItem('pocketbase_auth')).model.id;
   const { userId } = useUserIdStore();
-
   const [wishCafe, setWishCafe] = useState([]);
   const loginCheck = sessionStorage.getItem('token');
+  const { setActiveTab } = useTabStore();
 
   useEffect(() => {
     const fetchDeta = async () => {
@@ -19,6 +20,7 @@ function MyWishPage() {
       });
 
       setWishCafe(resultList.items);
+      setActiveTab('wish');
     };
     fetchDeta();
   }, []);

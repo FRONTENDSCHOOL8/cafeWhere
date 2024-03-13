@@ -4,12 +4,14 @@ import pb from '@/utils/pocketbase';
 import { useEffect, useState } from 'react';
 import { SelectLoginPage } from '..';
 import { useUserIdStore } from '@/store/useLoginStore';
+import { useTabStore } from '@/store';
 
 function MyReviewPage() {
   // const UserId = JSON.parse(localStorage.getItem('pocketbase_auth')).model.id;
   const { userId } = useUserIdStore();
-
   const [reviewRecord, setReviewRecord] = useState([]);
+  const { setActiveTab } = useTabStore();
+
   const loginCheck = sessionStorage.getItem('token');
   const loginUserId =
     loginCheck === 'login'
@@ -27,6 +29,7 @@ function MyReviewPage() {
 
   useEffect(() => {
     handleReview();
+    setActiveTab('review');
   }, []);
 
   return (
