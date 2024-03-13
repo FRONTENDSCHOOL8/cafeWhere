@@ -39,8 +39,11 @@ function ReviewWrite() {
     formData.append('cafeName', cafe.cafeName);
     formData.append('users', UserId);
     formData.append('contents', reviewText);
-    formData.append('hashtag', hashtag);
     formData.append('score', rating);
+
+    hashtag.forEach((tag) => {
+      formData.append('hashtag', tag);
+    });
 
     const data = Object.fromEntries(formData.entries());
 
