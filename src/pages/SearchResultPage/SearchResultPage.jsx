@@ -6,7 +6,6 @@ import pb from '@/utils/pocketbase';
 import { useLoaderData } from 'react-router-dom';
 
 export const fetchSearch = async ({ params }) => {
-  console.log(params);
   const { keyword } = params;
 
   let data;
@@ -19,15 +18,12 @@ export const fetchSearch = async ({ params }) => {
   } else {
     data = await pb.collection('cafe').getList(1, 10, {});
   }
-  console.log(data);
 
   return data;
 };
 
 function SearchResultPage() {
   const loadedData = useLoaderData();
-
-  console.log(loadedData);
 
   const totalResults = loadedData.items.length;
   return (

@@ -52,7 +52,6 @@ function JoinInput() {
 
   const handleJoin = (e) => {
     e.preventDefault();
-    console.log(userInfo);
     pb.collection('users')
       .create(userInfo)
       .then(() => {
@@ -60,7 +59,7 @@ function JoinInput() {
         navigate('/');
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
         alert('정보 입력이 잘못 되었습니다');
       });
   };
