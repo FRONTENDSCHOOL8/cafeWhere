@@ -1,4 +1,5 @@
 import { Wish } from '@/components/atoms'; // Wish 컴포넌트 불러오기
+import CafeReviewInfo from '@/components/atoms/CafeReviewInfo/CafeReviewInfo';
 import Hashtag from '@/components/atoms/Hashtag/Hashtag';
 import { pbImg } from '@/utils/pocketbase'; // PocketBase 라이브러리 불러오기
 import { Link } from 'react-router-dom'; // Link 컴포넌트 불러오기
@@ -25,10 +26,7 @@ function CafeListItem({ data }) {
           <span className="text-overflow-ellipsis inline-block overflow-hidden text-10pxr text-greyscale-80">
             {data.description}
           </span>
-          <p className="my-3 flex gap-2 text-10pxr">
-            <span>☕ {data.score}</span>
-            <span>리뷰 {data.reviewQuantity}</span>
-          </p>
+          <CafeReviewInfo data={data} />
           <ul className="flex flex-wrap items-center">
             <li className="my-1 mr-1">
               {data.expand

@@ -2,6 +2,7 @@ import { Wish } from '@/components/atoms';
 import Hashtag from '../atoms/Hashtag/Hashtag';
 import { pbImg } from '@/utils/pocketbase';
 import { Link } from 'react-router-dom';
+import CafeReviewInfo from '../atoms/CafeReviewInfo/CafeReviewInfo';
 
 function CategoryCafeList({ data }) {
   return (
@@ -19,10 +20,7 @@ function CategoryCafeList({ data }) {
       <Link to={`/detail/${data.id}`} className="w-full">
         <div>
           <span className="mb-2 mt-4 inline-block">{data.cafeName}</span>
-          <div className="mb-6pxr flex text-10pxr">
-            <span className="mr-2">☕️ {data.score}</span>
-            <span>리뷰 {data.reviewQuantity}</span>
-          </div>
+          <CafeReviewInfo data={data} />
           {data.expand
             ? data.expand.hashtag.map((item) => (
                 <Hashtag
