@@ -19,8 +19,8 @@ export const useUserDataStore = create((set) => ({
 }));
 
 export const useUserIdStore = create((set) => ({
-  UserId: '',
+  userId: '',
 
-  setUserId: (id) => set((state) => ({ UserId: id })),
-  setDeleteUserId: (id) => set((state) => ({ UserId: '' })),
+  setUserId: (id) => set((state) => ({ userId: id })),
+  setDeleteUserId: (id) => set((state) => ({ userId: '' })),
 }));

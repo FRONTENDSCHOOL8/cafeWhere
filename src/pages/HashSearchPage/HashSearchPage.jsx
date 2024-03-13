@@ -1,7 +1,7 @@
 import { HeaderBar, TabBar } from '@/components/atoms';
 import LoginButton from '@/components/atoms/LoginButton/LoginButton';
 import SearchBar from '@/components/atoms/Searchbar/Searchbar';
-import { useHashtagStore } from '@/store';
+import { useHashtagStore, useTabStore } from '@/store';
 import pb from '@/utils/pocketbase';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +11,8 @@ function HashSearchPage() {
   const navigate = useNavigate();
   const { hashtag, setHashtag } = useHashtagStore();
   const { setSearchHashtag } = useHashtagStore();
+  const { setActiveTab } = useTabStore();
+
   const handleSubmitHashtag = (e) => {
     e.preventDefault();
 
@@ -19,12 +21,13 @@ function HashSearchPage() {
       return;
     }
     fetchData();
-    navigate('/hash');
+    navigate('/cafeicon');
   };
 
   useEffect(() => {
     setHashtag([]);
     setSearchHashtag({ items: [] });
+    setActiveTab('cafeicon');
   }, []);
 
   const fetchData = async () => {

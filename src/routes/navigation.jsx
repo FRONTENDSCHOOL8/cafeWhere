@@ -17,6 +17,7 @@ import {
 import MyReviewPage, {
   loader as rvLoder,
 } from '@/pages/MyReviewPage/MyReviewPage';
+import ReviewHashTagPage from '@/pages/ReviewHashTagPage/ReviewHashTagPage';
 import { fetchSearch } from '@/pages/SearchResultPage/SearchResultPage';
 
 const navigationItems = [
@@ -96,9 +97,16 @@ const navigationItems = [
   },
   {
     id: 'reviewWrite',
-    path: '/reviewWrite/:keyword',
+    path: '/reviewWrite',
     text: '리뷰 작성 페이지 바로가기',
     element: <ReviewWrite />,
+  },
+
+  {
+    id: 'selecthashtagList',
+    path: '/selecthashtagList/:keyword',
+    text: '해시 태그 리뷰 작성 페이지 바로가기',
+    element: <ReviewHashTagPage />,
   },
   {
     id: 'myreview',
