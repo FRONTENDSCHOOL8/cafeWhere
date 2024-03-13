@@ -23,6 +23,7 @@ function CheckBox() {
   // * 각각의 클릭시 이벤트 함수
   const HandleCheckList = (e) => {
     const currentName = e.currentTarget.name;
+    console.log(currentName);
     setCheck({
       ...check,
       [currentName]: !check[currentName],
