@@ -1,13 +1,9 @@
 import { HeaderBar, TabBar } from '@/components/atoms';
-import { useUserDataStore, useUserIdStore } from '@/store/useLoginStore';
-import { useLoaderData } from 'react-router-dom';
+import MyReviewList from '@/components/organisms/DetailReviewList/MyReviewList';
+import { useUserDataStore } from '@/store/useLoginStore';
 import pb, { pbImg } from '@/utils/pocketbase';
-import { useState, useEffect, useRef } from 'react';
-import ReviewInfo from '@/components/atoms/ReviewInfo/ReviewInfo';
-import CoffeeScore from '@/components/atoms/CoffeeScore/CoffeeScore';
-import RatingScore from '@/components/atoms/RatingScore/RatingScore';
-import ReviewWrite from '@/components/organisms/ReviewWrite/ReviewWrite';
-import ReviewList from '@/components/organisms/DetailReviewList/ReviewList';
+import { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 function MyReviewPage() {
   const { userDataState } = useUserDataStore();
@@ -18,25 +14,11 @@ function MyReviewPage() {
   const userReviewData = useLoaderData();
 
   const handleReview = async () => {
-    const records = await pb.collection('review').getList(1, 4, {
+    const records = await pb.collection('review').getList(1, 50, {
       sort: '-created',
-      filter: `email="${UserId}"`,
+      filter: `users="${UserId}"`,
     });
 
-    console.log(userReviewData);
-    console.log('UserId는', UserId);
-    console.log('Userdata는', userDataState);
-    console.log('db는', records.items);
-
-    // const rdata = [{ ...records.items, imgurl: imageURL }];
-    // const imageURL = pbImg(
-    //   'ofcpmbz8qsj8nh9',
-    //   'aoeeyehl39p9nwi',
-    //   'kakao_talk_20230110_083752801_86IXwFsbgj.jpg'
-    // );
-    // const rdata = [{ ...records.items, imgurl: imageURL }];
-
-    // console.log('rdata는', rdata);
     setReviewRecord(records.items);
   };
   const imageURL = pbImg(
@@ -176,7 +158,7 @@ function MyReviewPage() {
               //   <br />
               // </li>
               <div>
-                <ReviewList key={data.id} data={data} />
+                <MyReviewList key={data.id} data={data} />
               </div>
             );
           })}
