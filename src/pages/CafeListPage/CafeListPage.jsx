@@ -7,8 +7,9 @@ import { useParams } from 'react-router-dom';
 
 function CafeListPage() {
   const { region } = useRegionStore();
-  const { cafeList, setCafeList } = useCafeListStore();
+  const { setCafeList } = useCafeListStore();
   const params = useParams();
+  const cafeList = JSON.parse(sessionStorage.getItem('cafeList'));
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,14 +17,15 @@ function CafeListPage() {
         filter: `category~'${params.keyword}' && address~'${region}'`,
       });
       setCafeList(resultList.items);
+      sessionStorage.setItem('cafeList', JSON.stringify(resultList.items));
     };
     fetchData();
   }, []);
 
   return (
     <>
-      <HeaderBar name={'카페리스트'} />
-      <div className="flex h-svh flex-col gap-3">
+      <div className="flex flex-col gap-3 pb-32">
+        <HeaderBar name={'카페리스트'} />
         {cafeList?.map((item) => (
           <CafeListItem data={item} />
         ))}

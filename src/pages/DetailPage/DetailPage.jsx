@@ -6,25 +6,20 @@ import CategoryListName from '@/components/SwiperCafeList/CategoryListName';
 import SwiperCafeList from '@/components/SwiperCafeList/SwiperCafeList';
 import { HeaderBar } from '@/components/atoms';
 import CafeInfoTab from '@/components/atoms/CafeInfoTab/CafeInfoTab';
+import CafeReviewInfo from '@/components/atoms/CafeReviewInfo/CafeReviewInfo';
 import Hashtag from '@/components/atoms/Hashtag/Hashtag';
 import ReviewButton from '@/components/atoms/ReviewButton/ReviewButton';
-import {
-  useActiveTabStore,
-  useCafeListStore,
-  useCafeStore,
-  useRegionStore,
-} from '@/store';
+import { useActiveTabStore, useCafeStore, useRegionStore } from '@/store';
 import { useParams } from 'react-router-dom';
 import DetailInfo from './DetailInfo';
 import DetailReview from './DetailReview';
-import CafeReviewInfo from '@/components/atoms/CafeReviewInfo/CafeReviewInfo';
 
 function DetailPage() {
   const { region } = useRegionStore();
   const { cafe, setCafe } = useCafeStore();
-  const { cafeList } = useCafeListStore();
   const { activeTab } = useActiveTabStore();
   const params = useParams();
+  const cafeList = JSON.parse(sessionStorage.getItem('cafeList'));
 
   const { kakao } = window;
   useEffect(() => {
@@ -41,7 +36,7 @@ function DetailPage() {
     };
 
     fetchData();
-  }, [params]);
+  }, []);
 
   useEffect(() => {
     if (cafe?.cafeName) {
@@ -108,7 +103,7 @@ function DetailPage() {
 
           <div className="mt-12">
             <CategoryListName>{region} 카페 추천</CategoryListName>
-            {/* <SwiperCafeList data={cafeList} /> */}
+            <SwiperCafeList data={cafeList} />
           </div>
           {activeTab === 'review' && cafe.reviewQuantity > 0 ? (
             <ReviewButton />

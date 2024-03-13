@@ -1,9 +1,9 @@
-import { InputField } from '@/components/molecules';
-import { useState } from 'react';
-import CheckBox from '../CheckBox/JoinInputCheckBox';
 import LoginButton from '@/components/atoms/LoginButton/LoginButton';
-import { useNavigate } from 'react-router-dom';
+import { InputField } from '@/components/molecules';
 import pb from '@/utils/pocketbase';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import CheckBox from '../CheckBox/JoinInputCheckBox';
 
 const isEmail = (email) => {
   const emailRegex =
@@ -20,13 +20,12 @@ const isPassword = (password) => {
   return passwordRegex.test(password);
 };
 const isPhone = (phone) => {
-  const phoneRegex = /^\d{10,11}$/;
+  const phoneRegex = /^[0-9]{10,11}$/;
 
   return phoneRegex.test(phone);
 };
 const isBirth = (birth) => {
-  const birthRegex =
-    /^(?:19|20)\d{2}\/?(0[1-9]|1[0-2]|09)\/?(0[1-9]|[12][0-9]|3[01])$/;
+  const birthRegex = /^[0-9]{6,8}$/;
 
   return birthRegex.test(birth);
 };
@@ -37,24 +36,8 @@ const isText = (text) => {
 
 function JoinInput() {
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [userEmail, setUserEmail] = useState('');
-  const [userPassword, setUserPassword] = useState('');
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [userInfo, setUserInfo] = useState({
-    // userEmail: '',
-    // userPassword: '',
-    // userName: '',
-    // userNickname: '',
-    // userPhone: '',
-    // userBirth: '',
-    // "username": "test_username",
-    // "email": "test@example.com",
-    // "emailVisibility": true,
-    // "password": "12345678",
-    // "passwordConfirm": "12345678",
-    // "nickname": "test",
-    // "birth": "test",
-    // "phone": "test"
-
     username: '',
     email: '',
     emailVisibility: true,
@@ -65,30 +48,10 @@ function JoinInput() {
     phone: '',
   });
 
-  let data = {
-    // email: userEmail,
-    // emailVisibility: true,
-    // password: userPassword,
-    // passwordConfirm: userPassword,
-    // nickname: 'test',
-    // birth: 'test',
-    // phone: 'test',
-
-    username: 'test1234',
-    email: userEmail,
-    emailVisibility: true,
-    password: userPassword,
-    passwordConfirm: userPassword,
-    nickname: 'test1234',
-    birth: 'test1234',
-    phone: '010-111-234',
-  };
-
   const navigate = useNavigate();
 
   const handleJoin = (e) => {
     e.preventDefault();
-    // console.log(data);
     console.log(userInfo);
     pb.collection('users')
       .create(userInfo)
@@ -112,7 +75,6 @@ function JoinInput() {
           placeholder="이메일을 입력해주세요."
           required
           message="이메일 형식에 맞게 입력해주세요."
-          // setUser={setUserEmail}
           setUser={(value) =>
             setUserInfo({
               ...userInfo,
@@ -128,7 +90,6 @@ function JoinInput() {
           placeholder="비밀번호를 입력해주세요."
           required
           message="특수문자를 포함하여 8~15자 이내로 입력해주세요."
-          // setUser={setUserPassword}
           setUser={(value) =>
             setUserInfo({
               ...userInfo,
@@ -142,7 +103,7 @@ function JoinInput() {
         <InputField
           id="userPasswordChecked"
           label="비밀번호 재확인"
-          type={passwordVisible ? 'text' : 'password'}
+          type={confirmPasswordVisible ? 'text' : 'password'}
           placeholder="비밀번호를 입력해주세요."
           required
           message="비밀번호를 한 번 더 입력해주세요."
@@ -153,8 +114,8 @@ function JoinInput() {
             })
           }
           validateInput={isPassword}
-          passwordVisible={passwordVisible}
-          setPasswordVisible={setPasswordVisible}
+          passwordVisible={confirmPasswordVisible}
+          setPasswordVisible={setConfirmPasswordVisible}
         />
         <InputField
           id="userName"
@@ -187,32 +148,31 @@ function JoinInput() {
           label="휴대전화"
           type="text"
           placeholder="- 제외하고 번호 입력"
+          message="번호를 제대로 입력해주세요."
           setUser={(value) =>
             setUserInfo({
               ...userInfo,
               phone: value,
             })
           }
-          validateInput={isText}
+          validateInput={isPhone}
         />
         <InputField
           id="userBirth"
           label="생년월일"
           type="text"
-          placeholder="YYYY / MM / DD"
+          placeholder="YYYYMMDD"
+          message="생년월일을 제대로 입력해주세요."
           setUser={(value) =>
             setUserInfo({
               ...userInfo,
               birth: value,
             })
           }
-          validateInput={isText}
+          validateInput={isBirth}
         />
-
         <div className="my-4 h-1pxr bg-greyscale-50"></div>
-
         <CheckBox />
-
         <div className="mb-10 mt-4" onClick={handleJoin}>
           <LoginButton>회원 가입</LoginButton>
         </div>
