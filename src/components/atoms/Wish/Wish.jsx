@@ -15,6 +15,7 @@ const icon = {
 
 function Wish({ customSize = '' }) {
   const [wish, setWish] = useState(false);
+
   return (
     <>
       {

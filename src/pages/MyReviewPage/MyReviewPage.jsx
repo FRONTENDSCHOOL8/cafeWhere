@@ -106,7 +106,7 @@ function MyReviewPage() {
     <>
       <div className="px-6">
         <HeaderBar name={'내가 쓴 리뷰'} />
-        <button onClick={handleReview}>test</button>
+        {/* <button onClick={handleReview}>test</button> */}
         {/* <Link to="/myreview?size=123">
         데이터 가져오기(with &apos;?size=123&apos;)
       </Link> */}
