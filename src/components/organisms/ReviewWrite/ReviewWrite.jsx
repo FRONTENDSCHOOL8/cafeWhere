@@ -49,7 +49,6 @@ function ReviewWrite() {
       })
       .catch((err) => {
         console.log(err);
-        console.log(hashtag);
       });
   };
 

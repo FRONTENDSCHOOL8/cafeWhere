@@ -1,4 +1,4 @@
-import { HeaderBar } from '@/components/atoms';
+import { HeaderBar, TabBar } from '@/components/atoms';
 import SelectRegion from '@/components/atoms/SelectRegion/SelectRegion';
 import CafeListItem from '@/components/organisms/CafeListItem/CafeListItem';
 import { useCafeListStore, useRegionStore } from '@/store';
@@ -66,15 +66,18 @@ function SearchRegionList() {
 
   return (
     <>
-      <HeaderBar name={<SelectRegion />} showHomeBtn />
+      <div className="pb-32">
+        <HeaderBar name={<SelectRegion />} showHomeBtn />
 
-      <div id="map" className="my-3 h-237pxr w-full"></div>
+        <div id="map" className=" mb-4 h-237pxr w-full"></div>
 
-      <div className="flex flex-col gap-3">
-        {cafeList?.map((data) => (
-          <CafeListItem key={data.id} data={data} />
-        ))}
+        <div className="flex flex-col gap-3">
+          {cafeList?.map((data) => (
+            <CafeListItem key={data.id} data={data} />
+          ))}
+        </div>
       </div>
+      <TabBar />
     </>
   );
 }

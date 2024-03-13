@@ -97,14 +97,14 @@ const navigationItems = [
   },
   {
     id: 'reviewWrite',
-    path: '/reviewWrite',
+    path: '/reviewWrite/:id',
     text: '리뷰 작성 페이지 바로가기',
     element: <ReviewWrite />,
   },
 
   {
     id: 'selecthashtagList',
-    path: '/selecthashtagList/:keyword',
+    path: '/selecthashtagList/:id',
     text: '해시 태그 리뷰 작성 페이지 바로가기',
     element: <ReviewHashTagPage />,
   },

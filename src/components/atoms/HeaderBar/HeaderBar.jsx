@@ -14,7 +14,7 @@ function HeaderBar(props) {
 
   return (
     <div className="flex flex-col">
-      <div className="ml-5 mr-5 flex items-center justify-between py-4">
+      <div className="mx-5 my-2 flex items-center justify-between">
         <button type="button" onClick={handleNavigateBack}>
           <img src="/images/login/arrow.svg" alt="뒤로가기" />
         </button>
@@ -22,7 +22,7 @@ function HeaderBar(props) {
         <span className="text-xl font-bold">{props.name}</span>
 
         {props.showHomeBtn ? (
-          <button type="button" className="" onClick={handleNavigateHome}>
+          <button type="button" onClick={handleNavigateHome}>
             <img
               className="justify-center"
               src="/images/login/HomeIcon.svg"

@@ -7,7 +7,6 @@ import {
   useUserIdStore,
 } from '@/store/useLoginStore';
 import pb from '@/utils/pocketbase';
-import { useEffect } from 'react';
 import { useRef, useState } from 'react';
 
 const isEmail = (email) => {
@@ -85,8 +84,8 @@ function LoginInput() {
   };
 
   return (
-    <div className="mx-auto my-20 w-full px-6">
-      <form className="flex flex-col gap-4 " onSubmit={handleLoginSumit}>
+    <div className="mx-auto mt-10 w-full px-6 text-sm">
+      <form className="flex flex-col gap-4" onSubmit={handleLoginSumit}>
         <InputField
           id="userEmail"
           name="userEmail"
@@ -109,7 +108,7 @@ function LoginInput() {
           passwordVisible={PasswordVisible}
           setPasswordVisible={setPasswordVisible}
         />
-        <div className="mx-0 mb-40pxr mt-14">
+        <div className="mx-0 my-8">
           <LoginButton>로그인</LoginButton>
         </div>
       </form>
