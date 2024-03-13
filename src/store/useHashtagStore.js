@@ -6,5 +6,6 @@ const useHashtagStore = create((set) => ({
   searchHashtag: { item: [] },
   setSearchHashtag: (newSearchHashtag) =>
     set(() => ({ searchHashtag: newSearchHashtag })),
+  resetHashtag: () => set({ hashtag: [] }),
 }));
 export default useHashtagStore;

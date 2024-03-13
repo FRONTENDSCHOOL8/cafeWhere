@@ -8,7 +8,7 @@ function SelectRegion() {
   };
 
   return (
-    <form className="mx-5 my-4">
+    <form className="mx-5 py-4">
       <label htmlFor="region" className="sr-only">
         지역검색
       </label>

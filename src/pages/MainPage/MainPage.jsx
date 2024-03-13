@@ -4,7 +4,7 @@ import SwiperCafeList from '@/components/SwiperCafeList/SwiperCafeList';
 import { MainHeader, TabBar } from '@/components/atoms';
 import CafeListItem from '@/components/organisms/CafeListItem/CafeListItem';
 import Category from '@/components/organisms/Category/Category';
-import { useCafeListStore, useRegionStore } from '@/store';
+import { useCafeListStore, useRegionStore, useTabStore } from '@/store';
 import pb from '@/utils/pocketbase';
 import { useQuery } from '@tanstack/react-query';
 import Footer from './../../components/atoms/Footer/Footer';
@@ -13,6 +13,7 @@ import { useEffect } from 'react';
 function MainPage() {
   const { region } = useRegionStore();
   const { setCafeList } = useCafeListStore();
+  const { activeTab, setActiveTab } = useTabStore();
 
   const { data: cafeData } = useQuery({
     queryKey: ['cafeData', region],
@@ -25,6 +26,9 @@ function MainPage() {
 
     enabled: !!region,
   });
+  useEffect(() => {
+    setActiveTab('home');
+  }, []);
 
   useEffect(() => {
     setCafeList(cafeData);
