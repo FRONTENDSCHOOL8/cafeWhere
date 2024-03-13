@@ -77,7 +77,7 @@ function MyPage() {
             />
 
             <div className="mt-8 text-center text-20pxr font-bold">
-              {userDataState.username}
+              {userDataState.nickname}
             </div>
 
             <div className="mt-10 flex justify-center gap-4">
