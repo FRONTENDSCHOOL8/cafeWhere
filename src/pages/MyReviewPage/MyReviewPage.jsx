@@ -3,17 +3,25 @@ import MyReviewList from '@/components/organisms/DetailReviewList/MyReviewList';
 import pb from '@/utils/pocketbase';
 import { useEffect, useState } from 'react';
 import { SelectLoginPage } from '..';
+import { useUserIdStore } from '@/store/useLoginStore';
+import { useTabStore } from '@/store';
 
 function MyReviewPage() {
-  const UserId = JSON.parse(localStorage.getItem('pocketbase_auth')).model.id;
+  // const UserId = JSON.parse(localStorage.getItem('pocketbase_auth')).model.id;
+  const { userId } = useUserIdStore();
   const [reviewRecord, setReviewRecord] = useState([]);
-  const loginCheck = sessionStorage.getItem('token');
+  const { setActiveTab } = useTabStore();
 
+  const loginCheck = sessionStorage.getItem('token');
+  const loginUserId =
+    loginCheck === 'login'
+      ? JSON.parse(localStorage.getItem('pocketbase_auth')).model.id
+      : userId;
   const handleReview = async () => {
     const records = await pb.collection('review').getList(1, 50, {
       sort: '-created',
       expand: 'hashtag',
-      filter: `users="${UserId}"`,
+      filter: `users="${loginUserId}"`,
     });
 
     setReviewRecord(records.items);
@@ -21,6 +29,7 @@ function MyReviewPage() {
 
   useEffect(() => {
     handleReview();
+    setActiveTab('review');
   }, []);
 
   return (

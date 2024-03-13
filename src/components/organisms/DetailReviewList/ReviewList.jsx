@@ -4,11 +4,17 @@ import { useEffect, useState } from 'react';
 import HashtagCard from './HashtagCard';
 import pb, { pbImg } from '@/utils/pocketbase';
 import { useCafeStore } from '@/store';
+import { useUserIdStore } from '@/store/useLoginStore';
 
 function ReviewList() {
   const [reviewData, setReviewData] = useState([]);
   const { cafe } = useCafeStore();
-  const userId = JSON.parse(localStorage.getItem('pocketbase_auth')).model.id;
+  const { userId } = useUserIdStore();
+  const loginCheck = sessionStorage.getItem('token');
+  const loginUserId =
+    loginCheck === 'login'
+      ? JSON.parse(localStorage.getItem('pocketbase_auth')).model.id
+      : userId;
   useEffect(() => {
     handleCheck();
   }, []);
@@ -33,13 +39,11 @@ function ReviewList() {
           <div className="flex items-center first:justify-between">
             <div className="flex items-center">
               <span className="mr-5pxr text-15pxr font-semibold text-additional-colors-dark">
-                {data.expand.users.id === userId
-                  ? data.cafeName
-                  : data.expand.users.nickname}
+                {data.expand.users.nickname}
               </span>
               <CoffeeScore score={data.score} />
             </div>
-            {data.expand.users.id === userId ? (
+            {data.expand.users.id === loginUserId ? (
               <div className="flex gap-1 text-11pxr text-greyscale-60">
                 <button className="hover:text-greyscale-90">수정</button>
                 <span>│</span>

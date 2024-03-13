@@ -2,6 +2,8 @@ import { HeaderBar, TabBar } from '@/components/atoms';
 import { useUserDataStore } from '@/store/useLoginStore';
 import { useNavigate } from 'react-router-dom';
 import SelectLoginPage from '../SelectLoginPage/SelectLoginPage';
+import { useTabStore } from '@/store';
+import { useEffect } from 'react';
 
 function PageSection({ title, onClick }) {
   return (
@@ -17,8 +19,8 @@ function PageSection({ title, onClick }) {
 
 function MyPage() {
   const loginCheck = sessionStorage.getItem('token');
-
   const navigate = useNavigate();
+  const { setActiveTab } = useTabStore();
 
   const handleLogout = () => {
     sessionStorage.removeItem('token');
@@ -28,6 +30,9 @@ function MyPage() {
 
   const { userDataState } = useUserDataStore();
 
+  useEffect(() => {
+    setActiveTab('myicon');
+  }, []);
   return (
     <div className="pb-32">
       {loginCheck ? (
