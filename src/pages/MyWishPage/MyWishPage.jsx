@@ -3,7 +3,6 @@ import CafeListItem from '@/components/organisms/CafeListItem/CafeListItem';
 import pb from '@/utils/pocketbase';
 import { useEffect, useState } from 'react';
 import SelectLoginPage from '../SelectLoginPage/SelectLoginPage';
-import ReviewWrite from '@/components/organisms/ReviewWrite/ReviewWrite';
 
 function MyWishPage() {
   const userId = JSON.parse(localStorage.getItem('pocketbase_auth')).model.id;
