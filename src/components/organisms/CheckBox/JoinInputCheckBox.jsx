@@ -28,7 +28,6 @@ function CheckBox() {
       ...check,
       [currentName]: !check[currentName],
     });
-    console.log(check);
   };
 
   // * 전체 선택 함수

@@ -47,8 +47,8 @@ function ReviewWrite() {
 
         navigate(`/detail/${params.id}`);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.error(error);
       });
   };
 

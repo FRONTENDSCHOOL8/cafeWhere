@@ -46,12 +46,10 @@ function LoginInput() {
       .collection('users')
       .getOne(id)
       .then((view) => {
-        console.log('현재 정보', view);
         setUserData(view);
-        console.log(userDataState);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
@@ -67,8 +65,8 @@ function LoginInput() {
         handleUserId(pb.authStore.model.id);
         history.back(-2);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.error(error);
         alert('이메일과 비밀번호를 다시 입력해주세요');
       });
   };
