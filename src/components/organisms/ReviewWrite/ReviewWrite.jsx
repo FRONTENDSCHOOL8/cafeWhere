@@ -7,6 +7,7 @@ import React from 'react';
 import { useRef } from 'react';
 import { useState } from 'react';
 import { useCafeStore } from '@/store';
+import { useNavigate } from 'react-router-dom';
 
 function ReviewWrite() {
   const reviewRef = useRef(null);
@@ -17,11 +18,11 @@ function ReviewWrite() {
   const [reviewText, setReviewText] = useState(''); // 초기값으로 0을 설정합니다.
   const [imagePreview, setImagePreview] = useState(null); // 리뷰 작성 텍스트 영역의 이미지 미리보기
 
-  // 효진님이 주신 소중한 코드
   const { hashtag, resetHashtag } = useHashtagStore();
-  console.log(hashtag);
+
   const { cafe } = useCafeStore();
 
+  const navigate = useNavigate();
   const handleReviewCheck = async (e) => {
     e.preventDefault();
 
@@ -42,7 +43,6 @@ function ReviewWrite() {
     formData.append('score', rating);
 
     const data = Object.fromEntries(formData.entries());
-    // console.log(data);
 
     await pb
       .collection('review')
@@ -50,10 +50,13 @@ function ReviewWrite() {
       .then(() => {
         alert('전송 완료');
         resetHashtag();
-        history.back(-2);
+
+        navigate('/');
+        // history.back(-3);
       })
       .catch((err) => {
         console.log(err);
+        console.log(hashtag);
       });
   };
 
@@ -68,9 +71,8 @@ function ReviewWrite() {
   };
 
   return (
-    <div>
-      <div className="w-500pxr">
-        <AllHashtagList />
+    <div className="flex flex-col items-center justify-center gap-8 rounded-xl">
+      <div className="my-200pxr w-500pxr ">
         <form
           onSubmit={handleReviewCheck}
           className="flex flex-col items-center gap-4 rounded-lg bg-white py-4"
