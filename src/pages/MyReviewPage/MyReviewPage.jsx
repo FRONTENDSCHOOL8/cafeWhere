@@ -18,6 +18,7 @@ function MyReviewPage() {
 
     setReviewRecord(records.items);
   };
+
   useEffect(() => {
     handleReview();
   }, []);
