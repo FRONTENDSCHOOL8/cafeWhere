@@ -58,8 +58,8 @@ function JoinInput() {
         alert('회원 가입 완료 했습니다');
         navigate('/');
       })
-      .catch((err) => {
-        console.error(err);
+      .catch((error) => {
+        console.error(error);
         alert('정보 입력이 잘못 되었습니다');
       });
   };
