@@ -1,5 +1,4 @@
 function LoginButton(props) {
-  // * 기존의 로그인 대신 children으로 변경
   return (
     <div className="flex items-center justify-center px-5">
       <button

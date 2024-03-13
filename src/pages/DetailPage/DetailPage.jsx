@@ -17,6 +17,7 @@ import {
 import { useParams } from 'react-router-dom';
 import DetailInfo from './DetailInfo';
 import DetailReview from './DetailReview';
+import CafeReviewInfo from '@/components/atoms/CafeReviewInfo/CafeReviewInfo';
 
 function DetailPage() {
   const { region } = useRegionStore();
@@ -32,18 +33,18 @@ function DetailPage() {
         const response = await pb.collection('cafe').getOne(params.id, {
           expand: 'hashtag',
         });
-        setCafe({ ...response });
+        setCafe(response);
+        sessionStorage.setItem('cafe', JSON.stringify(response));
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [params]);
 
   useEffect(() => {
     if (cafe?.cafeName) {
-      console.log(cafe?.cafeName);
       kakao.maps.load(() => {
         const places = new kakao.maps.services.Places();
         const callback = (result, status) => {
@@ -86,14 +87,15 @@ function DetailPage() {
               <p className="mb-4 text-xs text-greyscale-70">
                 {cafe.description}
               </p>
-              <p className="mb-4 text-sm">
-                평점: <span>{cafe.score.toFixed(1)}</span> 리뷰 (
-                {cafe.reviewQuantity})
-              </p>
+              <CafeReviewInfo data={cafe} />
               <div>
                 {cafe.expand
                   ? cafe.expand.hashtag.map((item) => (
-                      <Hashtag icon={item.icon} keyword={item.keyword} />
+                      <Hashtag
+                        key={item.id}
+                        icon={item.icon}
+                        keyword={item.keyword}
+                      />
                     ))
                   : ''}
               </div>
@@ -106,7 +108,7 @@ function DetailPage() {
 
           <div className="mt-12">
             <CategoryListName>{region} 카페 추천</CategoryListName>
-            <SwiperCafeList data={cafeList} />
+            {/* <SwiperCafeList data={cafeList} /> */}
           </div>
           {activeTab === 'review' && cafe.reviewQuantity > 0 ? (
             <ReviewButton />

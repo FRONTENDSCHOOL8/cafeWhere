@@ -20,21 +20,18 @@ function Hashtag({ icon, keyword, click, id, test, handleClickEvent }) {
   };
 
   // 아이콘 없는 해시태그 클릭 함수
-  const toggle =
-    test && isClicked
-      ? 'hashtag-button mr-1 mb-6pxr hidden'
-      : 'hashtag-button bg-[#F9F9F9] text-[#6B6B6B] mr-1 mb-6pxr';
+  const toggle = test && isClicked ? ' hidden' : 'bg-[#F9F9F9] text-[#6B6B6B]';
 
   const className =
     click && isClicked
-      ? 'hashtag-button bg-secondary3-colors mr-1 mb-6pxr text-white'
-      : 'hashtag-button bg-[#F9F9F9] text-[#6B6B6B] mr-1 mb-6pxr';
+      ? 'bg-secondary3-colors  text-white'
+      : 'bg-[#F9F9F9] text-[#6B6B6B]';
 
-  const isIcon = icon ? <span className="text-12pxr">{icon}</span> : '';
+  const isIcon = icon ? <span>{icon}</span> : '';
 
   return (
     <button
-      className={className || toggle}
+      className={`hashtag-button mb-6pxr mr-1 text-11pxr ${className || toggle}`}
       onClick={handleHashtagClick}
       checked={isClicked}
     >

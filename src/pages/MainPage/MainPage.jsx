@@ -28,6 +28,7 @@ function MainPage() {
 
   useEffect(() => {
     setCafeList(cafeData);
+    sessionStorage.setItem('cafeList', JSON.stringify(cafeData));
   }, [region, cafeData]);
 
   return (

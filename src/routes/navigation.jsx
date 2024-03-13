@@ -9,7 +9,6 @@ import {
   MainPage,
   MyPage,
   MyWishPage,
-  ReviewPage,
   SearchPage,
   SearchRegionList,
   SearchResultPage,
@@ -94,12 +93,6 @@ const navigationItems = [
     path: '/myWish',
     text: '찜목록 페이지 바로가기',
     element: <MyWishPage />,
-  },
-  {
-    id: 'review',
-    path: '/review',
-    text: '리뷰 페이지 바로가기',
-    element: <ReviewPage />,
   },
   {
     id: 'reviewWrite',
