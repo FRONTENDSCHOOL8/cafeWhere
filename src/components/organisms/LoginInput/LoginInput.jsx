@@ -7,6 +7,7 @@ import {
   useUserIdStore,
 } from '@/store/useLoginStore';
 import pb from '@/utils/pocketbase';
+import { useEffect } from 'react';
 import { useRef, useState } from 'react';
 
 const isEmail = (email) => {
@@ -80,8 +81,6 @@ function LoginInput() {
     emailRef.current = userEmail.value;
     passwordRef.current = userPassword.value;
 
-    console.log(`${emailRef.current}`, `${passwordRef.current}`);
-
     fetchCafeData();
   };
 
@@ -96,7 +95,6 @@ function LoginInput() {
           placeholder="이메일을 입력해주세요."
           required
           message="이메일 형식에 맞게 입력해주세요."
-          // setUser={setUserEmail}
           validateInput={isEmail}
         />
         <InputField
@@ -107,7 +105,6 @@ function LoginInput() {
           placeholder="비밀번호를 입력해주세요."
           required
           message="특수문자를 포함하여 8~15자 이내로 입력해주세요."
-          // setUser={setUserPassword}
           validateInput={isPassword}
           passwordVisible={PasswordVisible}
           setPasswordVisible={setPasswordVisible}

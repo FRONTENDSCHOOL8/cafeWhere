@@ -32,10 +32,16 @@ const HashtagCard = ({ review }) => {
           }
         })}
       {!isExpand && (
-        <Hashtag
-          keyword={`+${review.hashtag.length - 1}`}
-          handleClickEvent={handleExpand}
-        />
+        <>
+          {review.hashtag.length > 1 ? (
+            <Hashtag
+              keyword={`+ ${review.hashtag.length - 1}`}
+              handleClickEvent={handleExpand}
+            />
+          ) : (
+            ''
+          )}
+        </>
       )}
     </div>
   );

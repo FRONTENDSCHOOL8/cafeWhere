@@ -36,7 +36,7 @@ function ReviewWrite() {
     // };
 
     formData.append('cafeName', cafe.cafeName);
-    formData.append('email', UserId);
+    formData.append('users', UserId);
     formData.append('contents', reviewText);
     formData.append('hashtag', hashtag);
     formData.append('score', rating);

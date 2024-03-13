@@ -19,6 +19,7 @@ function SearchPage() {
     setLoading(true); // 데이터 가져오는 중이라는 상태 설정
     const filteredCafes = await pb.collection('cafe').getFullList({
       filter: `cafeName~'${searchTerm}'`,
+      expand: 'hashtag',
     });
     setSearchCafeList(filteredCafes);
     setLoading(false);

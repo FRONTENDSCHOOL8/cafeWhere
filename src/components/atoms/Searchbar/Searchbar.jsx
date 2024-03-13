@@ -14,6 +14,9 @@ function SearchBar() {
 
   const handleSearch = (e) => {
     e.preventDefault();
+
+    if (!searchTerm) return;
+
     if (!words.includes(searchTerm)) {
       setWords([...words, searchTerm]);
     }
