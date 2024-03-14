@@ -5,7 +5,7 @@ function TabBar() {
   const { activeTab, setActiveTab } = useTabStore();
 
   return (
-    <div className="fixed bottom-0 z-50 flex h-88pxr w-full min-w-375pxr max-w-680pxr items-center justify-around rounded-t-[32px]  bg-stone-700 shadow-lg">
+    <div className="fixed bottom-0 z-50 flex h-88pxr w-full min-w-375pxr max-w-680pxr  items-center justify-around rounded-t-[32px]  bg-stone-700 ">
       <div onClick={() => setActiveTab('home')}>
         <Link to="/">
           <img

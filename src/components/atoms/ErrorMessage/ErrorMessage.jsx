@@ -6,7 +6,7 @@ function ErrorMessage({
 }) {
   return (
     <ComponentName
-      className={`h-5 text-sm text-semantic-error ${className}`}
+      className={`h-5 text-12pxr text-semantic-error ${className}`}
       {...props}
     >
       {message}

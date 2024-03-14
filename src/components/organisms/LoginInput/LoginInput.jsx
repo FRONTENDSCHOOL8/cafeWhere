@@ -7,7 +7,6 @@ import {
   useUserIdStore,
 } from '@/store/useLoginStore';
 import pb from '@/utils/pocketbase';
-import { useEffect } from 'react';
 import { useRef, useState } from 'react';
 
 const isEmail = (email) => {
@@ -47,12 +46,10 @@ function LoginInput() {
       .collection('users')
       .getOne(id)
       .then((view) => {
-        console.log('현재 정보', view);
         setUserData(view);
-        console.log(userDataState);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
@@ -68,8 +65,8 @@ function LoginInput() {
         handleUserId(pb.authStore.model.id);
         history.back(-2);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.error(error);
         alert('이메일과 비밀번호를 다시 입력해주세요');
       });
   };
@@ -85,8 +82,8 @@ function LoginInput() {
   };
 
   return (
-    <div className="mx-auto my-20 w-full px-6">
-      <form className="flex flex-col gap-4 " onSubmit={handleLoginSumit}>
+    <div className="mx-auto mt-10 w-full px-6 text-sm">
+      <form className="flex flex-col gap-4" onSubmit={handleLoginSumit}>
         <InputField
           id="userEmail"
           name="userEmail"
@@ -109,7 +106,7 @@ function LoginInput() {
           passwordVisible={PasswordVisible}
           setPasswordVisible={setPasswordVisible}
         />
-        <div className="mx-0 mb-40pxr mt-14">
+        <div className="mx-0 my-8">
           <LoginButton>로그인</LoginButton>
         </div>
       </form>
