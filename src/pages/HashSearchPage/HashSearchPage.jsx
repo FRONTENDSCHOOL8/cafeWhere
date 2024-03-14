@@ -21,7 +21,7 @@ function HashSearchPage() {
       return;
     }
     fetchData();
-    navigate('/hash');
+    navigate('/cafeicon');
   };
 
   useEffect(() => {
