@@ -52,15 +52,14 @@ function JoinInput() {
 
   const handleJoin = (e) => {
     e.preventDefault();
-    console.log(userInfo);
     pb.collection('users')
       .create(userInfo)
       .then(() => {
         alert('회원 가입 완료 했습니다');
         navigate('/');
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.error(error);
         alert('정보 입력이 잘못 되었습니다');
       });
   };
