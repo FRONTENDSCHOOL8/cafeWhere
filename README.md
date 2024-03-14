@@ -117,6 +117,7 @@
 | :-------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------: |
 | ![MainFlow](https://github.com/FRONTENDSCHOOL8/cafeWhere/assets/148926098/322cf138-28d8-49a7-97a9-406f9c2140e8) | ![Flow](https://github.com/FRONTENDSCHOOL8/cafeWhere/assets/148926098/131609e1-af65-4ada-b03f-058ff03b5a70) |
 
+
 <!-- ![CafeList](https://github.com/FRONTENDSCHOOL8/cafeWhere/assets/148926098/029c7fcd-5ee8-4858-a8fb-228ca9d7b514)
 ![Detail Page](https://github.com/FRONTENDSCHOOL8/cafeWhere/assets/148926098/296ba0dd-33da-4254-9ba6-a4d99310f0a5)
 ![Join](https://github.com/FRONTENDSCHOOL8/cafeWhere/assets/148926098/8e80aae5-30aa-4dd7-80da-76e715b9175f) -->
